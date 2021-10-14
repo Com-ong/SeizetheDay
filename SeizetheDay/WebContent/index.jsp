@@ -8,5 +8,6 @@
 </head>
 <body>
 SeizetheDay 테스트 페이지 입니다. 
+두번째 테스트 push입니다. 
 </body>
 </html>
