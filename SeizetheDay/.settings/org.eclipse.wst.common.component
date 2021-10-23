@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="SeizetheDay">
+    <wb-module deploy-name="SeizeTheDay">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="SeizetheDay"/>
-        <property name="java-output-path" value="/SeizetheDay/build/classes"/>
+        <property name="context-root" value="SeizeTheDay"/>
+        <property name="java-output-path" value="/SeizeTheDay/build/classes"/>
     </wb-module>
 </project-modules>
