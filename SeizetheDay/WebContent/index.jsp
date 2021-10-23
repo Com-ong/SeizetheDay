@@ -52,7 +52,7 @@
 							<!-- Header -->
 								<header id="header">
 								<ul class="ul_main">
-								<li><h1>SeizeTheDay</h1></li>
+								<li><a href="index.jsp"><h1>SeizeTheDay</h1></a></li>
 									
 									<li>
 									<ul class="icons">
