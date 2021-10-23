@@ -32,5 +32,9 @@
 <input type = "submit" value = "방명록 페이지">
 </form>
 
+<form method="post" action = "myPage.jsp">
+<input type = "submit" value = "마이페이지">
+</form>
+
 </body>
 </html>
