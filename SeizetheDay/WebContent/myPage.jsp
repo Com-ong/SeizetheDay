@@ -36,16 +36,16 @@
 		<table id = "myMenu">
 			<tr>
 				<td></td>
-				<td id = myExhibit><h3>전시회</h3></td>
-				<td id = myFavorite><h3>좋아요</h3></td>
-				<td id = myEdit><h3>정보 수정</h3></td>
+				<td id = myExhibit><a href="make.jsp"><h3>전시 생성</h3></a></td>
+				<td id = myFavorite><a href="ReviewPage.html"><h3>후기</h3></a></td>
+				<td id = myEdit><a href="VisitPage.html"><h3>방명록</h3></a></td>
 			
 			</tr>
 		</table>
 		
 		<div id = "myExhList">
 			<div id = "ExhLeft">
-				<input type = "image" src="http://placehold.it/300X200">
+				<input type = "image" src="http://placehold.it/300X200" style="cursor: pointer;" onclick="location.href='make.jsp';">
 			</div>
 				
 			<div id = "ExhRight">
@@ -65,9 +65,27 @@
 				Now is the time to seize the day
 				Send out the call and join 
 			</div>
+		</div>
+		
+		<div id = "myExhList2">
+			<div id = "ExhLeft2">
+				<input type = "image" src="http://placehold.it/300X200" style="cursor: pointer;" onclick="location.href='make.jsp';">
+			</div>
+				
+			<div id = "ExhRight2">
+				<h4>Sunday Morning</h4>
+				Sunday morning, rain is falling
+				Steal some covers, share some skin
+				Clouds are shrouding us in moments unforgettable
+				You twist to fit the mold that I am in
+				But things just get so crazy
+				Living life gets hard to do
+				And I would gladly hit the road, get up and go if I knew
+				That someday it would lead me back to you
+				That someday it would lead me back to you
+			</div>
 			
 		</div>
-
 		
 	</div>
 	

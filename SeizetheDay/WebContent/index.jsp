@@ -1,49 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE HTML>
-<!--
-	Editorial by Pixelarity
-	pixelarity.com | hello@pixelarity.com
-	License: pixelarity.com/license
--->
-
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>SeizetheDay</title>
-</head>
-<body>
-
-<form method="post" action = "main.jsp">
-<input type = "submit" value = "메인 페이지">
-</form>
-
-<form method="post" action = "make.jsp">
-<input type = "submit" value = "전시 생성 페이지">
-</form>
-
-<form method="post" action = "display.jsp">
-<input type = "submit" value = "전시 페이지">
-</form>
-
-<form method="post" action = "ReviewPage.html">
-<input type = "submit" value = "리뷰 페이지">
-</form>
-
-<form method="post" action = "ReviewWritePage.html">
-<input type = "submit" value = "리뷰 생성 페이지">
-</form>
-
-<form method="post" action = "VisitPage.html">
-<input type = "submit" value = "방명록 페이지">
-</form>
-
-<form method="post" action = "myPage.jsp">
-<input type = "submit" value = "마이페이지">
-</form>
-
-</body>
-	<head>
 		<style>
 		h1{text-align:center;}
 		
@@ -90,7 +49,7 @@
 									
 									<li>
 									<ul class="icons">
-										<li><a href="#" class="button big">My</a></li>
+										<li><a href="myPage.jsp" class="button big">My</a></li>
     									<li><a href="#" class="button primary">LogIn</a></li>
 									</ul>
 									<div><input type="text" name="query" id="query" placeholder="Search" /></div>
@@ -308,6 +267,5 @@
 			<script src="main_assets/js/breakpoints.min.js"></script>
 			<script src="main_assets/js/util.js"></script>
 			<script src="main_assets/js/main.js"></script>
-
-	</body>
+</body>
 </html>

@@ -54,3 +54,27 @@ h3{
 	margin-left:50px;
 	margin-right:50px;
 }
+/*-------------*/
+#myContent #myMenu td#myExhibit a{
+	text-decoration:none;
+	color: black;
+}
+#myContent #myMenu td#myFavorite a{
+	text-decoration:none;
+	color: black;
+}
+#myContent #myMenu td#myEdit a{
+	text-decoration:none;
+	color: black;
+}
+/*------------*/
+#myExhList2 {
+	overflow : hidden; 
+	margin-top : 50px; margin-left:5%; margin-right: 5%; 
+	width : 90%; 
+	background : rgba(200, 200, 255, 0.8);
+	border-radius:20px;
+}
+
+#ExhLeft2 {float : left; width : 300px;  margin-top : 20px; margin-left : 20px; margin-right : 20px; margin-bottom: 20px;}
+#ExhRight2 {float : right ; width : 500px;   margin-right : 20px; margin-bottom: 20px;}
