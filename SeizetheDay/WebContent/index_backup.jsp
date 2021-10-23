@@ -6,68 +6,14 @@
 	pixelarity.com | hello@pixelarity.com
 	License: pixelarity.com/license
 -->
+<!-- 슬라이드 배너 건드리기 전 -->
 
 <html>
-<head>
-<meta charset="UTF-8">
-<title>SeizetheDay</title>
-</head>
-<body>
-
-<form method="post" action = "main.jsp">
-<input type = "submit" value = "메인 페이지">
-</form>
-
-<form method="post" action = "make.jsp">
-<input type = "submit" value = "전시 생성 페이지">
-</form>
-
-<form method="post" action = "display.jsp">
-<input type = "submit" value = "전시 페이지">
-</form>
-
-<form method="post" action = "ReviewPage.html">
-<input type = "submit" value = "리뷰 페이지">
-</form>
-
-<form method="post" action = "ReviewWritePage.html">
-<input type = "submit" value = "리뷰 생성 페이지">
-</form>
-
-<form method="post" action = "VisitPage.html">
-<input type = "submit" value = "방명록 페이지">
-</form>
-
-<form method="post" action = "myPage.jsp">
-<input type = "submit" value = "마이페이지">
-</form>
-
-</body>
 	<head>
 		<style>
 		h1{text-align:center;}
 		
 		.ul_main{list-style: none;}
-		
-		*{margin:0;padding:0;}
-    ul,li{list-style:none;}
-    .slide{height:500px;overflow:hidden;}
-    .slide ul{width:calc(100% * 4);display:flex;animation:slide 8s infinite;} /* slide를 8초동안 진행하며 무한반복 함 */
-    .slide li{width:calc(100% / 4);height:500px;}
-    .slide li:nth-child(1){background:#ffa;}
-    .slide li:nth-child(2){background:#faa;}
-    .slide li:nth-child(3){background:#afa;}
-    .slide li:nth-child(4){background:#aaf;}
-    @keyframes slide {
-      0% {margin-left:0;} /* 0 ~ 10  : 정지 */
-      10% {margin-left:0;} /* 10 ~ 25 : 변이 */
-      25% {margin-left:-100%;} /* 25 ~ 35 : 정지 */
-      35% {margin-left:-100%;} /* 35 ~ 50 : 변이 */
-      50% {margin-left:-200%;}
-      60% {margin-left:-200%;}
-      75% {margin-left:-300%;}
-      85% {margin-left:-300%;}
-      100% {margin-left:0;}
 		</style>
 		<title>Untitled</title>
 		<meta charset="utf-8" />
@@ -100,16 +46,21 @@
 
 							<!-- Banner -->
 								<section id="banner">
-									<div class="slide" style="width:100%; margin:0 auto;"> <!-- 추가 적용 -->
-											
-   										 <ul style="padding-left:0em"> <!-- main.css에서 ul padding-left:1em 때문에 끝이 남아서 1순위 적용  -->
-      									<li></li>
-      									<li></li>
-      									<li></li>
-      									<li></li>
-    									</ul>
-  									</div>
-  									</section>
+									<div class="content">
+										<header>
+											<h1>Hi, I’m Editorial<br />
+											by Pixelarity</h1>
+											<p>A urna sed morbi natoque enim cubilia</p>
+										</header>
+										<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.</p>
+										<ul class="actions">
+											<li><a href="#" class="button big">Learn More</a></li>
+										</ul>
+									</div>
+									<span class="image object">
+										<img src="images/pic10.jpg" alt="" />
+									</span>
+								</section>
 
 							<!-- Section -->
 								<section>
