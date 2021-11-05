@@ -1,5 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<link rel="stylesheet" href="CSS/header.css">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>create page</title>
+<link rel="stylesheet" href="CSS/create.css">
+</head>
+<body>
 <div class="head1">
 	<div class="left-side-bar">
         <div class="status-ico">
@@ -22,4 +30,5 @@
 <div class="head2">
 	<a href="main.jsp" class="title-button"><span class = "title-section">SeizetheDay</span></a>
 </div>
-<hr>
+</body>
+</html>
