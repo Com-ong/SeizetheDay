@@ -1,8 +1,69 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Editorial by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+-->
+
 <html>
-<head>
+	<head>
+	<style>
+	
+/*아래부터는 modal css  */
+ul{
+   list-style: none;
+   margin: none;
+}
+a{
+   border-bottom: none;
+}
+.modal {
+   display: none; /* Hidden by default */
+   position: fixed; /* Stay in place */
+   z-index: 1; /* Sit on top */
+   left: 0;
+   top: 0;
+   width: 100%; /* Full width */
+   height: 100%; /* Full height */
+   overflow: auto; /* Enable scroll if needed */
+   background-color: rgb(0, 0, 0); /* Fallback color */
+   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+/* Modal Content/Box */
+.modal-content {
+   background-color: #fefefe;
+   margin: 15% auto; /* 15% from the top and centered */
+   padding: 20px;
+   border: 1px solid #888;
+   width: 50%; /* Could be more or less, depending on screen size */
+   z-index: 10004;
+   /*추가*/ height:50%;
+   border-radius:3%;
+}
+/* The Close Button */
+.close {
+   color: #aaa;
+   float: right;
+   font-size: 28px;
+   font-weight: bold;
+}
+.close:hover, .close:focus {
+   color: black;
+   text-decoration: none;
+   cursor: pointer;
+}
+#dragandrophandler{
+    border:2px dotted #0B85A1;
+    width:400px;
+    color:#92AAB0;
+    text-align:left;vertical-align:middle;
+    padding:10px 10px 10 10px;
+    margin-bottom:10px;
+    font-size:200%;
+}
+	</style>
 		<style>
 		h1{text-align:center;}
 		
@@ -28,6 +89,7 @@
       75% {margin-left:-300%;}
       85% {margin-left:-300%;}
       100% {margin-left:0;}
+      
 		</style>
 		<title>Untitled</title>
 		<meta charset="utf-8" />
@@ -35,14 +97,11 @@
 		<link rel="stylesheet" href="main_assets/css/main.css" />
 	</head>
 	<body class="is-preload">
-
 		<!-- Wrapper -->
 			<div id="wrapper">
-
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-
 							<!-- Header -->
 								<header id="header">
 								<ul class="ul_main">
@@ -50,14 +109,34 @@
 									
 									<li>
 									<ul class="icons">
-										<li><a href="myPage.jsp" class="button big">My</a></li>
-    									<li><a href="#" class="button primary">LogIn</a></li>
+										<li><a href="#" class="button big">My</a></li>
+    									<!--<li><a href="#" class="button primary">LogIn</a></li>  -->
+    									<li><button class="btn">LogIn</button></li>
 									</ul>
+									<!-- 첫 번째 Modal -->
+            <div class="modal">
+               <!-- 첫 번째 Modal의 내용 -->
+               <div class="modal-content">
+                  <!--<span class="close">&times;</span>  -->
+                  <div>
+                  <span class="close">×</span>
+                  <input type="text" value="ID">
+                  <br><input type="text" value="PASSWORD">
+                  </div>
+                  <div style="magin:0 auto; padding-top:20px">
+    				<button value="LOGIN" class="button primary" style="width:100%;"">LogIn</button>
+                  </div>
+                  <div style="text-align:center; padding:20px;">
+                  <a href="#" style="padding-right:40px; padding-left:40px;">FORGOT?</a>
+                  			<td>/</td>
+                  <a href="join.jsp" style="padding-right:40px; padding-left:40px;">SIGN UP</a>
+                  </div>
+               </div>
+            </div>
 									<div><input type="text" name="query" id="query" placeholder="Search" /></div>
 									</li>
 								</ul>
 								</header>
-
 							<!-- Banner -->
 								<section id="banner">
 									<div class="slide" style="width:100%; margin:0 auto;"> <!-- 추가 적용 -->
@@ -71,44 +150,14 @@
     									</ul>
   									</div>
   									</section>
-
 							<!-- Section -->
 								<section>
-									<header class="major">
-										<h2>Erat lacinia</h2>
-									</header>
-									<div class="features">
-										<article>
-											<span class="icon fa-gem"></span>
-											<div class="content">
-												<h3>Portitor ullamcorper</h3>
-												<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-paper-plane"></span>
-											<div class="content">
-												<h3>Sapien veroeros</h3>
-												<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-rocket"></span>
-											<div class="content">
-												<h3>Quam lorem ipsum</h3>
-												<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											</div>
-										</article>
-										<article>
-											<span class="icon solid fa-signal"></span>
-											<div class="content">
-												<h3>Sed magna finibus</h3>
-												<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-											</div>
-										</article>
+									<div style="text-align:center; height:100px;">
+										<button style="width:48%;height:100%;">Trend</button>
+										<button style="width:48%;height:100%;">My show Room</button>
 									</div>
+									
 								</section>
-
 							<!-- Section -->
 								<section>
 									<header class="major">
@@ -165,21 +214,17 @@
 										</article>
 									</div>
 								</section>
-
 						</div>
 					</div>
-
 				<!-- Sidebar -->
 					<div id="sidebar">
 						<div class="inner">
-
 							<!-- Search -->
 								<!--<section id="search" class="alt">
 									<form method="post" action="#">
 										<input type="text" name="query" id="query" placeholder="Search" />
 									</form>
 								</section>  -->
-
 							<!-- Menu -->
 								<nav id="menu">
 									<header class="major">
@@ -214,7 +259,6 @@
 										<li><a href="#">Amet Lacinia</a></li>
 									</ul>
 								</nav>
-
 							<!-- Section -->
 								<section>
 									<header class="major">
@@ -238,7 +282,6 @@
 										<li><a href="#" class="button">More</a></li>
 									</ul>
 								</section>
-
 							<!-- Section -->
 								<section>
 									<header class="major">
@@ -252,22 +295,63 @@
 										Nashville, TN 00000-0000</li>
 									</ul>
 								</section>
-
 							<!-- Footer -->
 								<footer id="footer">
 									<p class="copyright">&copy; Untitled. All rights reserved.</p>
 								</footer>
-
 						</div>
 					</div>
-
 			</div>
-
 		<!-- Scripts -->
 			<script src="main_assets/js/jquery.min.js"></script>
 			<script src="main_assets/js/browser.min.js"></script>
 			<script src="main_assets/js/breakpoints.min.js"></script>
 			<script src="main_assets/js/util.js"></script>
 			<script src="main_assets/js/main.js"></script>
-</body>
+ <script>
+   // Modal을 가져옵니다.
+   var modals = document.getElementsByClassName("modal");
+   // Modal을 띄우는 클래스 이름을 가져옵니다.
+   var btns = document.getElementsByClassName("btn");
+   // Modal을 닫는 close 클래스를 가져옵니다.
+   var spanes = document.getElementsByClassName("close");
+   var funcs = [];
+    
+   // Modal을 띄우고 닫는 클릭 이벤트를 정의한 함수
+   function Modal(num) {
+     return function() {
+       // 해당 클래스의 내용을 클릭하면 Modal을 띄웁니다.
+       btns[num].onclick =  function() {
+           modals[num].style.display = "block";
+           console.log(num);
+           $('body').css("overflow", "hidden");
+       };
+    
+       // <span> 태그(X 버튼)를 클릭하면 Modal이 닫습니다.
+       spanes[num].onclick = function() {
+           modals[num].style.display = "none";
+           $('body').css("overflow", "scroll");
+       };
+     };
+   }
+    
+   // 원하는 Modal 수만큼 Modal 함수를 호출해서 funcs 함수에 정의합니다.
+   for(var i = 0; i < btns.length; i++) {
+     funcs[i] = Modal(i);
+   }
+    
+   // 원하는 Modal 수만큼 funcs 함수를 호출합니다.
+   for(var j = 0; j < btns.length; j++) {
+     funcs[j]();
+   }
+    
+   // Modal 영역 밖을 클릭하면 Modal을 닫습니다.
+   window.onclick = function(event) {
+     if (event.target.className == "modal") {
+         event.target.style.display = "none";
+         $('body').css("overflow", "scroll");
+     }
+   };
+   </script>
+	</body>
 </html>
