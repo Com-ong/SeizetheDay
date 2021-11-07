@@ -12,7 +12,6 @@
 <style>
 	#ExhLeft {float : left; width : 300px;  margin-top : 20px; margin-left : 30px; margin-right : 30px; margin-bottom: 20px;
 border-radius: 9%; overflow: hidden;
-
 th{
 background-color:#eeeeee; 
 text-align: center; 
