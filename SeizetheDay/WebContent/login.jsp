@@ -26,4 +26,4 @@
 	<button onclick="location='join.jsp'" class = "join-btn"> 회원가입하기 </button>
 	</div>		
 </body>
-</h
+</head>
