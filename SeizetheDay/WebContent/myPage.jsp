@@ -1,31 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>MyPage</title>
-<link rel="stylesheet" href="CSS/myStyle.css" type="text/css"/>
-
-
-</head>
+<meta charset="UTF-8">
+<title>My PAGE</title>
+<link rel="stylesheet" href="CSS/myStyle.css">
 <body>
 	<jsp:include page = "header.jsp"></jsp:include>
+	
 	<div class = "myPage">
-		<div class = "pageName">
-			<h2>MYPAGE</h2>
-			<hr style="border:solid 1.5px rgb(42, 42, 85);" align="left" width="20%">
-		</div>
-		
 		<div class = aboutMy>
-			<img id = "originImg" style="width:100%" src="http://placehold.it/100X100">
+			<div class = "myTitle">MYPAGE</div>
+			<div class = "myInfo">
+				<a href="#"><img class="myImg" src="mypage_image/empty.png"></a>
+				<div class = "username">[ U S E R N A M E ] 님</div>
+			</div>
 			
 		</div>
 	
+		<div class = myBtnGroup>
+			<div class = myBtn1><label>MY SHOW ROOM</label></div>
+			<div class = myBtn2><label>CHANGE INFO</label></div>
+			<div class = myBtn3><label>LINKED EXHIBITION</label></div>
+		</div>
+		
+		<div class = "deleteInfo">회원탈퇴</div>
 	</div>
-	
-
 
 	
 </body>
 </html> 
+
