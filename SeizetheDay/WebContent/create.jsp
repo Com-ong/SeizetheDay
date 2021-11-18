@@ -24,7 +24,7 @@
   					<option value="B">B</option>
   					<option value="C">C</option>
   					<option value="D">D</option>
-				</select>
+				</select><br><br>
 				<label for="exhibition-start-date">기간</label>
 				<input type="date" id="exhibition-start-date"> ~ 
 						<input type="date" id="exhibition-finish-date"><br><br>
@@ -40,11 +40,12 @@
 				<label for="exhibition-background-color">작품 추가</label>
 				<input type="file" id="exhibition-file"><br><br>
 				<div class = "submit-btn">
-					<input type="button" id="exhibition-cancel-btn" name="cancel" value = "Cancel">
-					<input type="submit" id="exhibition-make-btn" name="make" value = "Create">
+					<input type="submit" class="press-btn" id="exhibition-make-btn" name="make" value = "Create">
+					<input type="button" class="press-btn" id="exhibition-cancel-btn" name="cancel" value = "Cancel">
 				</div>
 			</form>
 		</div>
+		
 	</div>
 </body>
 </html>
