@@ -231,11 +231,11 @@ a{
 										<h2>Menu</h2>
 									</header>
 									<ul>
-										<li><a href="index.html">Homepage</a></li>
-										<li><a href="generic.html">Generic</a></li>
-										<li><a href="elements.html">Elements</a></li>
+										<li><a href="index.jsp">Homepage</a></li>
+										<li><a href="notice.jsp">Notice</a></li>
+										<li><a href="exhibition.jsp">Exhibition</a></li>
 										<li>
-											<span class="opener">Submenu</span>
+											<span class="opener">Exhibition Category</span>
 											<ul>
 												<li><a href="#">Lorem Dolor</a></li>
 												<li><a href="#">Ipsum Adipiscing</a></li>
@@ -243,9 +243,10 @@ a{
 												<li><a href="#">Feugiat Veroeros</a></li>
 											</ul>
 										</li>
-										<li><a href="#">Etiam Dolore</a></li>
-										<li><a href="#">Adipiscing</a></li>
-										<li>
+										<li><a href="trend.jsp">Trend</a></li>
+										<li><a href="#">1:1 Inquiry</a></li>
+										<li><a href="myPage.jsp">MyPage</a></li>
+										<!-- <li>
 											<span class="opener">Another Submenu</span>
 											<ul>
 												<li><a href="#">Lorem Dolor</a></li>
@@ -256,7 +257,7 @@ a{
 										</li>
 										<li><a href="#">Maximus Erat</a></li>
 										<li><a href="#">Sapien Mauris</a></li>
-										<li><a href="#">Amet Lacinia</a></li>
+										<li><a href="#">Amet Lacinia</a></li> -->
 									</ul>
 								</nav>
 							<!-- Section -->
