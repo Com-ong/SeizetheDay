@@ -1,6 +1,7 @@
 package JavaBeans;
 
 public class UserBean {
+
 	private int USER_SEQ;
 	private String USER_NAME;
 	private String USER_ID;
@@ -45,4 +46,5 @@ public class UserBean {
 	public String getUSER_EMAIL() { return USER_EMAIL; }
 	public String getUSER_PROFILE() { return USER_PROFILE; }
 	public boolean getUSER_ROLE() { return USER_ROLE; }
+
 }
