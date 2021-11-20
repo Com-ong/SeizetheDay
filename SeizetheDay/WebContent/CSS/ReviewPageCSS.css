@@ -9,31 +9,31 @@ body {
 #title {
 	text-align: center;
 }
-/* ¸Ş´º¹Ù */
+/* ë©”ë‰´ë°” */
 #reviewMenuBar {
 	width: 1000px;
 	height: auto;
 	margin-left: auto;
 	margin-right: auto;
 }
-/* ¸Ş´º¹Ù-MENU */
+/* ë©”ë‰´ë°”-MENU */
 #review_menu_bar1 {
 	text-align: left;
 }
-/* ¸Ş´º¹Ù-¸¶ÀÌÆäÀÌÁö/·Î±×¾Æ¿ô */
+/* ë©”ë‰´ë°”-ë§ˆì´í˜ì´ì§€/ë¡œê·¸ì•„ì›ƒ */
 #review_menu_bar2 {
 	text-align: center;
 	float: right;
 }
-/* ¸¶ÀÌÆäÀÌÁö ¹öÆ° */
+/* ë§ˆì´í˜ì´ì§€ ë²„íŠ¼ */
 #review_mypage {
 	width: 60%; 
 }
-/* ·Î±×¾Æ¿ô ¹öÆ° */
+/* ë¡œê·¸ì•„ì›ƒ ë²„íŠ¼ */
 #review_logout {
 	width: 60%;
 }
-/* º»¹® ºÎºĞ(°¡Àå Å« ºÎºĞ) */
+/* ë³¸ë¬¸ ë¶€ë¶„(ê°€ì¥ í° ë¶€ë¶„) */
 div.review_area1 {
 	background-color: white;
 	margin-left: auto;
@@ -41,13 +41,13 @@ div.review_area1 {
 	width: 1000px;
 	height: 800px; 
 }
-/* "ÈÄ±â" text */
+/* "í›„ê¸°" text */
 #reviewText {
 	padding-top: 5%;
 }
 #review_addBtn {
 }
-/* ÈÄ±â ¸ñ·Ï º¸¿©ÁÖ´Â div */
+/* í›„ê¸° ëª©ë¡ ë³´ì—¬ì£¼ëŠ” div */
 div.review_list{
 	margin-top: 5%;
 	margin-bottom: 5%;
@@ -56,47 +56,150 @@ div.review_list{
 	width: 750px;
 	height: 100px; 
 }
-/* ÈÄ±â ¸ñ·Ï º¸¿©ÁÖ´Â table */
+/* í›„ê¸° ëª©ë¡ ë³´ì—¬ì£¼ëŠ” table */
 .review_lists {
 	border-color: black;
 	width: 750px;
 	height: 100px; 
 	text-align: center;
 }
-/* table - ÈÄ±â ³»¿ë */
+/* table - í›„ê¸° ë‚´ìš© */
 #review_review {
 	width: 400px;
 }
-/* table - ÀÛ¼ºÀÚ */
+/* table - ì‘ì„±ì */
 #review_writer {
 	width: 100px;
 }
-/* table - ³¯Â¥ */
+/* table - ë‚ ì§œ */
 #review_date {
 	width: 150px;
 }
-/* table - ¼öÁ¤ ¹öÆ° */
+/* table - ìˆ˜ì • ë²„íŠ¼ */
 #review_change {
 	width: 50px;
 }
-/* table - »èÁ¦ ¹öÆ° */
+/* table - ì‚­ì œ ë²„íŠ¼ */
 #review_delete {
 	width: 50px;
 }
-/* table¿¡ µé¾î°¡´Â °ª - ÈÄ±â ³»¿ë */
+/* tableì— ë“¤ì–´ê°€ëŠ” ê°’ - í›„ê¸° ë‚´ìš© */
 #review_review_input {
 	text-align: left;
 	padding-left: 30px;
 }
-/* table¿¡ µé¾î°¡´Â °ª - ÀÛ¼ºÀÚ */
+/* tableì— ë“¤ì–´ê°€ëŠ” ê°’ - ì‘ì„±ì */
 #review_writer_input {
 	text-align: center;
 }
-/* table¿¡ µé¾î°¡´Â °ª - ³¯Â¥ */
+/* tableì— ë“¤ì–´ê°€ëŠ” ê°’ - ë‚ ì§œ */
 #review_date_input {
 	text-align: center;
 }
-/* Àü½ÃÈ¸·Î µ¹¾Æ°¡±â ¹öÆ° */
+/* ì „ì‹œíšŒë¡œ ëŒì•„ê°€ê¸° ë²„íŠ¼ */
+#back_btn {
+	text-color: rgb(42, 42, 85);
+	margin-top: 5%;
+=======
+@charset "EUC-KR";
+
+body {
+		margin: 100px;
+		border: 3px;
+		background-color: rgb(42, 42, 85);
+}
+/* Seize The Day */	
+#title {
+	text-align: center;
+}
+/* ë©”ë‰´ë°” */
+#reviewMenuBar {
+	width: 1000px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+/* ë©”ë‰´ë°”-MENU */
+#review_menu_bar1 {
+	text-align: left;
+}
+/* ë©”ë‰´ë°”-ë§ˆì´í˜ì´ì§€/ë¡œê·¸ì•„ì›ƒ */
+#review_menu_bar2 {
+	text-align: center;
+	float: right;
+}
+/* ë§ˆì´í˜ì´ì§€ ë²„íŠ¼ */
+#review_mypage {
+	width: 60%; 
+}
+/* ë¡œê·¸ì•„ì›ƒ ë²„íŠ¼ */
+#review_logout {
+	width: 60%;
+}
+/* ë³¸ë¬¸ ë¶€ë¶„(ê°€ì¥ í° ë¶€ë¶„) */
+div.review_area1 {
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+	height: 800px; 
+}
+/* "í›„ê¸°" text */
+#reviewText {
+	padding-top: 5%;
+}
+#review_addBtn {
+}
+/* í›„ê¸° ëª©ë¡ ë³´ì—¬ì£¼ëŠ” div */
+div.review_list{
+	margin-top: 5%;
+	margin-bottom: 5%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 750px;
+	height: 100px; 
+}
+/* í›„ê¸° ëª©ë¡ ë³´ì—¬ì£¼ëŠ” table */
+.review_lists {
+	border-color: black;
+	width: 750px;
+	height: 100px; 
+	text-align: center;
+}
+/* table - í›„ê¸° ë‚´ìš© */
+#review_review {
+	width: 400px;
+}
+/* table - ì‘ì„±ì */
+#review_writer {
+	width: 100px;
+}
+/* table - ë‚ ì§œ */
+#review_date {
+	width: 150px;
+}
+/* table - ìˆ˜ì • ë²„íŠ¼ */
+#review_change {
+	width: 50px;
+}
+/* table - ì‚­ì œ ë²„íŠ¼ */
+#review_delete {
+	width: 50px;
+}
+/* tableì— ë“¤ì–´ê°€ëŠ” ê°’ - í›„ê¸° ë‚´ìš© */
+#review_review_input {
+	text-align: left;
+	padding-left: 30px;
+}
+/* tableì— ë“¤ì–´ê°€ëŠ” ê°’ - ì‘ì„±ì */
+#review_writer_input {
+	text-align: center;
+}
+/* tableì— ë“¤ì–´ê°€ëŠ” ê°’ - ë‚ ì§œ */
+#review_date_input {
+	text-align: center;
+}
+/* ì „ì‹œíšŒë¡œ ëŒì•„ê°€ê¸° ë²„íŠ¼ */
 #back_btn {
 	text-color: rgb(42, 42, 85);
 	margin-top: 5%;
