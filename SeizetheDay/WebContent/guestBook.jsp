@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<!-- DB 연결 위한 추가 부분 -->
+<%@ page import="java.util.*, java.sql.*, JavaBeans.*" %>
+<jsp:useBean id="guestMgr" class="JavaBeans.GuestMgrPool" />
+<jsp:useBean id="userMgr" class="JavaBeans.UserMgrPool" />
+<!-- #################################### -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,19 +46,35 @@
 				</tr>
 			</thead>
 			<tbody>
-			<%
-			//while(db.next()){
-			%>
+				<!-- DB 연결 위한 추가 부분 -->
+				<%
+					Vector<GuestBean> vlist = guestMgr.getRegisterList();
+					Vector<UserBean> userlist = userMgr.getRegisterList();	
+					String board_writer = "";
+					//int board_seq;
+					int counter = vlist.size();
+					for(int i=0; i<vlist.size(); i++)
+					{
+						GuestBean guestBean = vlist.get(i);
+						for(int j=0; j<userlist.size(); j++)
+						{
+							UserBean userBean = userlist.get(j);
+							if(userBean.getUSER_SEQ() == guestBean.getUSER_SEQ())
+							{	
+								board_writer = userBean.getUSER_NAME();
+								break;
+							}
+						}
+							
+					%>
 				<tr>
-					<td class="visited_writer_input">작성자1</td>
-					<td class="visited_visited_input">방명록1</td>
-					<td class="visited_date_input">2021-11-21</td>
+					<td class="visited_writer_input"><%= board_writer%></td>
+					<td class="visited_visited_input"><%= guestBean.getBOARD_TEXT() %></td>
+					<td class="visited_date_input"><%= guestBean.getBOARD_DATE() %></td>
 					<td><input type="submit" class="visited_change_btn" value="수정"></td>
 					<td><input type="submit" class="visited_delete_btn" value="삭제"></td>
 				</tr>
-				<%
-				//}
-				%>
+				<% } %>
 			</tbody>
 		</table>
 	</div>

@@ -9,31 +9,31 @@ body {
 #title {
 	text-align: center;
 }
-/* ¸Ş´º¹Ù */
+/* ë©”ë‰´ë°” */
 #reviewWriteMenuBar {
 	width: 1000px;
 	height: auto;
 	margin-left: auto;
 	margin-right: auto;
 }
-/* ¸Ş´º¹Ù-MENU */
+/* ë©”ë‰´ë°”-MENU */
 #reviewWrite_menu_bar1 {
 	text-align: left;
 }
-/* ¸Ş´º¹Ù-¸¶ÀÌÆäÀÌÁö/·Î±×¾Æ¿ô */
+/* ë©”ë‰´ë°”-ë§ˆì´í˜ì´ì§€/ë¡œê·¸ì•„ì›ƒ */
 #reviewWrite_menu_bar2 {
 	text-align: center;
 	float: right;
 }
-/* ¸¶ÀÌÆäÀÌÁö ¹öÆ° */
+/* ë§ˆì´í˜ì´ì§€ ë²„íŠ¼ */
 #reviewWrite_mypage {
 	width: 60%; 
 }
-/* ·Î±×¾Æ¿ô ¹öÆ° */
+/* ë¡œê·¸ì•„ì›ƒ ë²„íŠ¼ */
 #reviewWrite_logout {
 	width: 60%;
 }
-/* º»¹® ºÎºĞ(°¡Àå Å« ºÎºĞ) */
+/* ë³¸ë¬¸ ë¶€ë¶„(ê°€ì¥ í° ë¶€ë¶„) */
 div.reviewWrite_area1 {
 	background-color: white;
 	margin-left: auto;
@@ -41,7 +41,7 @@ div.reviewWrite_area1 {
 	width: 1000px;
 	height: 800px; 
 }
-/* ¹æ¸í·Ï ¸ñ·Ï º¸¿©ÁÖ´Â div */
+/* ë°©ëª…ë¡ ëª©ë¡ ë³´ì—¬ì£¼ëŠ” div */
 div.reviewWrite_list{
 	margin-top: 5%;
 	margin-bottom: 5%;
@@ -50,27 +50,104 @@ div.reviewWrite_list{
 	width: 750px;
 	height: 100px; 
 }
-/* "ÈÄ±â ÀÛ¼ºÇÏ±â" text */
+/* "í›„ê¸° ì‘ì„±í•˜ê¸°" text */
 #reviewWriteText {
 	padding-top: 5%;
 }
-/* ÈÄ±â ÀÛ¼º Á¦¸ñ */
+/* í›„ê¸° ì‘ì„± ì œëª© */
 #reviewWrite_title {
 	margin-right: 30px;
 }
-/* ÈÄ±â ÀÛ¼º Á¦¸ñ ÀÔ·Â */
+/* í›„ê¸° ì‘ì„± ì œëª© ì…ë ¥ */
 #reviewWrite_title_input {
 	width: 600px;
 }
-/* ÈÄ±â ÀÛ¼º textArea */
+/* í›„ê¸° ì‘ì„± textArea */
 .reviewWrite_input {
 	resize: none;	
 }
-/* ÈÄ±â ÀÛ¼º ÀúÀå/Ãë¼Ò ¹öÆ° */
+/* í›„ê¸° ì‘ì„± ì €ì¥/ì·¨ì†Œ ë²„íŠ¼ */
 #reviewWrite_btns {
 	float: right;
 }
-/* Àü½ÃÈ¸·Î µ¹¾Æ°¡±â ¹öÆ° */
+/* ì „ì‹œíšŒë¡œ ëŒì•„ê°€ê¸° ë²„íŠ¼ */
+#back_btn {
+	text-color: rgb(42, 42, 85);
+	margin-top: 5%;
+=======
+@charset "EUC-KR";
+
+body {
+		margin: 100px;
+		border: 3px;
+		background-color: rgb(42, 42, 85);
+}
+/* Seize The Day */	
+#title {
+	text-align: center;
+}
+/* ë©”ë‰´ë°” */
+#reviewWriteMenuBar {
+	width: 1000px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+/* ë©”ë‰´ë°”-MENU */
+#reviewWrite_menu_bar1 {
+	text-align: left;
+}
+/* ë©”ë‰´ë°”-ë§ˆì´í˜ì´ì§€/ë¡œê·¸ì•„ì›ƒ */
+#reviewWrite_menu_bar2 {
+	text-align: center;
+	float: right;
+}
+/* ë§ˆì´í˜ì´ì§€ ë²„íŠ¼ */
+#reviewWrite_mypage {
+	width: 60%; 
+}
+/* ë¡œê·¸ì•„ì›ƒ ë²„íŠ¼ */
+#reviewWrite_logout {
+	width: 60%;
+}
+/* ë³¸ë¬¸ ë¶€ë¶„(ê°€ì¥ í° ë¶€ë¶„) */
+div.reviewWrite_area1 {
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+	height: 800px; 
+}
+/* ë°©ëª…ë¡ ëª©ë¡ ë³´ì—¬ì£¼ëŠ” div */
+div.reviewWrite_list{
+	margin-top: 5%;
+	margin-bottom: 5%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 750px;
+	height: 100px; 
+}
+/* "í›„ê¸° ì‘ì„±í•˜ê¸°" text */
+#reviewWriteText {
+	padding-top: 5%;
+}
+/* í›„ê¸° ì‘ì„± ì œëª© */
+#reviewWrite_title {
+	margin-right: 30px;
+}
+/* í›„ê¸° ì‘ì„± ì œëª© ì…ë ¥ */
+#reviewWrite_title_input {
+	width: 600px;
+}
+/* í›„ê¸° ì‘ì„± textArea */
+.reviewWrite_input {
+	resize: none;	
+}
+/* í›„ê¸° ì‘ì„± ì €ì¥/ì·¨ì†Œ ë²„íŠ¼ */
+#reviewWrite_btns {
+	float: right;
+}
+/* ì „ì‹œíšŒë¡œ ëŒì•„ê°€ê¸° ë²„íŠ¼ */
 #back_btn {
 	text-color: rgb(42, 42, 85);
 	margin-top: 5%;

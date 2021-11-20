@@ -7,6 +7,7 @@
 <title>create page</title>
 <link rel="stylesheet" href="CSS/create.css">
 </head>
+
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	
