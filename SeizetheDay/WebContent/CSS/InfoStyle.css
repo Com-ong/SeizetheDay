@@ -1,0 +1,149 @@
+@charset="UTF-8";
+
+.changeInfo {
+	background-color : white;
+	width : 90%;
+	height : 130%;
+	position:absolute;
+	margin-top : 10%;
+	margin-left : 5%;
+	border-radius:15px;
+}
+
+.infoTitle{
+	width : 25%;
+	height:50%;
+	color : #333344;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 50px;
+	fsont-family: Arial;
+	margin-left : 5%;
+	margin-top : 3%;
+	padding-bottom : 10px;
+	border-bottom: 3px solid #333344;
+}
+
+.myImg {
+	width : 360px;
+	height : 360px;
+	margin-left : 40%;
+	margin-top : 5%;
+	margin-bottom : 2%
+}
+
+
+.UploadImg {
+	position: relative;
+	left: 42%;
+	top: 0;
+	height: 100%; width : 100%;
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+}
+
+.UploadImg * {
+	vertical-align: middle;
+	border-radius: 30px;
+}
+
+.UploadImg .Imgtext {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	display: inline-block;
+	background-color: rgb(200, 200, 200, 0.4);
+	margin: 0;
+	border: 0;
+	padding-left: 22%;
+	line-height: 20px;
+	color: black;
+}
+
+.UploadImg .ImgSelect {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 38px;
+	overflow: hidden;
+	border: 0;
+	border-radius: 20px;
+	background-color: rgba(0, 0, 0, 0);
+	box-sizing: border-box;
+}
+
+.UploadImg .ImgSelect input {
+	filter: alpha(opacity = 0);
+	opacity: 0;
+	height: 15px;
+	width: 100%;
+	height: 100%;
+}
+
+.UploadImg .Imgbtn {
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 100px; 
+	background-color : #333344;
+	line-height: 20px;
+	color: #ffffff;
+	text-align: center;
+	font-family: Arial;
+	font-size: 20px;
+	width: 10%;
+	padding: 8px 16px 8px 16px;
+	border-radius:10px;
+}
+
+.InfoInsert {
+	margin-left : 30%;
+	margin-top : 3%;
+}
+
+.InfoInsert label {
+	font-size : 25px;
+	color : #333344;
+	font-family : normal;
+	font-weight: bold;
+}
+
+.InfoInsert input {
+	width : 300%;
+	height : 40px;
+	margin-top : 10px;
+	margin-left : 10px;
+	border-radius : 7px;
+}
+
+.InfoBtnGroup {
+	margin-left : 36%;
+	margin-top : 5%;
+}
+
+.InfoBtnGroup input {
+	width : 250px;
+	height : 80px;
+	border-radius : 10px;
+	margin-top : 20%;
+	font-size : 20px;
+	font-weight: bold;
+}
+
+.InfoBtnGroup #btn1 {
+	background-color : white;
+	border : 4px solid #333344;
+}
+
+.InfoBtnGroup #btn2 {
+	background-color : #333344;
+	color : white;
+	margin-left : 5%;
+}

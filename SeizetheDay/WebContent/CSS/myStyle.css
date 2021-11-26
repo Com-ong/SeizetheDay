@@ -1,4 +1,4 @@
-@charset "EUC-KR";
+@charset="UTF-8";
 
 * {
 
@@ -20,6 +20,7 @@ body {
 
 .myTitle{
 	width : 25%;
+	height:50%;
 	color : #333344;
 	font-style: italic;
 	font-weight: bold;
@@ -49,12 +50,14 @@ body {
 	font-family : Arial;
 	margin-right : 35%;
 	margin-top : 10%;
+
 }
 
 .myBtnGroup {
-	margin-top : 30%;
-	margin : 0 auto;
-	width: 90%;
+	margin-top : 23%;
+	margin-left : 10%;
+	margin-right : 10%;
+	width: 80%;
 }
 
 .myBtn1 {
@@ -63,34 +66,31 @@ body {
 	height : 230px;
 	border-radius : 9px;
 	float : left;
+	margin-left : 10%;
 }
 
 .myBtn2 {
 	background-color : #333344;
 	width: 500px;
 	height : 230px;
-	float : left;
-	margin-left : 5%;
-	margin-right : 5%;
+	float : right;
 	border-radius : 9px;
+	margin-right : 10%;
 }
 
-.myBtn3 {
-	background-color : #333344;
-	width: 500px;
-	height : 230px;
-	float : left;
-	border-radius : 9px;
-}
-
-label {
-	color : #ffffff;
+label {   
+	margin-left : 30%;
+	color : white;
 	font-size : 30px;
 	font-weight : bold;
 	font-family : Arial;
-	margin-top : 10px;
 }
 
 .deleteInfo {
+	margin-top : 30%;
 	color : #BABABA;
+	width : 100%;
+	margin-top : 40%;
+	font-size : 23px;
+	text-align : center;
 }

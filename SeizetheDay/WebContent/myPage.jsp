@@ -10,7 +10,7 @@
 	<jsp:include page = "header.jsp"></jsp:include>
 	
 	<div class = "myPage">
-		<div class = aboutMy>
+		<div class = "aboutMy">
 			<div class = "myTitle">MYPAGE</div>
 			<div class = "myInfo">
 				<a href="#"><img class="myImg" src="mypage_image/empty.png"></a>
@@ -22,7 +22,7 @@
 		<div class = myBtnGroup>
 			<div class = myBtn1><label>MY SHOW ROOM</label></div>
 			<div class = myBtn2><label>CHANGE INFO</label></div>
-			<div class = myBtn3><label>LINKED EXHIBITION</label></div>
+
 		</div>
 		
 		<div class = "deleteInfo">회원탈퇴</div>
