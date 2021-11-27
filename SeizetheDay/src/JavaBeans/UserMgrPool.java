@@ -12,6 +12,9 @@ import JavaBeans.UserBean;
 public class UserMgrPool {
 
 	private DBConnectionMgr pool;
+public class UserMgrPool {
+
+	private DBConnectionMgr pool = null;
 	
 	public UserMgrPool() {
 		try {
@@ -21,7 +24,7 @@ public class UserMgrPool {
 		}
 	}
 
-	// ID 중복확인
+	// ID ì¤ë³µíì¸
 	public boolean checkId(String id) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -42,7 +45,7 @@ public class UserMgrPool {
 		return flag;
 	}
 
-	// 회원가입
+	// íìê°ì
 	public boolean insertUser(UserBean bean) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -71,7 +74,7 @@ public class UserMgrPool {
 		return flag;
 	}
 
-	// 로그인
+	// ë¡ê·¸ì¸
 		public boolean loginUser(String USER_ID, String USER_PW) {
 			Connection con = null;
 			PreparedStatement pstmt = null;
@@ -93,7 +96,13 @@ public class UserMgrPool {
 			}
 			return flag;
 		}
-	//임시, 수정예정
+	//ìì, ìì ìì 
+
+			System.out.println("Error : Ä¿³Ø¼Ç ¾ò¾î¿À±â ½ÇÆÐ");
+		}
+	}
+	
+
 	public Vector<UserBean> getRegisterList() {
 		Connection conn = null;
 		Statement stmt = null;
