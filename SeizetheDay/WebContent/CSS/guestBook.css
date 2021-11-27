@@ -1,0 +1,95 @@
+@charset "EUC-KR";
+body{
+	font-family: Roboto;
+	font-size: 15px;
+}
+
+table.visited_lists {
+  border-collapse: separate;
+  border-spacing: 1px;
+  text-align: left;
+  line-height: 1.5;
+  border-top: 1px solid #333344;
+  margin : 20px 10px;
+}
+table.visited_lists th {
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #333344;
+}
+table.visited_lists td {
+  width: 350px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #333344;
+}
+
+#visited_area1{
+	background-color: white;
+	width:85%;
+	height:100%;
+	position:absolute;
+	margin:5%;
+	margin-top:10%;
+	z-index:2;
+	padding: 2.5%;
+	display:block;
+	border-radius:10px;
+}
+
+#userid{
+	font-family: Roboto;
+	font-size: 15px;
+	font-style:italic;
+	font-weight:bold;
+}
+
+#ment{
+	font-family: Roboto;
+	font-size: 15px;
+	font-style:italic;
+}
+
+#visitedText{
+	width:40%;
+	font-family: Roboto;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 35px;
+	line-height: 41px;
+	align-items: center;
+	text-align: left;
+	letter-spacing: -0.02em;
+	margin:5px;
+	color: #333344;
+	border-bottom: 6px solid #333344;
+}
+
+#visited_writer {
+	text-align: center;
+	width: 15%
+}
+
+.visited_writer_input {
+	text-align: center;
+	width: 15%
+}
+
+#visited_visited {
+	text-align: center;
+	width: 50%
+}
+
+#visited_date {
+	text-align: center;
+	width:15%
+}
+
+.visited_date_input {
+	text-align: center;
+	width:15%
+}
+
+

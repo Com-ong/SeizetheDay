@@ -1,10 +1,17 @@
 package JavaBeans;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Vector;
 
+import JavaBeans.DBConnectionMgr;
+import JavaBeans.UserBean;
+
+public class UserMgrPool {
+
+	private DBConnectionMgr pool;
 public class UserMgrPool {
 
 	private DBConnectionMgr pool = null;
@@ -13,10 +20,89 @@ public class UserMgrPool {
 		try {
 			pool = DBConnectionMgr.getInstance();
 		} catch (Exception e) {
-			System.out.println("Error : Ŀ�ؼ� ������ ����");
+			e.printStackTrace();
+		}
+	}
+
+	// ID ì¤ë³µíì¸
+	public boolean checkId(String id) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		boolean flag = false;
+		try {
+			con = pool.getConnection();
+			sql = "select USER_ID from userinfo where USER_ID = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			flag = pstmt.executeQuery().next();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		return flag;
+	}
+
+	// íìê°ì
+	public boolean insertUser(UserBean bean) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		boolean flag = false;
+		try {
+			con = pool.getConnection();
+			sql = "insert userinfo(USER_SEQ,USER_NAME,USER_ID,USER_PW,USER_EMAIL,USER_PROFILE,USER_ROLE"
+					+ ")values(?,?,?,?,?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, bean.getUSER_SEQ());
+			pstmt.setString(2, bean.getUSER_NAME());
+			pstmt.setString(3, bean.getUSER_ID());
+			pstmt.setString(4, bean.getUSER_PW());
+			pstmt.setString(5, bean.getUSER_EMAIL());
+			pstmt.setString(6, bean.getUSER_PROFILE());
+			pstmt.setBoolean(7, bean.getUSER_ROLE());
+			
+			if (pstmt.executeUpdate() == 1)
+				flag = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
+		}
+		return flag;
+	}
+
+	// ë¡ê·¸ì¸
+		public boolean loginUser(String USER_ID, String USER_PW) {
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String sql = null;
+			boolean flag = false;
+			try {
+				con = pool.getConnection();
+				sql = "select USER_ID from userinfo where USER_ID = ? and USER_PW = ?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, USER_ID);
+				pstmt.setString(2, USER_PW);
+				rs = pstmt.executeQuery();
+				flag = rs.next();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				pool.freeConnection(con, pstmt, rs);
+			}
+			return flag;
+		}
+	//ìì, ìì ìì 
+
+			System.out.println("Error : Ä¿³Ø¼Ç ¾ò¾î¿À±â ½ÇÆÐ");
 		}
 	}
 	
+
 	public Vector<UserBean> getRegisterList() {
 		Connection conn = null;
 		Statement stmt = null;
