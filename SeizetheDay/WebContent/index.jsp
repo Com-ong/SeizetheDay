@@ -194,12 +194,13 @@ a{
                               <li><a href="index.jsp">Homepage</a></li>
                               <li><a href="notice.jsp">Notice</a></li>
                               <li>
-                              	<!-- <span class="opener">Exhibition</span>
+                              	<span class="opener">Exhibition</span>
                               	<ul>
                               		<li><a href="create.jsp">Create</a></li>
                               		<li><a href="#">List</a></li>
-                              	</ul> -->
-                              	<a href="#">Exhibition</a>
+                              		<li><a href="guestBook.jsp">GuestBook</a>
+                              	</ul>
+                              	<!-- <a href="#">Exhibition</a> -->
                               </li>
                               <li>
                                  <span class="opener">Exhibition Category</span>

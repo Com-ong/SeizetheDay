@@ -2,8 +2,12 @@ package JavaBeans;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Date;
 import java.util.Vector;
+
 
 public class GuestMgrPool {
 	
@@ -17,7 +21,7 @@ public class GuestMgrPool {
 		}
 	}
 	
-	public Vector<GuestBean> getRegisterList() {
+	public Vector<GuestBean> getGuestList() {
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -44,5 +48,57 @@ public class GuestMgrPool {
 		}
 		
 		return vlist;
+	}
+	
+	public void insertGuest(int board_seq, int user_seq, String board_text, Date board_date, int exhibition_seq)
+	{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = pool.getConnection();
+			String strQuery = "insert into guest (BOARD_SEQ, USER_SEQ, BOARD_TEXT, BOARD_DATE, EXHIBITION_SEQ) values (?, ?, ?, ?, ?)";
+			
+			pstmt = conn.prepareStatement(strQuery);
+			pstmt.setInt(1, board_seq);
+			pstmt.setInt(2, user_seq);
+			pstmt.setString(3, board_text);
+			pstmt.setDate(4, board_date);
+			pstmt.setInt(5, exhibition_seq);
+			
+			pstmt.executeUpdate();
+		} catch (Exception ex) {
+			System.out.println("Exception insertGuest " + ex);
+		} finally {
+			try {
+				pstmt.close();
+				pool.freeConnection(conn);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void deleteGuest(int board_seq)
+	{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = pool.getConnection();
+			String strQuery = "delete from guest where BOARD_SEQ = ?";
+			
+			pstmt = conn.prepareStatement(strQuery);
+			pstmt.setInt(1, board_seq);
+			
+			pstmt.executeUpdate();
+		} catch (Exception ex) {
+			System.out.println("Exception deleteGuest " + ex);
+		} finally {
+			try {
+				pstmt.close();
+				pool.freeConnection(conn);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

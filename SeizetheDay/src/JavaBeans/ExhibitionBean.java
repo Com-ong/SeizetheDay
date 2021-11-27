@@ -12,7 +12,6 @@ public class ExhibitionBean {
 	private String EXHIBITION_NAME;
 	private String EXHIBITION_TEXT;
 	private String EXHIBITION_PROFILE;
-	private int EXHIBITION_LIKE_COUNT;
 	private Date EXHIBITION_START_DATE;
 	private Date EXHIBITION_END_DATE;
 	
@@ -42,9 +41,6 @@ public class ExhibitionBean {
 	}
 	public String getEXHIBITION_PROFILE() {
 		return EXHIBITION_PROFILE;
-	}
-	public int getEXHIBITION_LIKE_COUNT() {
-		return EXHIBITION_LIKE_COUNT;
 	}
 	public Date getEXHIBITION_START_DATE() {
 		return EXHIBITION_START_DATE;
@@ -79,9 +75,6 @@ public class ExhibitionBean {
 	}
 	public void setEXHIBITION_PROFILE(String EXHIBITION_PROFILE) {
 		this.EXHIBITION_PROFILE = EXHIBITION_PROFILE;
-	}
-	public void setEXHIBITION_LIKE_COUNT(int EXHIBITION_LIKE_COUNT) {
-		this.EXHIBITION_LIKE_COUNT = EXHIBITION_LIKE_COUNT;
 	}
 	public void setEXHIBITION_START_DATE(Date EXHIBITION_START_DATE) {
 		this.EXHIBITION_START_DATE = EXHIBITION_START_DATE;
