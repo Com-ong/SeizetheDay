@@ -17,7 +17,7 @@ public class NoticeMgrPool {
 		}
 	}
 	
-	public Vector<NoticeBean> getRegisterList() {
+	public Vector<NoticeBean> getNoticeList() {
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;

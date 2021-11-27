@@ -12,7 +12,7 @@
 	  String url = "index.jsp";
 	  String msg = "로그인에 실패 하였습니다.";
 	  
-	  boolean result = mMgr.loginUser(USER_ID,USER_PW);
+	  boolean result = mMgr.loginUser(USER_ID, USER_PW);
 	  if(result){
 	    session.setAttribute("idKey",USER_ID);
 	    msg = "로그인에 성공 하였습니다.";

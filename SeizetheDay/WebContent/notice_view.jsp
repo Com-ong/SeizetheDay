@@ -46,7 +46,7 @@ width:10%;
 						request.setCharacterEncoding("UTF-8");
 						int notice_seq = Integer.parseInt(request.getParameter("notice_seq"));
 						String notice_writer = request.getParameter("notice_writer");
-						Vector<NoticeBean> vlist = noticeMgr.getRegisterList();
+						Vector<NoticeBean> vlist = noticeMgr.getNoticeList();
 						String notice_title="", notice_text="", notice_date = "";
 						for(int i=0; i<vlist.size(); i++)
 						{

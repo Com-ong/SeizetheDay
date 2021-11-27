@@ -11,8 +11,6 @@ import JavaBeans.UserBean;
 
 public class UserMgrPool {
 
-	private DBConnectionMgr pool;
-public class UserMgrPool {
 
 	private DBConnectionMgr pool = null;
 	
@@ -24,7 +22,7 @@ public class UserMgrPool {
 		}
 	}
 
-	// ID ì¤ë³µíì¸
+	// ID 챙짚혩챘쨀쨉챠혲혮챙혶쨍
 	public boolean checkId(String id) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -45,7 +43,7 @@ public class UserMgrPool {
 		return flag;
 	}
 
-	// íìê°ì
+	// 챠혳혣챙혴혨챗째�챙혷혚
 	public boolean insertUser(UserBean bean) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -74,34 +72,28 @@ public class UserMgrPool {
 		return flag;
 	}
 
-	// ë¡ê·¸ì¸
-		public boolean loginUser(String USER_ID, String USER_PW) {
-			Connection con = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			String sql = null;
-			boolean flag = false;
-			try {
-				con = pool.getConnection();
-				sql = "select USER_ID from userinfo where USER_ID = ? and USER_PW = ?";
-				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, USER_ID);
-				pstmt.setString(2, USER_PW);
-				rs = pstmt.executeQuery();
-				flag = rs.next();
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				pool.freeConnection(con, pstmt, rs);
-			}
-			return flag;
+	// 챘징혵챗쨌쨍챙혶쨍
+	public boolean loginUser(String USER_ID, String USER_PW) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		boolean flag = false;
+		try {
+			con = pool.getConnection();
+			sql = "select USER_ID from userinfo where USER_ID = ? and USER_PW = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, USER_ID);
+			pstmt.setString(2, USER_PW);
+			rs = pstmt.executeQuery();
+			flag = rs.next();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
 		}
-	//ìì, ìì ìì 
-
-			System.out.println("Error : Ä¿³Ø¼Ç ¾ò¾î¿À±â ½ÇÆÐ");
-		}
+		return flag;
 	}
-	
 
 	public Vector<UserBean> getRegisterList() {
 		Connection conn = null;
