@@ -29,14 +29,14 @@
 					<div class="col-7">
 						<input type="text" name="USER_ID" id="id" value=""
 							placeholder="ID">
-						<input type="button" value="ID중복확인" style="font-size:0.3em;" class="primary" onClick="idCheck(this.form.id.value)">
+						<input type="button" value="ID Check" style="font-size:0.3em;" class="primary" onClick="idCheck(this.form.id.value)">
 					</div>
 					<div class="col-7">
-						<input type="text" name="USER_PW" id="password" value=""
+						<input type="password" name="USER_PW" id="password" value=""
 							placeholder="Password">
 					</div>
 					<div class="col-7">
-						<input type="text" name="password_check" id="password_check" value=""
+						<input type="password" name="password_check" id="password_check" value=""
 							placeholder="Password Check">
 					</div>
 					<div class="col-7">
