@@ -1,0 +1,13 @@
+@charset "EUC-KR";
+.review_area1{
+	background-color: white;
+	width:85%;
+	height:100%;
+	position:absolute;
+	margin:5%;
+	margin-top:10%;
+	z-index:2;
+	padding: 2.5%;
+	display:block;
+	border-radius:10px;
+}
