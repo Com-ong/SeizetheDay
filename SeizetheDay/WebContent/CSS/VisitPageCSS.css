@@ -1,0 +1,232 @@
+
+@charset "EUC-KR";
+
+body {
+		margin: 100px;
+		border: 3px;
+		background-color: rgb(42, 42, 85);
+}
+/* Seize The Day */	
+#title {
+	text-align: center;
+}
+/* 메뉴바 */
+#visitMenuBar {
+	width: 1000px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+/* 메뉴바-MENU */
+#visit_menu_bar1 {
+	text-align: left;
+}
+/* 메뉴바-마이페이지/로그아웃 */
+#visit_menu_bar2 {
+	text-align: center;
+	float: right;
+}
+/* 마이페이지 버튼 */
+#visit_mypage {
+	width: 60%; 
+}
+/* 로그아웃 버튼 */
+#visit_logout {
+	width: 60%;
+}
+/* 본문 부분(가장 큰 부분) */
+#visited_area1 {
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+	height: 700px; 
+}
+/* 본문 안-방명록 남기는 부분 */
+/* #visited_area2 {
+	margin-left: auto;
+	margin-right: auto;
+} */
+/* "방명록" text */
+#visitedText {
+	padding-top: 5%;
+}
+/* 방명록 작성 textArea */
+.visited_input {
+	resize: none;	
+}
+/* 방명록 저장 버튼 */
+#visited_store {
+	width: 50px;
+	height: 50px;
+}
+/* 방명록 목록 보여주는 div */
+div.visited_list{
+	margin-top: 5%;
+	margin-bottom: 5%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 750px;
+	height: 100px; 
+}
+/* 방명록 목록 보여주는 table */
+.visited_lists {
+	border-color: black;
+	width: 750px;
+	height: 100px; 
+	text-align: center;
+}
+/* table - 방명록 내용 */
+#visited_visited {
+	width: 450px;
+}
+/* table - 작성자 */
+#visited_writer {
+	width: 100px;
+}
+/* table - 날짜 */
+#visited_date {
+	width: 150px;
+}
+/* table - 수정 버튼 */
+#visited_change {
+	width: 50px;
+}
+/* table - 삭제 버튼 */
+#visited_delete {
+	width: 50px;
+}
+/* table에 들어가는 값 - 방명록 내용 */
+#visited_visited_input {
+	text-align: left;
+	padding-left: 30px;
+}
+/* table에 들어가는 값 - 작성자 */
+#visited_writer_input {
+	text-align: center;
+}
+/* table에 들어가는 값 - 날짜 */
+#visited_date_input {
+	text-align: center;
+}
+/* 전시회로 돌아가기 버튼 */
+#back_btn {
+	text-color: rgb(42, 42, 85);
+	margin-top: 5%;
+=======
+@charset "EUC-KR";
+
+body {
+		margin: 100px;
+		border: 3px;
+		background-color: rgb(42, 42, 85);
+}
+/* Seize The Day */	
+#title {
+	text-align: center;
+}
+/* 메뉴바 */
+#visitMenuBar {
+	width: 1000px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+/* 메뉴바-MENU */
+#visit_menu_bar1 {
+	text-align: left;
+}
+/* 메뉴바-마이페이지/로그아웃 */
+#visit_menu_bar2 {
+	text-align: center;
+	float: right;
+}
+/* 마이페이지 버튼 */
+#visit_mypage {
+	width: 60%; 
+}
+/* 로그아웃 버튼 */
+#visit_logout {
+	width: 60%;
+}
+/* 본문 부분(가장 큰 부분) */
+#visited_area1 {
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+	height: 700px; 
+}
+/* 본문 안-방명록 남기는 부분 */
+/* #visited_area2 {
+	margin-left: auto;
+	margin-right: auto;
+} */
+/* "방명록" text */
+#visitedText {
+	padding-top: 5%;
+}
+/* 방명록 작성 textArea */
+.visited_input {
+	resize: none;	
+}
+/* 방명록 저장 버튼 */
+#visited_store {
+	width: 50px;
+	height: 50px;
+}
+/* 방명록 목록 보여주는 div */
+div.visited_list{
+	margin-top: 5%;
+	margin-bottom: 5%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 750px;
+	height: 100px; 
+}
+/* 방명록 목록 보여주는 table */
+.visited_lists {
+	border-color: black;
+	width: 750px;
+	height: 100px; 
+	text-align: center;
+}
+/* table - 방명록 내용 */
+#visited_visited {
+	width: 450px;
+}
+/* table - 작성자 */
+#visited_writer {
+	width: 100px;
+}
+/* table - 날짜 */
+#visited_date {
+	width: 150px;
+}
+/* table - 수정 버튼 */
+#visited_change {
+	width: 50px;
+}
+/* table - 삭제 버튼 */
+#visited_delete {
+	width: 50px;
+}
+/* table에 들어가는 값 - 방명록 내용 */
+#visited_visited_input {
+	text-align: left;
+	padding-left: 30px;
+}
+/* table에 들어가는 값 - 작성자 */
+#visited_writer_input {
+	text-align: center;
+}
+/* table에 들어가는 값 - 날짜 */
+#visited_date_input {
+	text-align: center;
+}
+/* 전시회로 돌아가기 버튼 */
+#back_btn {
+	text-color: rgb(42, 42, 85);
+	margin-top: 5%;
+
+}

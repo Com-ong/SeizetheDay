@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+body{
+	background-color:#333344;
+}
+.head1{
+	background-color:#333344;
+	width:100%;
+	height:1%;
+}
+.head2{
+	background-color: #333344;
+	width:100%;
+	height:1%;
+	text-align: center;
+}
+.head1 .user-section{
+	float:right;
+	margin-top:3%;
+	width:20%;
+	text-align: center;
+	
+}
+.head1 .user-section a{
+	background-color: white;
+	margin: 5px;
+	padding : 5px;
+	border-radius: 5px;
+	width:40%;
+	display:inline-block;
+
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 23px;
+	align-items: center;
+	text-align: center;
+	color: #333344;
+	
+}
+.head2 a{
+	position: absolute;
+	left: 33.3%;
+	right: 33.3%;
+	top: 11.23%;
+	bottom: 84.77%;
+	
+	text-decoration:none;
+	color:white;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 50px;
+	line-height: 59px;
+	
+	align-items: center;
+	text-align: center;
+	letter-spacing: 0.3em;
+}
+
+body, ul, li {
+	margin:0;
+    padding:0;
+    list-style:none;
+}
+.head1 .left-side-bar ul li{
+	margin:10%;
+	font-size: 20px;
+    font-family: Roboto;
+	font-style: normal;
+	font-weight: bold;
+	color:#333344;
+}
+
+a {
+    color:inherit;
+    text-decoration:none;
+}
+
+body {
+    height:10000px;
+}
+
+.left-side-bar {
+    position:absolute;
+    top:0;
+    left:-120px;
+    width:200px;
+    height:92.5%;
+    background-color: #333344;
+    color:white;
+    transition:left .3s;
+    padding : 20px;
+    margin-top:20px;
+    margin-bottom:20px;
+    z-index:0;
+}
+.left-side-bar:hover {
+    left:0;
+    background-color:#dfdfdf;
+    color:#333344;
+    
+}
+.left-side-bar > .status-ico {
+    text-align:right;
+    font-size:50px;
+}
+.left-side-bar > .status-ico > span:last-child {
+    display:none;
+	margin-right:20px;
+
+}
+.left-side-bar:hover > .status-ico > span:last-child {
+    display:block;
+    margin-right:20px;
+    
+}
+.left-side-bar:hover > .status-ico > span:first-child {
+    display:none;
+    
+}
+.left-side-bar:hover {
+	z-index:3;
+}
+
+hr{
+	position:absolute;
+	margin:5%;
+	width:90%;
+	border:none;
+	border-top:2px solid white;
+	z-index:2;
+}
