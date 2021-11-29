@@ -11,7 +11,7 @@ body {
 .myPage {
 	background-color : white;
 	width : 90%;
-	height : 100%;
+
 	position:absolute;
 	margin-top : 10%;
 	margin-left : 5%;
@@ -20,7 +20,7 @@ body {
 
 .myTitle{
 	width : 25%;
-	height:50%;
+	height:5%;
 	color : #333344;
 	font-style: italic;
 	font-weight: bold;
@@ -33,58 +33,40 @@ body {
 	
 }
 
-.myImg {
+.myInfo {
+	width : 90%;
+	margin-top : 5%;
+	margin-left : 40%;
+}
+
+#myImg{
 	width : 300px;
 	height : 300px;
-	margin-left : 5%;
-	margin-top : 5%;
-	float : left;
 }
 
 .username {
 	color : #333344;
-	float : right;
 	font-style: italic;
-	font-size : 60px;
+	font-size : 50px;
 	font-weight: bold;
 	font-family : Arial;
-	margin-right : 35%;
-	margin-top : 10%;
+	margin-left : 36%;
+	margin-top : 1%;
 
 }
 
 .myBtnGroup {
-	margin-top : 23%;
-	margin-left : 10%;
-	margin-right : 10%;
-	width: 80%;
+	border : 3px solid #333344;
+	border-radius : 10px;
+	width : 1200px;
+	margin-left : 20%;
+	margin-top : 5%;
 }
 
-.myBtn1 {
-	background-color : #333344;
-	width: 500px;
-	height : 230px;
-	border-radius : 9px;
-	float : left;
-	margin-left : 10%;
+.myBtnGroup table {
+	margin-left : 14%;
 }
 
-.myBtn2 {
-	background-color : #333344;
-	width: 500px;
-	height : 230px;
-	float : right;
-	border-radius : 9px;
-	margin-right : 10%;
-}
-
-label {   
-	margin-left : 30%;
-	color : white;
-	font-size : 30px;
-	font-weight : bold;
-	font-family : Arial;
-}
 
 .deleteInfo {
 	margin-top : 30%;
