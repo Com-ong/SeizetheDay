@@ -1,0 +1,78 @@
+@charset="UTF-8";
+
+* {
+
+}
+
+body {
+		
+}
+
+.myPage {
+	background-color : white;
+	width : 90%;
+
+	position:absolute;
+	margin-top : 10%;
+	margin-left : 5%;
+	border-radius:15px;
+}
+
+.myTitle{
+	width : 25%;
+	height:5%;
+	color : #333344;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 50px;
+	fsont-family: Arial;
+	margin-left : 5%;
+	margin-top : 3%;
+	padding-bottom : 10px;
+	border-bottom: 3px solid #333344;
+	
+}
+
+.myInfo {
+	width : 90%;
+	margin-top : 5%;
+	margin-left : 40%;
+}
+
+#myImg{
+	width : 300px;
+	height : 300px;
+}
+
+.username {
+	color : #333344;
+	font-style: italic;
+	font-size : 50px;
+	font-weight: bold;
+	font-family : Arial;
+	margin-left : 36%;
+	margin-top : 1%;
+
+}
+
+.myBtnGroup {
+	border : 3px solid #333344;
+	border-radius : 10px;
+	width : 1200px;
+	margin-left : 20%;
+	margin-top : 5%;
+}
+
+.myBtnGroup table {
+	margin-left : 14%;
+}
+
+
+.deleteInfo {
+	margin-top : 30%;
+	color : #BABABA;
+	width : 100%;
+	margin-top : 40%;
+	font-size : 23px;
+	text-align : center;
+}
