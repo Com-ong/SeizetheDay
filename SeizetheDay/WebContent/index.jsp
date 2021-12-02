@@ -143,7 +143,7 @@ a{
     				<button value="LOGIN" class="button primary" style="width:100%;" onclick="loginCheck();">LogIn</button>
                   </div>
                   <div style="text-align:center; padding:20px;">
-                  <a href="#" style="padding-right:40px; padding-left:40px;">FORGOT?</a>
+                  <a href="forgot.jsp" style="padding-right:40px; padding-left:40px;">FORGOT?</a>
                   			<td>/</td>
                   <a href="join.jsp" style="padding-right:40px; padding-left:40px;">SIGN UP</a>
                   </div>
