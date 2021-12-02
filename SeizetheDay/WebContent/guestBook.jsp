@@ -5,6 +5,14 @@
 <jsp:useBean id="guestMgr" class="JavaBeans.GuestMgrPool" />
 <jsp:useBean id="userMgr" class="JavaBeans.UserMgrPool" />
 <!-- #################################### -->
+<!-- 로그인 상태 가져오기 -->
+<%
+	  request.setCharacterEncoding("UTF-8");
+	  String user_id = (String)session.getAttribute("idKey");
+%>
+<%
+	UserBean writerBean = userMgr.findWithID(user_id);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +25,8 @@
 	<div id="visited_area1">
 	<div class="visited_list">
 		<div class="insert_visited_area">
-		<form method="post" action="guestBook_insertDB.jsp"> <!-- 추가 부분 -->
+		<% String action_url = "guestBook_insertDB.jsp?userid="+ writerBean.getUSER_ID(); %>
+		<form method="post" action=<%= action_url %>> <!-- 추가 부분 -->
 			<table id="visited_area2">
 				<tr>
 					<td><h1 id="visitedText">GuestBook</h1></td>
@@ -28,7 +37,7 @@
 					<td id="ment"><br>짧은 문구로 방명록을 남겨주세요.<br><br></td>
 				</tr>
 				<tr>
-					<td>작성자 : <label id="userid" name="userid">홍길동</label></td>
+					<td>작성자 : <label id="userid" name="userid"><%= writerBean.getUSER_NAME() %></label></td>
 				</tr>
 				<tr>
 					<td>
@@ -51,37 +60,38 @@
 					<th id="visited_visited">guestBook</th>
 					<th id="visited_date">Date</th>
 					<!-- <th id="visited_change">수정</th> -->
-					<th id="visited_delete">삭제</th>
+					<th id="visited_delete"></th>
 				</tr>
 			</thead>
 			<tbody>
 				<!-- DB 연결 위한 추가 부분 -->
 				<%
 					/* Vector<GuestBean> vlist = guestMgr.getRegisterList(); */
-					Vector<UserBean> userlist = userMgr.getRegisterList();	
-					String board_writer = "";
-					//int board_seq;
-					int counter = vlist.size();
-					for(int i=0; i<vlist.size(); i++)
-					{
-						GuestBean guestBean = vlist.get(i);
-						for(int j=0; j<userlist.size(); j++)
-						{
-							UserBean userBean = userlist.get(j);
-							if(userBean.getUSER_SEQ() == guestBean.getUSER_SEQ())
-							{	
-								board_writer = userBean.getUSER_NAME();
-								break;
-							}
-						}
-							
-					%>
+							Vector<UserBean> userlist = userMgr.getRegisterList();	
+							String board_writer = "";
+							//int board_seq;
+							int counter = vlist.size();
+							for(int i=0; i<vlist.size(); i++)
+							{
+								GuestBean guestBean = vlist.get(i);
+								for(int j=0; j<userlist.size(); j++)
+								{
+									UserBean userBean = userlist.get(j);
+									if(userBean.getUSER_SEQ() == guestBean.getUSER_SEQ())
+									{	
+										board_writer = userBean.getUSER_NAME();
+										break;
+									}
+								}
+				%>
 				<tr>
 					<td class="visited_writer_input"><%= board_writer%></td>
 					<td class="visited_visited_input"><%= guestBean.getBOARD_TEXT() %></td>
 					<td class="visited_date_input"><%= guestBean.getBOARD_DATE() %></td>
 					<%-- <td><input type="button" class="visited_change_btn" value="수정" name="visited_change_btn" onclick="location.href='guestBook_updateDB.jsp?board_seq=<%=guestBean.getBOARD_SEQ()%>'"></td> --%>
-					<td><input type="button" class="visited_delete_btn" value="삭제" name="visited_delete_btn" onclick="location.href='guestBook_deleteDB.jsp?board_seq=<%=guestBean.getBOARD_SEQ()%>'"></td>
+					<td>
+						<input type="button" class="visited_delete_btn" value="삭제" name="visited_delete_btn" onclick="location.href='guestBook_deleteDB.jsp?board_seq=<%=guestBean.getBOARD_SEQ()%>'">
+					</td>
 				</tr>
 				<% } %>
 			</tbody>
