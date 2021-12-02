@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<!-- DB 연결 위한 추가 부분 -->
+<%@ page import="java.util.*, java.sql.*, JavaBeans.*" %>
+<jsp:useBean id="noticeMgr" class="JavaBeans.NoticeMgrPool" />
+<jsp:useBean id="userMgr" class="JavaBeans.UserMgrPool" />
+<!-- #################################### -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,22 +41,45 @@ width:10%;
 					</tr>
 				</thead>
 				<tbody>
+					<!-- DB 연결 위한 추가 부분 -->
+					<%
+						request.setCharacterEncoding("UTF-8");
+						int notice_seq = Integer.parseInt(request.getParameter("notice_seq"));
+						String notice_writer = request.getParameter("notice_writer");
+						Vector<NoticeBean> vlist = noticeMgr.getRegisterList();
+						String notice_title="", notice_text="", notice_date = "";
+						for(int i=0; i<vlist.size(); i++)
+						{
+							NoticeBean noticeBean = vlist.get(i);
+							if(noticeBean.getNOTICE_SEQ() == notice_seq)
+							{
+								notice_title = noticeBean.getNOTICE_TITLE();
+								notice_text = noticeBean.getNOTICE_TEXT();
+								notice_date = noticeBean.getNOTICE_DATE().toString();
+								break;
+							}
+						}
+					%>
+					
 					<tr>
 						<td style="width:10%;">글제목</td>
-						<td colspan="2"></td>
+						<td colspan="2"><%= notice_title %></td>
 					</tr>
 					<tr>
 						<td>작성자</td>
-						<td colspan="2"></td>
+						<td colspan="2"><%= notice_writer %></td>
 					</tr>
 					<tr>
 						<td>작성일자</td>
-						<td colspan="2"></td>
+						<td colspan="2"><%= notice_date %></td>
 					</tr>
 					<tr style="height:450px;">
 						<td>내용</td>
-						<td colspan="2" style="min-height: 200px; text-align: left;"></td>
+						<td colspan="2" style="min-height: 200px; text-align: left;">
+							<%= notice_text %>
+						</td>
 					</tr>
+					<!-- #################################### -->
 				</tbody>
 			</table>
 			<div class="head1">
