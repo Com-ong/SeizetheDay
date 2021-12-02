@@ -96,7 +96,6 @@
 	counter++;
 	photo_counter++;
 	background_counter++;
-	//exhibitionMgr.insertExhibition(exhibition_seq, user_seq, category_seq, background_seq, photo_seq, exhibition_private, exhibition_name, exhibition_text, exhibition_profile, exhibition_start_date, exhibition_end_date)
 	backgroundMgr.insertBackground(background_counter, exhibition_background_color);
 	exhibitionMgr.insertExhibition(counter, 1, 1, background_counter, 1, exhibition_private, exhibition_name, exhibition_text, null, startDate, endDate);
 	photoMgr.insertPhoto(photo_counter, counter, filename, filename, exhibition_file_explain);
