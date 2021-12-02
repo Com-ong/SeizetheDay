@@ -124,4 +124,56 @@ public class UserMgrPool {
 		
 		return vlist;
 	}
+	
+	public UserBean getUser(String id) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		UserBean bean = null;
+		try {
+			con = pool.getConnection();
+			String sql = "select * from tblMember where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				bean = new UserBean();
+				bean.setUSER_SEQ(rs.getInt("USER_SEQ"));
+				bean.setUSER_ID(rs.getString("USER_ID"));
+				bean.setUSER_PW(rs.getString("USER_PW"));
+				bean.setUSER_NAME(rs.getString("USER_NAME"));
+				bean.setUSER_EMAIL(rs.getString("USER_EMAIL"));
+				bean.setUSER_PROFILE(rs.getString("USER_PROFILE"));
+				bean.setUSER_ROLE(rs.getBoolean("USER_ROLE"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con);
+		}
+		return bean;
+	}
+
+	
+	public boolean updateMember(UserBean bean) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		boolean flag = false;
+		try {
+			con = pool.getConnection();
+			String sql = "update userinfo set name=?, email=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, bean.getUSER_NAME());
+			pstmt.setString(2, bean.getUSER_EMAIL());
+
+			int count = pstmt.executeUpdate();
+			if (count > 0)
+				flag = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
+		}
+		return flag;
+	}
 }

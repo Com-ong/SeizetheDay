@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import = "JavaBeans.UserBean"%>
+<jsp:useBean id = "uMgr" class="JavaBeans.UserMgrPool"/>
+
+<%
+	String id = (String) session.getAttribute("idKey");
+	UserBean uBean = uMgr.getUser(id);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,12 +47,12 @@
 					<table>
 						<tr>
 							<td><label for="name">이 름  </label></td>
-							<td><input id="name" type="text"></td>
+							<td><input id="name" type="text" value="<%=uBean.getUSER_NAME()%>"></td>
 						</tr>	
 						
 						<tr>
 							<td><label for="mail">이 메 일  </label></td>
-							<td><input id="mail" type="email"></td>
+							<td><input id="mail" type="email" value="<%=uBean.getUSER_EMAIL()%>"></td>
 						</tr>
 						
 						<tr>
@@ -56,10 +63,11 @@
 						<tr>
 							<td><label for="pwcheck">비 밀 번 호 확 인   </label></td>
 							<td><input id="pwcheck" type="password"></td>
-						</tr>
-										
+						</tr>					
 					</table>
 				</div>
+				
+				<div class = "idChng"><labels>* 아 이 디 는 변 경 할 수 없 습 니 다.</label></div>
 				</span>
 				
 				

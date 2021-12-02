@@ -115,12 +115,12 @@ a{
 									<%if (user_id != null) {%>
 									<ul class="icons">
 									<li><b><%=user_id%></b>님 </li>
-									<li><a href="#" class="button big">My</a></li>									
+									<li><a href="myPage.jsp" class="button big">My</a></li>									
 									<li><button onclick="location.href='logout.jsp'">LogOut</button></li>
 									</ul>
 									<%} else {%>
 									<ul class="icons">
-										<li><a href="#" class="button big">My</a></li>
+										<li><a href="myPage.jsp" class="button big">My</a></li>
     									<!--<li><a href="#" class="button primary">LogIn</a></li>  -->
     									<li><button class="btn">LogIn</button></li>
 									</ul>
@@ -214,7 +214,7 @@ a{
                               </li>
                               <li><a href="trend.jsp">Trend</a></li>
                               <li><a href="#">1:1 Inquiry</a></li>
-                              <li><a href="#">MyPage</a></li>
+                              <li><a href="myPage.jsp">MyPage</a></li>
 
                            </ul>
                         </nav>
