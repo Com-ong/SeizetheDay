@@ -17,7 +17,7 @@
 			</tr>
 			<tr>
 				<td><h1 id="reviewText">후기</h1></td>
-				<td><input type="button" id="review_addBtn" value="+" onClick="location.href='ReviewWritePage.html'"></td>
+				<td><input type="button" id="review_addBtn" value="+" onClick="location.href='reviewWrite.jsp'"></td>
 			</tr>
 			<tr>
 				<td><br><br>전시회 관람 후 후기를 남겨주세요.<br><br></td>
@@ -46,7 +46,6 @@
 			</tbody>
 		</table>
 	</div>
-</div>
 </div>
 </body>
 </html>

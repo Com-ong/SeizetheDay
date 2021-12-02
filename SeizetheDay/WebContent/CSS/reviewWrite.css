@@ -1,1 +1,154 @@
 @charset "EUC-KR";
+
+body {
+		margin: 100px;
+		border: 3px;
+		background-color: rgb(42, 42, 85);
+}
+/* Seize The Day */	
+#title {
+	text-align: center;
+}
+/* 메뉴바 */
+#reviewWriteMenuBar {
+	width: 1000px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+/* 메뉴바-MENU */
+#reviewWrite_menu_bar1 {
+	text-align: left;
+}
+/* 메뉴바-마이페이지/로그아웃 */
+#reviewWrite_menu_bar2 {
+	text-align: center;
+	float: right;
+}
+/* 마이페이지 버튼 */
+#reviewWrite_mypage {
+	width: 60%; 
+}
+/* 로그아웃 버튼 */
+#reviewWrite_logout {
+	width: 60%;
+}
+/* 본문 부분(가장 큰 부분) */
+div.reviewWrite_area1 {
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+	height: 800px; 
+}
+/* 방명록 목록 보여주는 div */
+div.reviewWrite_list{
+	margin-top: 5%;
+	margin-bottom: 5%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 750px;
+	height: 100px; 
+}
+/* "후기 작성하기" text */
+#reviewWriteText {
+	padding-top: 5%;
+}
+/* 후기 작성 제목 */
+#reviewWrite_title {
+	margin-right: 30px;
+}
+/* 후기 작성 제목 입력 */
+#reviewWrite_title_input {
+	width: 600px;
+}
+/* 후기 작성 textArea */
+.reviewWrite_input {
+	resize: none;	
+}
+/* 후기 작성 저장/취소 버튼 */
+#reviewWrite_btns {
+	float: right;
+}
+/* 전시회로 돌아가기 버튼 */
+#back_btn {
+	text-color: rgb(42, 42, 85);
+	margin-top: 5%;
+=======
+@charset "EUC-KR";
+
+body {
+		margin: 100px;
+		border: 3px;
+		background-color: rgb(42, 42, 85);
+}
+/* Seize The Day */	
+#title {
+	text-align: center;
+}
+/* 메뉴바 */
+#reviewWriteMenuBar {
+	width: 1000px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+/* 메뉴바-MENU */
+#reviewWrite_menu_bar1 {
+	text-align: left;
+}
+/* 메뉴바-마이페이지/로그아웃 */
+#reviewWrite_menu_bar2 {
+	text-align: center;
+	float: right;
+}
+/* 마이페이지 버튼 */
+#reviewWrite_mypage {
+	width: 60%; 
+}
+/* 로그아웃 버튼 */
+#reviewWrite_logout {
+	width: 60%;
+}
+/* 본문 부분(가장 큰 부분) */
+div.reviewWrite_area1 {
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+	height: 800px; 
+}
+/* 방명록 목록 보여주는 div */
+div.reviewWrite_list{
+	margin-top: 5%;
+	margin-bottom: 5%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 750px;
+	height: 100px; 
+}
+/* "후기 작성하기" text */
+#reviewWriteText {
+	padding-top: 5%;
+}
+/* 후기 작성 제목 */
+#reviewWrite_title {
+	margin-right: 30px;
+}
+/* 후기 작성 제목 입력 */
+#reviewWrite_title_input {
+	width: 600px;
+}
+/* 후기 작성 textArea */
+.reviewWrite_input {
+	resize: none;	
+}
+/* 후기 작성 저장/취소 버튼 */
+#reviewWrite_btns {
+	float: right;
+}
+/* 전시회로 돌아가기 버튼 */
+#back_btn {
+	text-color: rgb(42, 42, 85);
+	margin-top: 5%;
+}
