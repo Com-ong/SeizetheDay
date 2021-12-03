@@ -9,31 +9,31 @@ body {
 #title {
 	text-align: center;
 }
-/* ë©”ë‰´ë°” */
+/* ¸Ş´º¹Ù */
 #reviewMenuBar {
 	width: 1000px;
 	height: auto;
 	margin-left: auto;
 	margin-right: auto;
 }
-/* ë©”ë‰´ë°”-MENU */
+/* ¸Ş´º¹Ù-MENU */
 #review_menu_bar1 {
 	text-align: left;
 }
-/* ë©”ë‰´ë°”-ë§ˆì´í˜ì´ì§€/ë¡œê·¸ì•„ì›ƒ */
+/* ¸Ş´º¹Ù-¸¶ÀÌÆäÀÌÁö/·Î±×¾Æ¿ô */
 #review_menu_bar2 {
 	text-align: center;
 	float: right;
 }
-/* ë§ˆì´í˜ì´ì§€ ë²„íŠ¼ */
+/* ¸¶ÀÌÆäÀÌÁö ¹öÆ° */
 #review_mypage {
 	width: 60%; 
 }
-/* ë¡œê·¸ì•„ì›ƒ ë²„íŠ¼ */
+/* ·Î±×¾Æ¿ô ¹öÆ° */
 #review_logout {
 	width: 60%;
 }
-/* ë³¸ë¬¸ ë¶€ë¶„(ê°€ì¥ í° ë¶€ë¶„) */
+/* º»¹® ºÎºĞ(°¡Àå Å« ºÎºĞ) */
 div.review_area1 {
 	background-color: white;
 	margin-left: auto;
@@ -41,13 +41,13 @@ div.review_area1 {
 	width: 1000px;
 	height: 800px; 
 }
-/* "í›„ê¸°" text */
+/* "ÈÄ±â" text */
 #reviewText {
 	padding-top: 5%;
 }
 #review_addBtn {
 }
-/* í›„ê¸° ëª©ë¡ ë³´ì—¬ì£¼ëŠ” div */
+/* ÈÄ±â ¸ñ·Ï º¸¿©ÁÖ´Â div */
 div.review_list{
 	margin-top: 5%;
 	margin-bottom: 5%;
@@ -56,47 +56,47 @@ div.review_list{
 	width: 750px;
 	height: 100px; 
 }
-/* í›„ê¸° ëª©ë¡ ë³´ì—¬ì£¼ëŠ” table */
+/* ÈÄ±â ¸ñ·Ï º¸¿©ÁÖ´Â table */
 .review_lists {
 	border-color: black;
 	width: 750px;
 	height: 100px; 
 	text-align: center;
 }
-/* table - í›„ê¸° ë‚´ìš© */
+/* table - ÈÄ±â ³»¿ë */
 #review_review {
 	width: 400px;
 }
-/* table - ì‘ì„±ì */
+/* table - ÀÛ¼ºÀÚ */
 #review_writer {
 	width: 100px;
 }
-/* table - ë‚ ì§œ */
+/* table - ³¯Â¥ */
 #review_date {
 	width: 150px;
 }
-/* table - ìˆ˜ì • ë²„íŠ¼ */
+/* table - ¼öÁ¤ ¹öÆ° */
 #review_change {
 	width: 50px;
 }
-/* table - ì‚­ì œ ë²„íŠ¼ */
+/* table - »èÁ¦ ¹öÆ° */
 #review_delete {
 	width: 50px;
 }
-/* tableì— ë“¤ì–´ê°€ëŠ” ê°’ - í›„ê¸° ë‚´ìš© */
+/* table¿¡ µé¾î°¡´Â °ª - ÈÄ±â ³»¿ë */
 #review_review_input {
 	text-align: left;
 	padding-left: 30px;
 }
-/* tableì— ë“¤ì–´ê°€ëŠ” ê°’ - ì‘ì„±ì */
+/* table¿¡ µé¾î°¡´Â °ª - ÀÛ¼ºÀÚ */
 #review_writer_input {
 	text-align: center;
 }
-/* tableì— ë“¤ì–´ê°€ëŠ” ê°’ - ë‚ ì§œ */
+/* table¿¡ µé¾î°¡´Â °ª - ³¯Â¥ */
 #review_date_input {
 	text-align: center;
 }
-/* ì „ì‹œíšŒë¡œ ëŒì•„ê°€ê¸° ë²„íŠ¼ */
+/* Àü½ÃÈ¸·Î µ¹¾Æ°¡±â ¹öÆ° */
 #back_btn {
 	text-color: rgb(42, 42, 85);
 	margin-top: 5%;
@@ -112,31 +112,31 @@ body {
 #title {
 	text-align: center;
 }
-/* ë©”ë‰´ë°” */
+/* ¸Ş´º¹Ù */
 #reviewMenuBar {
 	width: 1000px;
 	height: auto;
 	margin-left: auto;
 	margin-right: auto;
 }
-/* ë©”ë‰´ë°”-MENU */
+/* ¸Ş´º¹Ù-MENU */
 #review_menu_bar1 {
 	text-align: left;
 }
-/* ë©”ë‰´ë°”-ë§ˆì´í˜ì´ì§€/ë¡œê·¸ì•„ì›ƒ */
+/* ¸Ş´º¹Ù-¸¶ÀÌÆäÀÌÁö/·Î±×¾Æ¿ô */
 #review_menu_bar2 {
 	text-align: center;
 	float: right;
 }
-/* ë§ˆì´í˜ì´ì§€ ë²„íŠ¼ */
+/* ¸¶ÀÌÆäÀÌÁö ¹öÆ° */
 #review_mypage {
 	width: 60%; 
 }
-/* ë¡œê·¸ì•„ì›ƒ ë²„íŠ¼ */
+/* ·Î±×¾Æ¿ô ¹öÆ° */
 #review_logout {
 	width: 60%;
 }
-/* ë³¸ë¬¸ ë¶€ë¶„(ê°€ì¥ í° ë¶€ë¶„) */
+/* º»¹® ºÎºĞ(°¡Àå Å« ºÎºĞ) */
 div.review_area1 {
 	background-color: white;
 	margin-left: auto;
@@ -144,13 +144,13 @@ div.review_area1 {
 	width: 1000px;
 	height: 800px; 
 }
-/* "í›„ê¸°" text */
+/* "ÈÄ±â" text */
 #reviewText {
 	padding-top: 5%;
 }
 #review_addBtn {
 }
-/* í›„ê¸° ëª©ë¡ ë³´ì—¬ì£¼ëŠ” div */
+/* ÈÄ±â ¸ñ·Ï º¸¿©ÁÖ´Â div */
 div.review_list{
 	margin-top: 5%;
 	margin-bottom: 5%;
@@ -159,47 +159,47 @@ div.review_list{
 	width: 750px;
 	height: 100px; 
 }
-/* í›„ê¸° ëª©ë¡ ë³´ì—¬ì£¼ëŠ” table */
+/* ÈÄ±â ¸ñ·Ï º¸¿©ÁÖ´Â table */
 .review_lists {
 	border-color: black;
 	width: 750px;
 	height: 100px; 
 	text-align: center;
 }
-/* table - í›„ê¸° ë‚´ìš© */
+/* table - ÈÄ±â ³»¿ë */
 #review_review {
 	width: 400px;
 }
-/* table - ì‘ì„±ì */
+/* table - ÀÛ¼ºÀÚ */
 #review_writer {
 	width: 100px;
 }
-/* table - ë‚ ì§œ */
+/* table - ³¯Â¥ */
 #review_date {
 	width: 150px;
 }
-/* table - ìˆ˜ì • ë²„íŠ¼ */
+/* table - ¼öÁ¤ ¹öÆ° */
 #review_change {
 	width: 50px;
 }
-/* table - ì‚­ì œ ë²„íŠ¼ */
+/* table - »èÁ¦ ¹öÆ° */
 #review_delete {
 	width: 50px;
 }
-/* tableì— ë“¤ì–´ê°€ëŠ” ê°’ - í›„ê¸° ë‚´ìš© */
+/* table¿¡ µé¾î°¡´Â °ª - ÈÄ±â ³»¿ë */
 #review_review_input {
 	text-align: left;
 	padding-left: 30px;
 }
-/* tableì— ë“¤ì–´ê°€ëŠ” ê°’ - ì‘ì„±ì */
+/* table¿¡ µé¾î°¡´Â °ª - ÀÛ¼ºÀÚ */
 #review_writer_input {
 	text-align: center;
 }
-/* tableì— ë“¤ì–´ê°€ëŠ” ê°’ - ë‚ ì§œ */
+/* table¿¡ µé¾î°¡´Â °ª - ³¯Â¥ */
 #review_date_input {
 	text-align: center;
 }
-/* ì „ì‹œíšŒë¡œ ëŒì•„ê°€ê¸° ë²„íŠ¼ */
+/* Àü½ÃÈ¸·Î µ¹¾Æ°¡±â ¹öÆ° */
 #back_btn {
 	text-color: rgb(42, 42, 85);
 	margin-top: 5%;
