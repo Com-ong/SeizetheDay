@@ -46,7 +46,7 @@ width:10%;
 				<tbody>
 					<!-- DB 연결 위한 추가 부분 -->
 					<%
-						Vector<NoticeBean> vlist = noticeMgr.getRegisterList();
+						Vector<NoticeBean> vlist = noticeMgr.getNoticeList();
 						Vector<UserBean> userlist = userMgr.getRegisterList();	
 						String notice_writer = "";
 						int notice_seq;

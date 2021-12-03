@@ -1,14 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!-- DB ¿¬°á À§ÇÑ Ãß°¡ ºÎºĞ -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!-- DB ì—°ê²° ìœ„í•œ ì¶”ê°€ ë¶€ë¶„ -->
 <%@ page import="java.util.*, java.sql.*, JavaBeans.*" %>
 <jsp:useBean id="guestMgr" class="JavaBeans.GuestMgrPool" />
 <jsp:useBean id="userMgr" class="JavaBeans.UserMgrPool" />
 <!-- #################################### -->
+<!-- ë¡œê·¸ì¸ ìƒíƒœ ê°€ì ¸ì˜¤ê¸° -->
+<%
+	  request.setCharacterEncoding("UTF-8");
+	  String user_id = (String)session.getAttribute("idKey");
+%>
+<%
+	UserBean writerBean = userMgr.findWithID(user_id);
+%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Guest Book</title>
 <link rel="stylesheet" href="CSS/guestBook.css">
 </head>
@@ -16,63 +24,74 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<div id="visited_area1">
 	<div class="visited_list">
-		<table id="visited_area2">
-			<tr>
-				<td><h1 id="visitedText">GuestBook</h1></td>
-			</tr>
-			<tr>
-				<td id="ment"><br>ÂªÀº ¹®±¸·Î ¹æ¸í·ÏÀ» ³²°ÜÁÖ¼¼¿ä.<br><br></td>
-			</tr>
-			<tr>
-				<td>ÀÛ¼ºÀÚ : <label id="userid">ÀÛ¼ºÀÚ2</label></td>
-			</tr>
-			<tr>
-				<td>
-					<textarea class="visited_input" rows="4" cols="70" required>¿©±â¿¡ ÂªÀº ¹®±¸¸¦ ÀÛ¼ºÇÏ¼¼¿ä.</textarea>
-				</td>
-				<td><input type="submit" id="visited_store" value="ÀúÀå"></td>
-			</tr>
-		</table>
+		<div class="insert_visited_area">
+		<% String action_url = "guestBook_insertDB.jsp?userid="+ writerBean.getUSER_ID(); %>
+		<form method="post" action=<%= action_url %>> <!-- ì¶”ê°€ ë¶€ë¶„ -->
+			<table id="visited_area2">
+				<tr>
+					<td><h1 id="visitedText">GuestBook</h1></td>
+				</tr>
+				<tr>
+					<td><h3 name="exhibition_name">[ì „ì‹œ ì œëª©]</h3></td>
+				<tr>
+					<td id="ment"><br>ì§§ì€ ë¬¸êµ¬ë¡œ ë°©ëª…ë¡ì„ ë‚¨ê²¨ì£¼ì„¸ìš”.<br><br></td>
+				</tr>
+				<tr>
+					<td>ì‘ì„±ì : <label id="userid" name="userid"><%= writerBean.getUSER_NAME() %></label></td>
+				</tr>
+				<tr>
+					<td>
+						<textarea class="visited_input" name="visited_input" rows="4" cols="70" required>ì—¬ê¸°ì— ì§§ì€ ë¬¸êµ¬ë¥¼ ì‘ì„±í•˜ì„¸ìš”.</textarea>
+					</td>
+					<td><input type="submit" id="visited_store" value="ì €ì¥"></td>
+				</tr>
+			</table>
+		</form> <!-- ì¶”ê°€ ë¶€ë¶„ -->
+		</div>
 		
-		<p>ÃÑ ¹æ¹®ÀÚ ¼ö : 1</p>
+		<p>
+		<% // ì¶”ê°€ ë¶€ë¶„
+			Vector<GuestBean> vlist = guestMgr.getGuestList();
+		%>ì´ ë°©ë¬¸ì ìˆ˜ : <%= vlist.size() %></p> <!-- ìˆ˜ì • ë¶€ë¶„ -->
 		<table class="visited_lists" border=1>
 			<thead>
 				<tr>
 					<th id="visited_writer">guest</th>
 					<th id="visited_visited">guestBook</th>
 					<th id="visited_date">Date</th>
-					<th id="visited_change">¼öÁ¤</th>
-					<th id="visited_delete">»èÁ¦</th>
+					<!-- <th id="visited_change">ìˆ˜ì •</th> -->
+					<th id="visited_delete"></th>
 				</tr>
 			</thead>
 			<tbody>
-				<!-- DB ¿¬°á À§ÇÑ Ãß°¡ ºÎºĞ -->
+				<!-- DB ì—°ê²° ìœ„í•œ ì¶”ê°€ ë¶€ë¶„ -->
 				<%
-					Vector<GuestBean> vlist = guestMgr.getRegisterList();
-					Vector<UserBean> userlist = userMgr.getRegisterList();	
-					String board_writer = "";
-					//int board_seq;
-					int counter = vlist.size();
-					for(int i=0; i<vlist.size(); i++)
-					{
-						GuestBean guestBean = vlist.get(i);
-						for(int j=0; j<userlist.size(); j++)
-						{
-							UserBean userBean = userlist.get(j);
-							if(userBean.getUSER_SEQ() == guestBean.getUSER_SEQ())
-							{	
-								board_writer = userBean.getUSER_NAME();
-								break;
-							}
-						}
-							
-					%>
+					/* Vector<GuestBean> vlist = guestMgr.getRegisterList(); */
+							Vector<UserBean> userlist = userMgr.getRegisterList();	
+							String board_writer = "";
+							//int board_seq;
+							int counter = vlist.size();
+							for(int i=0; i<vlist.size(); i++)
+							{
+								GuestBean guestBean = vlist.get(i);
+								for(int j=0; j<userlist.size(); j++)
+								{
+									UserBean userBean = userlist.get(j);
+									if(userBean.getUSER_SEQ() == guestBean.getUSER_SEQ())
+									{	
+										board_writer = userBean.getUSER_NAME();
+										break;
+									}
+								}
+				%>
 				<tr>
 					<td class="visited_writer_input"><%= board_writer%></td>
 					<td class="visited_visited_input"><%= guestBean.getBOARD_TEXT() %></td>
 					<td class="visited_date_input"><%= guestBean.getBOARD_DATE() %></td>
-					<td><input type="submit" class="visited_change_btn" value="¼öÁ¤"></td>
-					<td><input type="submit" class="visited_delete_btn" value="»èÁ¦"></td>
+					<%-- <td><input type="button" class="visited_change_btn" value="ìˆ˜ì •" name="visited_change_btn" onclick="location.href='guestBook_updateDB.jsp?board_seq=<%=guestBean.getBOARD_SEQ()%>'"></td> --%>
+					<td>
+						<input type="button" class="visited_delete_btn" value="ì‚­ì œ" name="visited_delete_btn" onclick="location.href='guestBook_deleteDB.jsp?board_seq=<%=guestBean.getBOARD_SEQ()%>'">
+					</td>
 				</tr>
 				<% } %>
 			</tbody>

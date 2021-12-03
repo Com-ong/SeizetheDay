@@ -80,7 +80,7 @@ a {
 }
 
 body {
-    height:10000px;
+    height: 100%;
 }
 
 .left-side-bar {
@@ -132,4 +132,5 @@ hr{
 	border:none;
 	border-top:2px solid white;
 	z-index:2;
+	margin-top: 190px;
 }
