@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ page import="java.util.*, java.sql.*, JavaBeans.*" %>
+<%@ page import="JavaBeans.ReviewBean" %>
+<%@ page import="java.util.Vector" %>
+<jsp:useBean id="reviewMgr" class="JavaBeans.ReviewMgrPool" />
+<jsp:useBean id="userMgr" class="JavaBeans.UserMgrPool"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,13 +41,30 @@
 				</tr>
 			</thead>
 			<tbody>
+			<%
+			Vector<ReviewBean> vlist = reviewMgr.getRegisterList();
+			Vector<UserBean> userlist = userMgr.getRegisterList();
+			String board_writer="";
+			
+			int counter = vlist.size();
+			for(int i = 0; i < vlist.size(); i++){
+				ReviewBean reviewBean = vlist.get(i);
+				for(int j = 0; j < userlist.size(); j++){
+					UserBean userBean = userlist.get(j);
+					if(userBean.getUSER_SEQ() == reviewBean.getUserSeq()){
+						board_writer = userBean.getUSER_NAME();
+						break;
+					}
+				}
+			%>
 				<tr>
-					<td id="review_review_input">좋은 전시였습니다.</td>
-					<td id="review_writer_input">작성자1</td>
-					<td id="review_date_input">2021-10-22</td>
+					<td id="review_writer_input"><%= board_writer %></td>
+					<td id="review_review_input"><%= reviewBean.getCommentText() %></td>
+					<td id="review_date_input"><%= reviewBean.getCommentDate() %></td>
 					<td><input type="submit" id="review_change_btn" value="수정"></td>
 					<td><input type="submit" id="review_delete_btn" value="삭제"></td>
 				</tr>
+				<%} %>
 			</tbody>
 		</table>
 	</div>

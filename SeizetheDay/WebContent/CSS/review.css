@@ -1,4 +1,9 @@
 @charset "EUC-KR";
+body{
+	font-family: Roboto;
+	font-size: 15px;
+}
+
 .review_area1{
 	background-color: white;
 	width:85%;
