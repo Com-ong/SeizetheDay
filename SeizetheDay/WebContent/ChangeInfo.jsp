@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <%@page import = "JavaBeans.UserBean"%>
 <jsp:useBean id = "uMgr" class="JavaBeans.UserMgrPool"/>
 
@@ -48,7 +49,9 @@
 					<table>
 						<tr>
 							<td><label for="name">이 름  </label></td>
+
 							<td><input id="name" type="text" value="<%=uBean.getUSER_NAME()%>"></td>
+
 						</tr>	
 						
 						<tr>
