@@ -7,6 +7,7 @@
 	String id = (String) session.getAttribute("idKey");
 	UserBean uBean = uMgr.getUser(id);
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,6 +64,7 @@
 						<tr>
 							<td><label for="pwcheck">비 밀 번 호 확 인   </label></td>
 							<td><input id="pwcheck" type="password"></td>
+
 						</tr>					
 					</table>
 				</div>
