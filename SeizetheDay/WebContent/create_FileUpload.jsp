@@ -39,10 +39,15 @@
 				<label for="exhibition-background-color">배경 색상</label>
 				<input type="color" id="exhibition-background-color" name="exhibition-background-color"><br><br>
 				<label for="exhibition-file">작품 추가</label>
-				<button type="button" id="imageButton" onclick="document.getElementById('exhibition-file').click()">
+				<button type="button" id="imageButton" onclick="document.getElementById('exhibition-file').click()">//추가 버튼을 누르면 다음 파일 활성 & 
         			<img src="./srcImg/plus.png">
     			</button>
-				<input type="file" id="exhibition-file" name="exhibition-file" style="display:none;"><br><br>
+				<input type="file" id="exhibition-file0" name="exhibition-file0" style="display:none;"><br><br>//파일 개수를 5개로 제한. 
+				<input type="file" id="exhibition-file1" name="exhibition-file1" style="display:none;" disabled><br><br>
+				<input type="file" id="exhibition-file2" name="exhibition-file2" style="display:none;" disabled><br><br>
+				<input type="file" id="exhibition-file3" name="exhibition-file3" style="display:none;" disabled><br><br>
+				<input type="file" id="exhibition-file4" name="exhibition-file4" style="display:none;" disabled><br><br>
+				
 				<label for="exhibition-file-explain">작품 설명</label>
 				<input type="text" id="exhibition-file-explain" name="exhibition-file-explain"><br><br>
 				<div class = "submit-btn">
@@ -53,6 +58,9 @@
 		</div>
 	</div>
 	<script>
+	function addFileInput(){
+		
+	}
 	</script>
 </body>                                                                                                                                                                                                                                                                                                                                                                    
 </html>
