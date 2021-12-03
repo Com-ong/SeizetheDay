@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<!-- DB 연결 위한 추가 부분 -->
+<%@ page import="java.util.*, java.sql.*, JavaBeans.*" %>
+<jsp:useBean id="noticeMgr" class="JavaBeans.NoticeMgrPool" />
+<jsp:useBean id="userMgr" class="JavaBeans.UserMgrPool" />
+<!-- #################################### -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +44,36 @@ width:10%;
 					</tr>
 				</thead>
 				<tbody>
+					<!-- DB 연결 위한 추가 부분 -->
+					<%
+						Vector<NoticeBean> vlist = noticeMgr.getNoticeList();
+						Vector<UserBean> userlist = userMgr.getRegisterList();	
+						String notice_writer = "";
+						int notice_seq;
+						int counter = vlist.size();
+						for(int i=0; i<vlist.size(); i++)
+						{
+							NoticeBean noticeBean = vlist.get(i);
+							for(int j=0; j<userlist.size(); j++)
+							{
+								UserBean userBean = userlist.get(j);
+								if(userBean.getUSER_SEQ() == noticeBean.getUSER_SEQ())
+								{	
+									notice_writer = userBean.getUSER_NAME();
+									break;
+								}
+							}
+							
+					%>
 					<tr style="height:60px;">
+						<td><%= noticeBean.getNOTICE_SEQ() %></td>
+						<td><a href="notice_view.jsp?notice_seq=<%=noticeBean.getNOTICE_SEQ() %>&notice_writer=<%=notice_writer%>"><%= noticeBean.getNOTICE_TITLE() %></a></td>
+						<td><%= notice_writer %></td>
+						<td><%= noticeBean.getNOTICE_DATE() %></td>
+					</tr>
+					<% } %>
+					<!-- ################ -->
+					<!-- <tr style="height:60px;">
 						<td>1</td>
 						<td><a href="notice_view.jsp">안녕하세요</a></td>
 						<td>홍길동</td>
@@ -48,7 +84,7 @@ width:10%;
 						<td><a href="notice_view.jsp">해킹 당했습니다.</a></td>
 						<td>관리자</td>
 						<td>2017-05-04</td>
-					</tr>
+					</tr> -->
 				</tbody>
 			</table>
 			<!--<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>  -->
