@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+.show-exhibition{
+	background-color: white;
+	width:80%;
+	height:100%;
+	position:absolute;
+	margin:7.5%;
+	margin-top:10%;
+	z-index:2;
+	padding: 2.5%;
+	display:block;
+	border-radius:10px;
+}
+
+.show-list-title{
+	width:40%;
+	font-family: Roboto;
+	font-weight: bold;
+	font-size: 35px;
+	line-height: 41px;
+	align-items: center;
+	text-align: left;
+	letter-spacing: -0.02em;
+	margin:5px;
+	color: #333344;
+}
+.show-content{
+	width:96%;
+	height:25%;
+	margin:2%;
+	text-align: center;
+	vertical-align:middle;
+}
+
+.show-content .photo img{
+	width:200px;
+	height:200px;
+}
+

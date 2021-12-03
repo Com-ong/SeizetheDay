@@ -33,11 +33,54 @@
 	font-weight: normal;
 	font-size: 25px;
 	line-height: 35px;
-	margin:20px;
+	margin:3%;
+	width:90%;
 	color: #333344;
 	
 }
+.submit-btn{
+	width:100%;
 
-input[type="text"]{
+}
+
+.press-btn{
+	float: right;
+	background-color: #4CAF50;
+	border: 1px solid #333344;
+  	color: white;
+  	padding: 15px 32px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	font-size: 16px;
+  	margin: 4px 2px;
+  	cursor: pointer;
+}
+
+#exhibition-cancel-btn{
+	background-color: white;
+	color: #333344;
 	
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 30px;
+	line-height: 35px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+}
+
+#exhibition-make-btn{
+	background-color: #333344;
+	color: white;
+	
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 30px;
+	line-height: 35px;
+	display: flex;
+	align-items: center;
+	text-align: center;
 }
