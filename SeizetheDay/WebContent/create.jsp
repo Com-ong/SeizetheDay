@@ -1,13 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@ page import="JavaBeans.UserBean" %>
+<%
+	request.setCharacterEncoding("EUC-KR");
+	UserBean currUser= (UserBean)session.getAttribute("currUser");
+%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>create page - multi file</title>
+<title>create exhibition</title>
 <link rel="stylesheet" href="CSS/create_fileinput.css">
 </head>
 <body>
+<script>
+<%if(currUser==null){%>
+	window.onload = function(){
+		alert("·Î±×ÀÎ ÈÄ ÀÌ¿ëÇØÁÖ¼¼¿ä.");
+		location.href="./";
+	}
+<%}%>
+</script>
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class = "make-exhibition">
 		<div class = "make-title">
@@ -15,39 +27,39 @@
 		</div>
 		<div class = "make-content">
 			<form method="post" action="create_insertDB.jsp" enctype="multipart/form-data">
-				<label for="exhibition-title">ì œëª©</label>
+				<label for="exhibition-title">Á¦¸ñ</label>
 				<input type="text" id="exhibition-title" name="exhibition-title"><br><br>
-				<label for="exhibition-theme">ì£¼ì œ ì„ íƒ</label>
+				<label for="exhibition-theme">ÁÖÁ¦ ¼±ÅÃ</label>
 				<select name="exhibition-theme" id="exhibition-theme">
   					<option value="IT">IT</option>
   					<option value="Art">Art</option>
   					<option value="Science">Science</option>
   					<option value="Geometric">Geometric</option>
 				</select>
-				<label for="exhibition-start-date">ê¸°ê°„</label>
+				<label for="exhibition-start-date">±â°£</label>
 				<input type="date" id="exhibition-start-date" name="exhibition-start-date"> ~ 
 						<input type="date" id="exhibition-finish-date" name="exhibition-finish-date"><br><br>
-				<span>ê³µê°œ/ë¹„ê³µê°œ ì„¤ì •</span>
+				<span>°ø°³/ºñ°ø°³ ¼³Á¤</span>
 						<input type="radio" name="exhibition-open" id="public" value="public" checked>
-						<label for="public">ê³µê°œ</label>
+						<label for="public">°ø°³</label>
 						<input type="radio" name="exhibition-open" id="private" value="private">
-						<label for="private">ë¹„ê³µê°œ</label><br><br>
-				<label for="exhibition-explain">ì „ì‹œíšŒ ì„¤ëª…</label>
+						<label for="private">ºñ°ø°³</label><br><br>
+				<label for="exhibition-explain">Àü½ÃÈ¸ ¼³¸í</label>
 				<input type="text" id="exhibition-explain" name="exhibition-explain"><br><br>
-				<label for="exhibition-background-color">ë°°ê²½ ìƒ‰ìƒ</label>
+				<label for="exhibition-background-color">¹è°æ »ö»ó</label>
 				<input type="color" id="exhibition-background-color" name="exhibition-background-color"><br><br>
-				<label for="exhibition-file">ì‘í’ˆ ì¶”ê°€</label>
-				<button type="button" id="addImgBtn" onclick="addFileInput()"><!-- ì¶”ê°€ ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ ë‹¤ìŒ íŒŒì¼ input í™œì„±, íŒŒì¼ ì¶”ê°€ -->
+				<label for="exhibition-file">ÀÛÇ° Ãß°¡</label>
+				<button type="button" id="addImgBtn" onclick="addFileInput()"><!-- Ãß°¡ ¹öÆ°À» ´©¸£¸é ´ÙÀ½ ÆÄÀÏ input È°¼º, ÆÄÀÏ Ãß°¡ -->
         			<img src="./srcImg/plus.png">
     			</button>
     			<input type="hidden" id = "exhibition-file-cnt" name = "exhibition-file-cnt" value="0">
-				<input type="file" id="exhibition-file1" name="exhibition-file1" style="display:none;"><br><br><!--íŒŒì¼ ê°œìˆ˜ë¥¼ 5ê°œë¡œ ì œí•œ. -->
+				<input type="file" id="exhibition-file1" name="exhibition-file1" style="display:none;"><br><br><!--ÆÄÀÏ °³¼ö¸¦ 5°³·Î Á¦ÇÑ. -->
 				<input type="file" id="exhibition-file2" name="exhibition-file2" style="display:none;" disabled><br><br>
 				<input type="file" id="exhibition-file3" name="exhibition-file3" style="display:none;" disabled><br><br>
 				<input type="file" id="exhibition-file4" name="exhibition-file4" style="display:none;" disabled><br><br>
 				<input type="file" id="exhibition-file5" name="exhibition-file5" style="display:none;" disabled><br><br>
 				
-				<label for="exhibition-file-explain1">ì‘í’ˆ ì„¤ëª…</label>
+				<label for="exhibition-file-explain1">ÀÛÇ° ¼³¸í</label>
 				<input type="text" id="exhibition-file-explain1" name="exhibition-file-explain1"><br><br>
 				<input type="text" id="exhibition-file-explain2" name="exhibition-file-explain2" disabled><br><br>
 				<input type="text" id="exhibition-file-explain3" name="exhibition-file-explain3" disabled><br><br>
@@ -69,7 +81,7 @@
 		console.log(file_cnt);
 		
 		if (file_cnt<=5) document.getElementById("exhibition-file-cnt").value = String(file_cnt);
-		else alert("ì‘í’ˆì€ ìµœëŒ€ 5ê°œ ì²¨ë¶€í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.");
+		else alert("ÀÛÇ°Àº ÃÖ´ë 5°³ Ã·ºÎÇÒ ¼ö ÀÖ½À´Ï´Ù.");
 		
 		var file_input_id="exhibition-file"+file_cnt;
 		var explain_input_id = "exhibition-file-explain"+file_cnt;

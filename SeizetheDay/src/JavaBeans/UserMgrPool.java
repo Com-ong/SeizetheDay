@@ -271,6 +271,37 @@ public class UserMgrPool {
          return flag;
       }
       
+      public UserBean loginUserReturnBean(String USER_ID, String USER_PW) {
+          Connection con = null;
+          PreparedStatement pstmt = null;
+          ResultSet rs = null;
+          String sql = null;
+          UserBean currUser = new UserBean();
+          try {
+             con = pool.getConnection();
+             sql = "select * from userinfo where USER_ID = ? and USER_PW = ?";
+             pstmt = con.prepareStatement(sql);
+             pstmt.setString(1, USER_ID);
+             pstmt.setString(2, USER_PW);
+             rs = pstmt.executeQuery();
+             if(rs.next()) {
+            	 currUser.setUSER_SEQ(rs.getInt("USER_SEQ"));
+                 currUser.setUSER_ID(rs.getString("USER_ID"));
+                 //currUser.setUSER_PW(rs.getString("USER_PW"));
+                 //currUser.setUSER_NAME(rs.getString("USER_NAME"));
+                 //currUser.setUSER_EMAIL(rs.getString("USER_EMAIL"));
+                 return currUser;
+             }
+             
+          } catch (Exception e) {
+             e.printStackTrace();
+          } finally {
+             pool.freeConnection(con, pstmt, rs);
+          }
+          return currUser;
+       }
+      
+      
    //임시, 수정예정
    public Vector<UserBean> getRegisterList() {
       Connection conn = null;

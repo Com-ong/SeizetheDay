@@ -6,12 +6,10 @@
 <jsp:useBean id="userMgr" class="JavaBeans.UserMgrPool" />
 <jsp:useBean id="photoMgr" class="JavaBeans.PhotoMgrPool" />
 <jsp:useBean id="backgroundMgr" class="JavaBeans.BackgroundMgrPool" />
-<!-- #################################### -->
 <!-- file upload 추가 부분 -->
 <%@page import="com.oreilly.servlet.MultipartRequest" %>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
 <%@page import="java.io.*" %>
-<!-- #################################### -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +17,11 @@
 </head>
 <body>
 <%
-	request.setCharacterEncoding("UTF-8");
+	request.setCharacterEncoding("EUC-KR");
+	UserBean currUser= (UserBean)session.getAttribute("currUser");//사용자 정보 받아오기
+	int user_seq = currUser.getUSER_SEQ();//DB에 삽입할 user_seq
+	System.out.println("유저 seq"+user_seq);
+	//각 테이블의 데이터 개수 -> 삽입할 데이터의 seq 계산
 	Vector<ExhibitionBean> vlist = exhibitionMgr.getExhibitionList();
 	int counter = vlist.size();
 	Vector<PhotoBean> plist = photoMgr.getPhotoList();
@@ -28,30 +30,32 @@
 	int background_counter = blist.size();
 	
 	// C:\Jsp\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\SeizetheDay\FileStorage
-	// 이 주소로 저장됨(참고하기)
 	String saveFolder = request.getSession().getServletContext().getRealPath("FileStorage"); // 상대 경로
 	System.out.println(saveFolder);
-	File Folder = new File(saveFolder);
+	
+	File Folder = new File(saveFolder);//해당 위치에 FileStorage 폴더 없을 시 생성
 	if (!Folder.exists()) {
 		try{
-		    Folder.mkdir(); //폴더 생성합니다.
+		    Folder.mkdir();
 		    System.out.println("폴더가 생성되었습니다.");
-	        } 
-	        catch(Exception e){
+		}catch(Exception e){
 		    e.getStackTrace();
 		}        
-         }else {
+    }
+	else {
 		System.out.println("이미 폴더가 생성되어 있습니다.");
 	}
-	String encType = "UTF-8";
+	
+	String encType = "EUC-KR";
 	int maxSize = 5 * 1024 * 1024;
-	int file_cnt = 0;
+	int file_cnt = 0;//사용자가 exhibition에 업로드한 photo의 개수
 	
 	String exhibition_open = "";
-	String exhibition_name = "", exhibition_text = "", exhibition_start_date = "", exhibition_end_date = "", exhibition_background_color = "", exhibition_file_cnt="";
+	String exhibition_name = "", exhibition_text = "", exhibition_start_date = "", 
+			exhibition_end_date = "", exhibition_background_color = "", exhibition_file_cnt="";
 	
-	String filename[] = new String[5];
-	String exhibition_file_explain[] = new String[5];
+	String filename[] = new String[5];//업로드한 photo의 파일 이름 -> 최대 5개
+	String exhibition_file_explain[] = new String[5];//업로드한 photo의 설명 -> 최대 5개
 	
 	try {
 		MultipartRequest multi = null;
@@ -91,14 +95,6 @@
 			String original = multi.getOriginalFileName(name);
 			String type = multi.getContentType(name);
 			File f = multi.getFile(name);
-			System.out.println("파라미터 이름 : " + name + "<br/>");
-			System.out.println("실제 파일 이름 : " + original + "<br/>");
-			System.out.println("저장된 파일 이름 : " + filename + "<br/>");
-			System.out.println("파일 타입 : " + type + "<br/>");
-			if(f != null) {
-				System.out.println("크기 : " + f.length() + "바이트");
-				System.out.println("<br/>");
-			}
 			i++;
 		}
 	} catch (IOException ioe) {
@@ -117,8 +113,9 @@
 	Date endDate = Date.valueOf(exhibition_end_date);
 	counter++;
 	background_counter++;
-	backgroundMgr.insertBackground(background_counter, exhibition_background_color);
-	exhibitionMgr.insertExhibition(counter, 1, 1, background_counter, file_cnt, exhibition_private, exhibition_name, exhibition_text, null, startDate, endDate);
+	backgroundMgr.insertBackground(background_counter, exhibition_background_color);//배경 색 삽입
+	exhibitionMgr.insertExhibition(counter, user_seq, 1, background_counter, file_cnt, //user_id, category_id
+			exhibition_private, exhibition_name, exhibition_text, null, startDate, endDate);
 	System.out.println(file_cnt);
 	for(int i=0 ; i< file_cnt ; i++){
 		photo_counter++;
