@@ -124,7 +124,7 @@
 	exhibitionMgr.updatePhoto(counter, photo_counter);
 %>
 <script>
-	location.href="show_exhibition.jsp?exhibition_seq=<%=counter%>&exhibition_background_seq=<%=background_counter%>";
+	location.href="exhibition.jsp?exhibition_seq=<%=counter%>&exhibition_background_seq=<%=background_counter%>";
 </script>
 </body>
 </html>

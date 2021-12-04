@@ -4,6 +4,19 @@ body{
 	padding-top:100px;
 }
 
+.show_content{
+	background-color: white;
+	width: 95%;
+	height: 100%;
+	position:flex;
+	margin:0 auto;
+	margin-top:13%;
+	z-index:2;
+	padding: 2.5%;
+	display:block;
+	border-radius:10px;
+}
+
 .show-exhibition{
 	background-color: white;
 	width:80%;
@@ -18,15 +31,15 @@ body{
 }
 
 .show-title{
-	width:40%;
+	width:100%;
 	font-family: Roboto;
 	font-weight: bold;
-	font-size: 35px;
-	line-height: 41px;
+	font-size: 30px;
+	line-height: 20px;
 	align-items: center;
-	text-align: left;
-	letter-spacing: -0.02em;
-	margin:5px;
+	text-align: center;
+	letter-spacing: 0.02em;
+	margin:5%;
 	color: #333344;
 }
 .show-content{
@@ -62,10 +75,10 @@ body{
 }
 
 .slideshow-container {
-  max-width: 1200px;
-  max-height: 750px;
+  max-width: 100%;
+  max-height: 100%;
   position: relative;
-  margin-top:120px;
+  margin-top:5%;
   margin-left:auto;
   margin-right:auto;
 }
