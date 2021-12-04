@@ -5,8 +5,7 @@
 <jsp:useBean id = "uMgr" class="JavaBeans.UserMgrPool"/>
 
 <%
-	String id = (String) session.getAttribute("idKey");
-	UserBean uBean = uMgr.getUser(id);
+	UserBean currUser = (UserBean)session.getAttribute("currUser");
 %>
 
 <!DOCTYPE html>
@@ -50,13 +49,13 @@
 						<tr>
 							<td><label for="name">이 름  </label></td>
 
-							<td><input id="name" type="text" value="<%=uBean.getUSER_NAME()%>"></td>
+							<td><input id="name" type="text" value="<%=currUser.getUSER_NAME()%>"></td>
 
 						</tr>	
 						
 						<tr>
 							<td><label for="mail">이 메 일  </label></td>
-							<td><input id="mail" type="email" value="<%=uBean.getUSER_EMAIL()%>"></td>
+							<td><input id="mail" type="email" value="<%=currUser.getUSER_EMAIL()%>"></td>
 						</tr>
 						
 						<tr>

@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!-- DB ì—°ê²° ìœ„í•œ ì¶”ê°€ ë¶€ë¶„ -->
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!-- DB ¿¬°á À§ÇÑ Ãß°¡ ºÎºÐ -->
 <%@ page import="java.util.*, java.sql.*, JavaBeans.*, java.sql.Date" %>
 <jsp:useBean id="guestMgr" class="JavaBeans.GuestMgrPool" />
 <jsp:useBean id="userMgr" class="JavaBeans.UserMgrPool" />
@@ -8,11 +8,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 </head>
 <body>
 <%
-	request.setCharacterEncoding("UTF-8");
+	request.setCharacterEncoding("EUC-KR");
 
 	Vector<GuestBean> vlist = guestMgr.getGuestList();
 	int guest_counter = vlist.size();
@@ -21,10 +21,10 @@
 	String visited_input = request.getParameter("visited_input");
 	String exhibition_name = request.getParameter("exhibition_name");
 	
-	UserBean user = userMgr.findWithID(user_id); // usermgrpoolì—ì„œ ì´ë¦„ìœ¼ë¡œ ì°¾ê¸°
+	UserBean user = userMgr.findWithID(user_id); // usermgrpool¿¡¼­ ÀÌ¸§À¸·Î Ã£±â
 	int user_seq = user.getUSER_SEQ();
 	
-	int exhibition_seq = 2; // exhibitinomgrpoolì—ì„œ ì´ë¦„ìœ¼ë¡œ ì°¾ê¸°
+	int exhibition_seq = 2; // exhibitinomgrpool¿¡¼­ ÀÌ¸§À¸·Î Ã£±â
 	Calendar cal = Calendar.getInstance();
 	//System.out.println(cal.get(Calendar.YEAR) + "-" + cal.get(Calendar.MONTH) + "-" + cal.get(Calendar.DATE));
 	int year = cal.get(Calendar.YEAR); int month = cal.get(Calendar.MONTH)+1; int day = cal.get(Calendar.DATE);
@@ -36,7 +36,7 @@
 	guestMgr.insertGuest(guest_counter, user_seq, visited_input, board_date, exhibition_seq);
 %>
 <script>
-	alert("ë“±ë¡ë˜ì—ˆìŠµë‹ˆë‹¤"); // ## ì§„ì§œ ì„±ê³µì¼ ë•Œë§Œ ë„ìš°ëŠ” ê±¸ë¡œ í•´ì•¼í•  ë“¯
+	alert("µî·ÏµÇ¾ú½À´Ï´Ù"); // ## ÁøÂ¥ ¼º°øÀÏ ¶§¸¸ ¶ç¿ì´Â °É·Î ÇØ¾ßÇÒ µí
 	
 	location.href="guestBook.jsp";
 </script>
