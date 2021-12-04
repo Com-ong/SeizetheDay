@@ -3,9 +3,8 @@
 <%
 	  request.setCharacterEncoding("EUC-KR");
 	  String user_id = (String)session.getAttribute("idKey");
-	  
 	  //String USER_SEQ=(String)session.getAttribute("USER_SEQ_KEY");
-	  int USER_SEQ=(int)session.getAttribute("USER_SEQ_KEY");
+	  //int USER_SEQ=(int)session.getAttribute("USER_SEQ_KEY");
 %>
     
 <!-- DB 연결 위한 추가 부분 -->

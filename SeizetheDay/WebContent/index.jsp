@@ -4,7 +4,7 @@
 	  request.setCharacterEncoding("EUC-KR");
 	  String user_id = (String)session.getAttribute("idKey");
 	  //String USER_SEQ=(String)session.getAttribute("USER_SEQ_KEY");
-	  int USER_SEQ=(int)session.getAttribute("USER_SEQ_KEY");
+	  //int USER_SEQ=(int)session.getAttribute("USER_SEQ_KEY");
 %>
 <!DOCTYPE HTML>
 

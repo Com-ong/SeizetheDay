@@ -29,50 +29,102 @@ public class NoticeMgrPool {
 		}
 	}
 	
-	
-	// 게시글 작성
-		public void insertBoard(HttpServletRequest req) {
-			Connection con = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			String sql = null;
-			MultipartRequest multi = null;
-			try {
-				con = pool.getConnection();
-				sql = "select max(NOTICE_SEQ) from notice";
-				pstmt = con.prepareStatement(sql);
-				rs = pstmt.executeQuery();
-				
-				int ref = 1;
-				if (rs.next())
-				ref = rs.getInt(1) + 1;
-				File file = new File(SAVEFOLDER);
-				if (!file.exists())
-					file.mkdirs();
-				multi = new MultipartRequest(req, SAVEFOLDER,MAXSIZE, ENCTYPE,
-						new DefaultFileRenamePolicy());
-				
-				//String content = multi.getParameter("NOTICE_TEXT");
-				sql = "insert notice(NOTICE_SEQ,USER_SEQ,NOTICE_TITLE,NOTICE_TEXT,NOTICE_DATE)";
-				sql += "values(?, ?, ?, ?, now())";
-				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, multi.getParameter("title"));
-				pstmt.setString(2, multi.getParameter("USER_SEQ"));//setInt로 해야 하는데..
-				pstmt.setString(3,multi.getParameter("NOTICE_TITLE"));
-				pstmt.setString(4,multi.getParameter("NOTICE_TEXT"));
-				
-				//pstmt.setString(3, multi.getParameter("subject"));
-				//pstmt.setString(5, multi.getParameter("pass"));
-				//pstmt.setString(6, multi.getParameter("ip"));
-				pstmt.executeUpdate();
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				pool.freeConnection(con, pstmt, rs);
-			}
+	public boolean insertNotice(NoticeBean bean) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		boolean flag = false;
+		System.out.println(bean.getUSER_SEQ());
+		try {
+			con = pool.getConnection();
+			sql = "insert notice(NOTICE_SEQ,USER_SEQ,NOTICE_TITLE,NOTICE_TEXT,NOTICE_DATE"
+					+ ")values(?,?,?,?,now())";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, bean.getNOTICE_SEQ());
+			pstmt.setInt(2, bean.getUSER_SEQ());
+			pstmt.setString(3, bean.getNOTICE_TITLE());
+			pstmt.setString(4, bean.getNOTICE_TEXT());
+			//pstmt.setString(5, bean.getNOTICE_DATE());
+			
+			if (pstmt.executeUpdate() == 1)
+				flag = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
 		}
+		return flag;
+	}
 	
-		public int getUSER_SEQ(HttpServletRequest request) {
+//	// 게시글 작성
+//		public void insertBoard(HttpServletRequest req) {
+//			Connection con = null;
+//			PreparedStatement pstmt = null;
+//			ResultSet rs = null;
+//			String sql = null;
+//			MultipartRequest multi = null;
+//			int NOTICE_SEQ=0;
+//			int USER_SEQ=0;
+//			try {
+//				con = pool.getConnection();
+//				sql = "select max(NOTICE_SEQ) from notice";
+//				pstmt = con.prepareStatement(sql);
+//				rs = pstmt.executeQuery();
+//				
+//				int ref = 1;
+//				if (rs.next())
+//				USER_SEQ=
+//				ref = rs.getInt(1) + 1;
+//				File file = new File(SAVEFOLDER);
+//				if (!file.exists())
+//					file.mkdirs();
+//				multi = new MultipartRequest(req, SAVEFOLDER,MAXSIZE, ENCTYPE,
+//						new DefaultFileRenamePolicy());
+//				
+//				//String content = multi.getParameter("NOTICE_TEXT");
+//				sql = "insert notice(NOTICE_SEQ,USER_SEQ,NOTICE_TITLE,NOTICE_TEXT,NOTICE_DATE)";
+//				sql += "values(?, ?, ?, ?, now())";
+//				pstmt = con.prepareStatement(sql);
+//				pstmt.setInt(1, Integer.parseInt(multi.getParameter(NOTICE_SEQ)));
+//				pstmt.setInt(2, multi.getParameter(USER_SEQ));
+//				pstmt.setString(3, multi.getParameter("NOTICE_TITLE"));//setInt로 해야 하는데..
+//				pstmt.setString(4,multi.getParameter("NOTICETEXT"));
+//				
+//				//pstmt.setString(3, multi.getParameter("subject"));
+//				//pstmt.setString(5, multi.getParameter("pass"));
+//				//pstmt.setString(6, multi.getParameter("ip"));
+//				pstmt.executeUpdate();
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			} finally {
+//				pool.freeConnection(con, pstmt, rs);
+//			}
+//		}
+//	
+		public int getUSER_SEQ(String USER_ID) {
+			Connection conn = null;
+			Statement stmt = null;
+			ResultSet rs = null;
+			int USER_SEQ_KEY=0;
+			try {
+				conn = pool.getConnection();
+				String strQuery = "select USER_SEQ from userinfo where USER_ID = '"+USER_ID+"'";
+				stmt = conn.createStatement();
+				rs = stmt.executeQuery(strQuery);
+				
+				if(rs.next()) {
+					USER_SEQ_KEY=rs.getInt("USER_SEQ");
+				}
+			} catch (Exception ex) {
+				System.out.println("Exception " + ex);
+			} finally {
+				pool.freeConnection(conn);
+			}
+			
+			return USER_SEQ_KEY;
+		}
+		
+		/*public int getUSER_SEQ(HttpServletRequest request) {
 			Connection conn = null;
 			Statement stmt = null;
 			ResultSet rs = null;
@@ -93,7 +145,12 @@ public class NoticeMgrPool {
 			}
 			
 			return USER_SEQ_KEY;
-		}
+		}*/
+		
+		
+		
+		
+		
 	public Vector<NoticeBean> getNoticeList() {
 		Connection conn = null;
 		Statement stmt = null;
