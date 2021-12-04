@@ -13,10 +13,10 @@
 	  String msg = "로그인에 실패 하였습니다.";
 	  
 	  boolean result = mMgr.loginUser(USER_ID, USER_PW);
-	  int USER_SEQ_KEY=(int)mMgr.getUSER_SEQ(USER_ID);
+	  //int USER_SEQ_KEY=(int)mMgr.getUSER_SEQ(USER_ID);
 	  if(result){
 	    session.setAttribute("idKey",USER_ID);
-	    session.setAttribute("USER_SEQ_KEY",USER_SEQ_KEY);
+	    //session.setAttribute("USER_SEQ_KEY",USER_SEQ_KEY);
 	    msg = "로그인에 성공 하였습니다.";
 	    System.out.println(session.getAttribute("USER_SEQ_KEY"));//user_id 확인용
 	  }
