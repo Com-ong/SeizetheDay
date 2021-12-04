@@ -54,9 +54,140 @@
 } */
 	</style>
 	
+<style> /* sidebar style*/
+/* Fixed sidenav, full height */
+.sidenav {
+  	height: 100%;
+  	width: 0;
+  	position: fixed;
+ 	z-index: 9999;
+ 	top: 0;
+ 	left: 0;
+ 	background-color: white;
+ 	overflow-x: hidden;
+  	padding-top: 60px;
+	transition: 0.3s;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+ 	font-size: 0.8em;
+	color: #333355;
+	display: block;
+	border: none;
+	background: none;
+ 	width:100%;
+ 	text-align: left;
+ 	cursor: pointer;
+	outline: none;
+	transition: 0.3s;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+	color: #a3a3a3;
+}
+
+.sidenav .closebtn {
+	position: absolute;
+	top: 1%;
+	/* right: 25px; */
+	font-size: 20px;
+	margin-left: 70%;
+	float: right;
+	color: #333355;
+}
+
+/* .sidenav .openbtn {
+	position: absolute;
+	top: 1%; */
+	/* right: 25px; */
+/* 	font-size: 20px;
+	float: left;
+	color: white;
+} */
+
+/* Main content */
+.main {
+	margin-left: 200px; /* Same as the width of the sidenav */
+	font-size: 20px; /* Increased text to enable scrolling */
+	padding: 20px;
+	transition: margin-left .5s;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+	background-color: white;
+	color: #333355;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+	display: none;
+	background-color: /* #6767a3 */white;
+	padding-left: 8px;
+	color: white;
+}
+
+/* Optional: Style the caret down icon */
+.drop-down {
+	float: right;
+	padding-right: 8%;
+}
+
+@media screen and (max-height: 450px) {
+	.sidenav {padding-top: 15px;}
+	.sidenav a {font-size: 18px;}
+}
+</style>
+<script> /*sidebar function*/
+/* Set the width of the side navigation to 250px */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
 <div class="head1">
+	<!-- side menu 수정 -->
+	<div class="sidenav" id="mySidenav">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#9776;</a>
+		<a href="index.jsp">HOMEPAGE</a>
+		<a href="notice.jsp">NOTICE</a>
+		<button class="dropdown-btn">EXHIBITION
+			<i class="drop-down"></i>
+		</button>
+		<div class="dropdown-container">
+			<a href="create.jsp">CREATE</a>
+			<a href="#">LIST</a>
+			<a href="guestBook.jsp">GUESTBOOK</a>
+		</div>
+		<button class="dropdown-btn">EXHIBITION CATEGORY
+			<i class="drop-down"></i>
+		</button>
+		<div class="dropdown-container">
+			<a href="#">IT</a>
+			<a href="#">ART</a>
+			<a href="#">SCIENCE</a>
+			<a href="#">MODERN</a>
+			<a href="#">GEOMETRIC</a>
+		</div>
+		<a href="trend.jsp">TREND</a>
+  		<a href="#contact">1:1 INQUIRY</a>
+  		<a href="myPage.jsp">MYPAGE</a>
+	</div>
+	<!-- Use any element to open the sidenav -->
+	<span class="user-button" onclick="openNav()" style="background-color: white;
+	margin-top: 3%;	margin-left: 6%;	padding : 0.5%;	width: 2%;	
+	text-align: center;	border-radius: 5px;	display:inline-block;">&#9776;</span>
 	
-	<div class="left-side-bar">
+	<!-- <div class="left-side-bar">
         <div class="status-ico">
             <span>≡</span>
             <span>≡</span>
@@ -67,7 +198,7 @@
             <li><a href="#">1:1 문의</a></li>
             <li><a href="#">마이페이지</a></li>
         </ul>
-    </div>
+    </div> -->
 
 	<!-- 수정한 부분 - 로그인 여부에 따라 login/logout 버튼 표시 -->
 	<div class="user-section" style="text-align:right; margin-right: 5%;">
