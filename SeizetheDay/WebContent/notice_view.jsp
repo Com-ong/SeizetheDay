@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 
-<!-- DB 占쏙옙占쏙옙 占쏙옙占쏙옙 占쌩곤옙 占싸븝옙 -->
+<!-- DB 연결 위한 추가 부분 -->
 <%@ page import="java.util.*, java.sql.*, JavaBeans.*"%>
 <jsp:useBean id="noticeMgr" class="JavaBeans.NoticeMgrPool" />
 <jsp:useBean id="userMgr" class="JavaBeans.UserMgrPool" />
@@ -11,9 +11,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="EUC-KR">
 <title>notice_view page</title>
-<!-- 占쏙옙占쏙옙占쏙옙크:https://peterkimlab.github.io/jsp/JSP-%EA%B2%8C%EC%8B%9C%ED%8C%90-%EC%9B%B9-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/ -->
-<!--notice占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙  占쏙옙占쏙옙화占쏙옙 占쏙옙占쏙옙 css 占쏙옙크占쏙옙 trend.css占쏙옙占�. 占쏠갈몌옙 占쏙옙占쏙옙 -->
+<!-- 참고링크:https://peterkimlab.github.io/jsp/JSP-%EA%B2%8C%EC%8B%9C%ED%8C%90-%EC%9B%B9-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/ -->
+<!--notice페이지지만  간소화를 위해 css 링크는 trend.css사용. 헷갈림 방지 -->
 <link rel="stylesheet" href="CSS/notice.css">
 </head>
 <style>
@@ -80,7 +81,7 @@ table tfoot {
 						</tr>
 					</thead>
 					<tbody>
-						<!-- DB 占쏙옙占쏙옙 占쏙옙占쏙옙 占쌩곤옙 占싸븝옙 -->
+						<!-- DB 연결 위한 추가 부분 -->
 						<%
 							request.setCharacterEncoding("EUC-KR");
 						
@@ -98,26 +99,26 @@ table tfoot {
 									notice_title = noticeBean.getNOTICE_TITLE();
 									notice_text = noticeBean.getNOTICE_TEXT();
 									notice_date = noticeBean.getNOTICE_DATE().toString();
-									//notice_writer_=noticeBean.getUSER_SEQ();//占쌩곤옙
+									//notice_writer_=noticeBean.getUSER_SEQ();//추가
 									notice_writer=noticeMgr.getUSER_NAME(noticeBean.getUSER_SEQ());//
-									System.out.println("sql占쏙옙 占쏙옙占쏙옙 notice_writer: "+notice_writer);
+									System.out.println("sql문 적용 notice_writer: "+notice_writer);
 								}
 							}
 						%>
 						<tr>
-							<td style="width: 10%;">占쏙옙占쏙옙占쏙옙</td>
+							<td style="width: 10%;">글제목</td>
 							<td colspan="2"><%=notice_title%></td>
 						</tr>
 						<tr>
-							<td>占쌜쇽옙占쏙옙</td>
+							<td>작성자</td>
 							<td colspan="2"><%=notice_writer%></td>
 						</tr>
 						<tr>
-							<td>占쌜쇽옙占쏙옙占쏙옙</td>
+							<td>작성일자</td>
 							<td colspan="2"><%=notice_date%></td>
 						</tr>
 						<tr style="height: 450px;">
-							<td>占쏙옙占쏙옙</td>
+							<td>내용</td>
 							<td colspan="2" style="min-height: 200px; text-align: left;">
 								<%=notice_text%>
 							</td>
