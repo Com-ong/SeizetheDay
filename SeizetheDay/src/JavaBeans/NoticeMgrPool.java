@@ -101,6 +101,7 @@ public class NoticeMgrPool {
 //			}
 //		}
 //	
+		//게시글 작성시 user_id로 User_seq 불러오기 
 		public int getUSER_SEQ(String USER_ID) {
 			Connection conn = null;
 			Statement stmt = null;
@@ -122,6 +123,31 @@ public class NoticeMgrPool {
 			}
 			
 			return USER_SEQ_KEY;
+		}
+		
+		//게시글 관람 시 작성자의 이름 불러오기
+		public String getUSER_NAME(int USER_SEQ) {
+			Connection conn = null;
+			Statement stmt = null;
+			ResultSet rs = null;
+			String USER_NAME=null;
+			System.out.println(USER_SEQ);
+			try {
+				conn = pool.getConnection();
+				String strQuery = "select USER_NAME from userinfo where USER_SEQ = '"+USER_SEQ+"'";
+				stmt = conn.createStatement();
+				rs = stmt.executeQuery(strQuery);
+				
+				if(rs.next()) {
+					USER_NAME=rs.getString("USER_NAME");
+				}
+			} catch (Exception ex) {
+				System.out.println("Exception " + ex);
+			} finally {
+				pool.freeConnection(conn);
+			}
+			System.out.println(USER_NAME);
+			return USER_NAME;
 		}
 		
 		/*public int getUSER_SEQ(HttpServletRequest request) {
