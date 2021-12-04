@@ -9,7 +9,7 @@ public class DBConnectionMgr {
 	private String DRIVER = "org.gjt.mm.mysql.Driver",
 			URL = "jdbc:mysql://127.0.0.1:3306/seize_the_day?useUnicode=true&characterEncoding=EUC-KR",
 			USER = "root",
-			PASSWORD = "dkqhzkeh193@";
+			PASSWORD = "1234";
 	private boolean TRACEON = false;
 	private boolean initialized = false;
 	private int _openConnections = 10;
