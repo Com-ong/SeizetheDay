@@ -1,94 +1,138 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-<!-- DB Ïó∞Í≤∞ ÏúÑÌïú Ï∂îÍ∞Ä Î∂ÄÎ∂Ñ -->
-<%@ page import="java.util.*, java.sql.*, JavaBeans.*" %>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+
+<!-- DB ø¨∞· ¿ß«— √ﬂ∞° ∫Œ∫– -->
+<%@ page import="java.util.*, java.sql.*, JavaBeans.*"%>
 <jsp:useBean id="noticeMgr" class="JavaBeans.NoticeMgrPool" />
 <jsp:useBean id="userMgr" class="JavaBeans.UserMgrPool" />
 <!-- #################################### -->
 
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <title>notice_view page</title>
-<!-- Ï∞∏Í≥†ÎßÅÌÅ¨:https://peterkimlab.github.io/jsp/JSP-%EA%B2%8C%EC%8B%9C%ED%8C%90-%EC%9B%B9-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/ -->
-<!--noticeÌéòÏù¥ÏßÄÏßÄÎßå  Í∞ÑÏÜåÌôîÎ•º ÏúÑÌï¥ css ÎßÅÌÅ¨Îäî trend.cssÏÇ¨Ïö©. Ìó∑Í∞àÎ¶º Î∞©ÏßÄ -->
-<link rel="stylesheet" href="CSS/trend.css">
+<!-- ¬¸∞Ì∏µ≈©:https://peterkimlab.github.io/jsp/JSP-%EA%B2%8C%EC%8B%9C%ED%8C%90-%EC%9B%B9-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/ -->
+<!--notice∆‰¿Ã¡ˆ¡ˆ∏∏  ∞£º“»≠∏¶ ¿ß«ÿ css ∏µ≈©¥¬ trend.cssªÁøÎ. «Ú∞•∏≤ πÊ¡ˆ -->
+<link rel="stylesheet" href="CSS/notice.css">
 </head>
 <style>
-	#ExhLeft {float : left; width : 300px;  margin-top : 20px; margin-left : 30px; margin-right : 30px; margin-bottom: 20px;
-border-radius: 9%; overflow: hidden;
-th{
-background-color:#eeeeee; 
-text-align: center; 
-width:10%;
+#ExhLeft {
+	float: left;
+	width: 300px;
+	margin-top: 20px;
+	margin-left: 30px;
+	margin-right: 30px;
+	margin-bottom: 20px;
+	border-radius: 9%;
+	overflow: hidden; th { background-color : #eeeeee;
+	text-align: center;
+	width: 10%;
+}
+
+table {
+	display: table;
+	border-color: grey;
+}
+
+table tbody tr {
+	border: solid 1px rgba(210, 215, 217, 0.75);
+	border-left: 0;
+	border-right: 0;
+}
+
+table tbody tr:nth-child(2n + 1) {
+	background-color: rgba(230, 235, 237, 0.25);
+}
+
+table td {
+	padding: 0.75em 0.75em;
+}
+
+table th {
+	color: #3d4449;
+	font-size: 0.9em;
+	font-weight: 600;
+	padding: 0 0.75em 0.75em 0.75em;
+	text-align: left;
+}
+
+table thead {
+	border-bottom: solid 2px rgba(210, 215, 217, 0.75);
+}
+
+table tfoot {
+	border-top: solid 2px rgba(210, 215, 217, 0.75);
 }
 </style>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-	
-	<div class = "trend">
-		<div class = "trend-title">
-			Notice
-		</div>
+
+	<div class="notice" style="height:130%;">
+		<div class="notice-title">Notice</div>
 		<div class="container">
-		<div class="row">
-			<table class="table table-striped" style="text-align: center; border: 1px solid #333344; width:100%;">
-				<thead>
-					<tr>
-						<th colspan="3" style="background-color: #eeeeee; text-align: center;">notice</th>						
-					</tr>
-				</thead>
-				<tbody>
-					<!-- DB Ïó∞Í≤∞ ÏúÑÌïú Ï∂îÍ∞Ä Î∂ÄÎ∂Ñ -->
-					<%
-						request.setCharacterEncoding("UTF-8");
-						int notice_seq = Integer.parseInt(request.getParameter("notice_seq"));
-						String notice_writer = request.getParameter("notice_writer");
-						Vector<NoticeBean> vlist = noticeMgr.getNoticeList();
-						String notice_title="", notice_text="", notice_date = "";
-						for(int i=0; i<vlist.size(); i++)
-						{
-							NoticeBean noticeBean = vlist.get(i);
-							if(noticeBean.getNOTICE_SEQ() == notice_seq)
-							{
-								notice_title = noticeBean.getNOTICE_TITLE();
-								notice_text = noticeBean.getNOTICE_TEXT();
-								notice_date = noticeBean.getNOTICE_DATE().toString();
-								break;
+			<div class="row">
+				<table style="text-align: center; width: 100%;">
+					<thead>
+						<tr>
+							<th colspan="3"
+								style="background-color: #eeeeee; text-align: center;">notice</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- DB ø¨∞· ¿ß«— √ﬂ∞° ∫Œ∫– -->
+						<%
+							request.setCharacterEncoding("EUC-KR");
+						
+							int notice_seq = Integer.parseInt(request.getParameter("notice_seq"));
+							//String notice_writer = "";
+							
+							Vector<UserBean> userlist = userMgr.getRegisterList();
+							Vector<NoticeBean> vlist = noticeMgr.getNoticeList();
+							System.out.println("notice_seq: "+notice_seq);
+							String notice_title = "", notice_text = "", notice_date = "";
+							String notice_writer="";
+							for (int i = 0; i < vlist.size(); i++) {
+								NoticeBean noticeBean = vlist.get(i);
+								if (noticeBean.getNOTICE_SEQ() == notice_seq) {
+									notice_title = noticeBean.getNOTICE_TITLE();
+									notice_text = noticeBean.getNOTICE_TEXT();
+									notice_date = noticeBean.getNOTICE_DATE().toString();
+									//notice_writer_=noticeBean.getUSER_SEQ();//√ﬂ∞°
+									notice_writer=noticeMgr.getUSER_NAME(noticeBean.getUSER_SEQ());//
+									System.out.println("sqlπÆ ¿˚øÎ notice_writer: "+notice_writer);
+								}
 							}
-						}
-					%>
-					
-					<tr>
-						<td style="width:10%;">Í∏ÄÏ†úÎ™©</td>
-						<td colspan="2"><%= notice_title %></td>
-					</tr>
-					<tr>
-						<td>ÏûëÏÑ±Ïûê</td>
-						<td colspan="2"><%= notice_writer %></td>
-					</tr>
-					<tr>
-						<td>ÏûëÏÑ±ÏùºÏûê</td>
-						<td colspan="2"><%= notice_date %></td>
-					</tr>
-					<tr style="height:450px;">
-						<td>ÎÇ¥Ïö©</td>
-						<td colspan="2" style="min-height: 200px; text-align: left;">
-							<%= notice_text %>
-						</td>
-					</tr>
-					<!-- #################################### -->
-				</tbody>
-			</table>
-			<div class="head1">
-			<div class="user-section">
-			<a href="notice.jsp" class="user-button" style="border:2px solid #333344;">Î™©Î°ù</a>
-			</div>
+						%>
+						<tr>
+							<td style="width: 10%;">±€¡¶∏Ò</td>
+							<td colspan="2"><%=notice_title%></td>
+						</tr>
+						<tr>
+							<td>¿€º∫¿⁄</td>
+							<td colspan="2"><%=notice_writer%></td>
+						</tr>
+						<tr>
+							<td>¿€º∫¿œ¿⁄</td>
+							<td colspan="2"><%=notice_date%></td>
+						</tr>
+						<tr style="height: 450px;">
+							<td>≥ªøÎ</td>
+							<td colspan="2" style="min-height: 200px; text-align: left;">
+								<%=notice_text%>
+							</td>
+						</tr>
+						<!-- #################################### -->
+					</tbody>
+				</table>
+
+				<div style="padding: 30px;">
+					<input type="button" value="Notice List"
+						onClick="javascript:location.href='notice.jsp'">
+				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 </body>
 </html>

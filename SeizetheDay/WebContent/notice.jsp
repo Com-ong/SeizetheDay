@@ -1,7 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%
+	  request.setCharacterEncoding("EUC-KR");
+	  String user_id = (String)session.getAttribute("idKey");
+	  //String USER_SEQ=(String)session.getAttribute("USER_SEQ_KEY");
+	  //int USER_SEQ=(int)session.getAttribute("USER_SEQ_KEY");
+%>
     
-<!-- DB ì—°ê²° ìœ„í•œ ì¶”ê°€ ë¶€ë¶„ -->
+<!-- DB ¿¬°á À§ÇÑ Ãß°¡ ºÎºĞ -->
 <%@ page import="java.util.*, java.sql.*, JavaBeans.*" %>
 <jsp:useBean id="noticeMgr" class="JavaBeans.NoticeMgrPool" />
 <jsp:useBean id="userMgr" class="JavaBeans.UserMgrPool" />
@@ -10,11 +16,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <title>notice page</title>
-<!-- ì°¸ê³ ë§í¬:https://peterkimlab.github.io/jsp/JSP-%EA%B2%8C%EC%8B%9C%ED%8C%90-%EC%9B%B9-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/ -->
-<!--noticeí˜ì´ì§€ì§€ë§Œ  ê°„ì†Œí™”ë¥¼ ìœ„í•´ css ë§í¬ëŠ” trend.cssì‚¬ìš©. í—·ê°ˆë¦¼ ë°©ì§€ -->
-<link rel="stylesheet" href="CSS/trend.css">
+<!-- Âü°í¸µÅ©:https://peterkimlab.github.io/jsp/JSP-%EA%B2%8C%EC%8B%9C%ED%8C%90-%EC%9B%B9-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/ -->
+<!--noticeÆäÀÌÁöÁö¸¸  °£¼ÒÈ­¸¦ À§ÇØ css ¸µÅ©´Â trend.css»ç¿ë. Çò°¥¸² ¹æÁö -->
+<link rel="stylesheet" href="CSS/notice.css">
 </head>
 <style>
 	#ExhLeft {float : left; width : 300px;  margin-top : 20px; margin-left : 30px; margin-right : 30px; margin-bottom: 20px;
@@ -24,27 +30,64 @@ background-color:#eeeeee;
 text-align: center; 
 width:10%;
 }
+
+table{
+	display: table;
+	    border-color: grey;
+}
+
+
+		table tbody tr {
+			border: solid 1px rgba(210, 215, 217, 0.75);
+			border-left: 0;
+			border-right: 0;
+		}
+
+			table tbody tr:nth-child(2n + 1) {
+				background-color: rgba(230, 235, 237, 0.25);
+			}
+
+		table td {
+			padding: 0.75em 0.75em;
+		}
+
+		table th {
+			color: #3d4449;
+			font-size: 0.9em;
+			font-weight: 600;
+			padding: 0 0.75em 0.75em 0.75em;
+			text-align: left;
+		}
+
+		table thead {
+			border-bottom: solid 2px rgba(210, 215, 217, 0.75);
+		}
+
+		table tfoot {
+			border-top: solid 2px rgba(210, 215, 217, 0.75);
+		}
 </style>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	
-	<div class = "trend">
-		<div class = "trend-title">
+	<div class = "notice">
+		<div class = "notice-title">
 			Notice
 		</div>
 		<div class="container" style="padding:20px;">
 		<div class="row">
-			<table class="table table-striped" style="text-align: center; border: 1px solid #333344; width:100%;">
+			<!--<table class="table table-striped" style="text-align: center; width:100%;">-->
+			<table style="text-align: center; width:100%;">
 				<thead>
 					<tr >
-						<th>ë²ˆí˜¸</th>
-						<th style="width:70%;">ì œëª©</th>
-						<th>ì‘ì„±ì</th>
-						<th>ì‘ì„±ì¼</th>
+						<th>¹øÈ£</th>
+						<th style="width:70%;">Á¦¸ñ</th>
+						<th>ÀÛ¼ºÀÚ</th>
+						<th>ÀÛ¼ºÀÏ</th>
 					</tr>
 				</thead>
 				<tbody>
-					<!-- DB ì—°ê²° ìœ„í•œ ì¶”ê°€ ë¶€ë¶„ -->
+					<!-- DB ¿¬°á À§ÇÑ Ãß°¡ ºÎºĞ -->
 					<%
 						Vector<NoticeBean> vlist = noticeMgr.getNoticeList();
 						Vector<UserBean> userlist = userMgr.getRegisterList();	
@@ -65,29 +108,67 @@ width:10%;
 							}
 							
 					%>
-					<tr style="height:60px;">
+					<tr style="height:60px; ">
 						<td><%= noticeBean.getNOTICE_SEQ() %></td>
 						<td><a href="notice_view.jsp?notice_seq=<%=noticeBean.getNOTICE_SEQ() %>&notice_writer=<%=notice_writer%>"><%= noticeBean.getNOTICE_TITLE() %></a></td>
 						<td><%= notice_writer %></td>
 						<td><%= noticeBean.getNOTICE_DATE() %></td>
 					</tr>
 					<% } %>
-					<!-- ################ -->
-					<!-- <tr style="height:60px;">
-						<td>1</td>
-						<td><a href="notice_view.jsp">ì•ˆë…•í•˜ì„¸ìš”</a></td>
-						<td>í™ê¸¸ë™</td>
-						<td>2017-05-04</td>
-					</tr>
-					<tr style="height:60px;">
-						<td>2</td>
-						<td><a href="notice_view.jsp">í•´í‚¹ ë‹¹í–ˆìŠµë‹ˆë‹¤.</a></td>
-						<td>ê´€ë¦¬ì</td>
-						<td>2017-05-04</td>
-					</tr> -->
+			<!-- <form name="postFrm" method="post" action="boardPost"
+			enctype="multipart/form-data">
+			<div class="table-wrapper">
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Description</th>
+							<th>Price</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Item1</td>
+							<td>Ante turpis integer aliquet porttitor.</td>
+							<td>29.99</td>
+						</tr>
+						<tr>
+							<td>Item2</td>
+							<td>Vis ac commodo adipiscing arcu aliquet.</td>
+							<td>19.99</td>
+						</tr>
+						<tr>
+							<td>Item3</td>
+							<td>Morbi faucibus arcu accumsan lorem.</td>
+							<td>29.99</td>
+						</tr>
+						<tr>
+							<td>Item4</td>
+							<td>Vitae integer tempus condimentum.</td>
+							<td>19.99</td>
+						</tr>
+						<tr>
+							<td>Item5</td>
+							<td>Ante turpis integer aliquet porttitor.</td>
+							<td>29.99</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="2"></td>
+							<td>100.00</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</form>-->
 				</tbody>
 			</table>
-			<!--<a href="write.jsp" class="btn btn-primary pull-right">ê¸€ì“°ê¸°</a>  -->
+			<!--<a href="write.jsp" class="btn btn-primary pull-right">±Û¾²±â</a>  -->
+		<div style="padding:30px;">
+			<input type="button" value="Write" onClick="javascript:location.href='notice_write.jsp'">
+		</div>
+		
 		</div>
 	</div>
 	</div>
