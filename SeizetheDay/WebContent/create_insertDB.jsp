@@ -87,7 +87,7 @@
 		int i=0;
 		while(files.hasMoreElements()) {
 			String name = (String) files.nextElement();
-			filename[i] = multi.getFilesystemName(name);
+			filename[file_cnt-1-i] = multi.getFilesystemName(name);
 			String original = multi.getOriginalFileName(name);
 			String type = multi.getContentType(name);
 			File f = multi.getFile(name);
