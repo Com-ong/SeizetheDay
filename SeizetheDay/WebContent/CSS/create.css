@@ -84,3 +84,14 @@
 	align-items: center;
 	text-align: center;
 }
+
+button#addImgBtn{
+	border: 0; 
+	background: transparent;
+	width:30px;
+	height:30px;
+}
+button#addImgBtn img{
+	width:30px;
+	height:30px;
+}
