@@ -31,11 +31,28 @@
 	// 이 주소로 저장됨(참고하기)
 	String saveFolder = request.getSession().getServletContext().getRealPath("FileStorage"); // 상대 경로
 	System.out.println(saveFolder);
+	File Folder = new File(saveFolder);
+	if (!Folder.exists()) {
+		try{
+		    Folder.mkdir(); //폴더 생성합니다.
+		    System.out.println("폴더가 생성되었습니다.");
+	        } 
+	        catch(Exception e){
+		    e.getStackTrace();
+		}        
+         }else {
+		System.out.println("이미 폴더가 생성되어 있습니다.");
+	}
 	String encType = "UTF-8";
 	int maxSize = 5 * 1024 * 1024;
-	String filename = "";
+	int file_cnt = 0;
+	
 	String exhibition_open = "";
-	String exhibition_name = "", exhibition_text = "", exhibition_start_date = "", exhibition_end_date = "", exhibition_background_color = "", exhibition_file_explain = "";
+	String exhibition_name = "", exhibition_text = "", exhibition_start_date = "", exhibition_end_date = "", exhibition_background_color = "", exhibition_file_cnt="";
+	
+	String filename[] = new String[5];
+	String exhibition_file_explain[] = new String[5];
+	
 	try {
 		MultipartRequest multi = null;
 		multi = new MultipartRequest(request, saveFolder, maxSize, encType, new DefaultFileRenamePolicy());
@@ -51,14 +68,26 @@
 			else if(name.equals("exhibition-start-date")) exhibition_start_date = value;
 			else if(name.equals("exhibition-finish-date")) exhibition_end_date = value;
 			else if(name.equals("exhibition-background-color")) exhibition_background_color = value;
-			else if(name.equals("exhibition-file-explain")) exhibition_file_explain = value;
+			else if(name.equals("exhibition-file-cnt")) {
+				System.out.print(value);
+				exhibition_file_cnt = value;
+				file_cnt = Integer.parseInt(exhibition_file_cnt);
+			}
+			else if(name.equals("exhibition-file-explain1")){
+				 exhibition_file_explain[0]=value;
+			}
+			for (int i = 1; i < file_cnt;i++){
+				if (name.equals("exhibition-file-explain"+Integer.toString(i+1))) exhibition_file_explain[i]=value;
+				System.out.println("input test"+i+"="+exhibition_file_explain[i]);
+			}
 			System.out.println(name + " = " + value + "<br/>");
 		}
 		
 		Enumeration files = multi.getFileNames();
+		int i=0;
 		while(files.hasMoreElements()) {
 			String name = (String) files.nextElement();
-			filename = multi.getFilesystemName(name);
+			filename[i] = multi.getFilesystemName(name);
 			String original = multi.getOriginalFileName(name);
 			String type = multi.getContentType(name);
 			File f = multi.getFile(name);
@@ -70,6 +99,7 @@
 				System.out.println("크기 : " + f.length() + "바이트");
 				System.out.println("<br/>");
 			}
+			i++;
 		}
 	} catch (IOException ioe) {
 		System.out.println(ioe);
@@ -77,36 +107,27 @@
 		System.out.println(ex);
 	}
 	
-	// 정보 가져오기
-	//String exhibition_name = request.getParameter("exhibition-title");
-	//String exhibition_text = request.getParameter("exhibition-explain");
-	//String exhibition_start_date = request.getParameter("exhibition-start-date");
-	//String exhibition_end_date = request.getParameter("exhibition-finish-date");
 	Boolean exhibition_private = false;
-	//System.out.println(request.getParameter("exhibition-open"));
 	System.out.println(exhibition_open);
+	
 	if(exhibition_open.equals("public")) exhibition_private = true;
 	else if(exhibition_open.equals("private")) exhibition_private = false;
-	//String exhibition_file = request.getParameter("exhibtion_file");
-	//System.out.println(exhibition_file);
-	//SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+	
 	Date startDate = Date.valueOf(exhibition_start_date);
 	Date endDate = Date.valueOf(exhibition_end_date);
-	int index = 8;
 	counter++;
-	photo_counter++;
 	background_counter++;
 	backgroundMgr.insertBackground(background_counter, exhibition_background_color);
-	exhibitionMgr.insertExhibition(counter, 1, 1, background_counter, 1, exhibition_private, exhibition_name, exhibition_text, null, startDate, endDate);
-	photoMgr.insertPhoto(photo_counter, counter, filename, filename, exhibition_file_explain);
-
+	exhibitionMgr.insertExhibition(counter, 1, 1, background_counter, file_cnt, exhibition_private, exhibition_name, exhibition_text, null, startDate, endDate);
+	System.out.println(file_cnt);
+	for(int i=0 ; i< file_cnt ; i++){
+		photo_counter++;
+		photoMgr.insertPhoto(photo_counter, counter, filename[i], filename[i], exhibition_file_explain[i]);
+	}
 	exhibitionMgr.updatePhoto(counter, photo_counter);
-	
 %>
 <script>
-	alert("저장 성공"); // ## 진짜 성공일 때만 띄우는 걸로 해야할 듯
-	
-	location.href="show_test.jsp?exhibition_seq=<%=counter%>&exhibition_background_seq=<%=background_counter%>";
+	location.href="show_exhibition.jsp?exhibition_seq=<%=counter%>&exhibition_background_seq=<%=background_counter%>";
 </script>
 </body>
 </html>

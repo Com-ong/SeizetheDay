@@ -15,7 +15,7 @@ public class PhotoMgrPool {
 		try {
 			pool = DBConnectionMgr.getInstance();
 		} catch (Exception e) {
-			System.out.println("Error : Ä¿³Ø¼Ç ¾ò¾î¿À±â ½ÇÆĞ");
+			System.out.println("Error : Ä¿ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		}
 	}
 	
@@ -72,6 +72,36 @@ public class PhotoMgrPool {
 		}
 		
 		return bean;
+	}
+	public Vector<PhotoBean> getPhotoListinEx(int exhibition_seq)//í•œ ì „ì‹œíšŒì— ëŒ€í•œ photo ëª©ë¡ ê°€ì ¸ì˜¤ê¸°
+	{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		Vector<PhotoBean> beanList = new Vector<PhotoBean>();
+		try {
+			conn = pool.getConnection();
+			String strQuery = "select * from photo where EXHIBITION_SEQ = ?";
+			System.out.println(exhibition_seq);
+			pstmt = conn.prepareStatement(strQuery);
+			pstmt.setInt(1, exhibition_seq);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				PhotoBean temp = new PhotoBean();
+				temp.setPHOTO_SEQ(rs.getInt("PHOTO_SEQ"));
+				temp.setEXHIBITION_SEQ(rs.getInt("EXHIBITION_SEQ"));
+				temp.setPHOTO_IMAGE(rs.getString("PHOTO_IMAGE"));
+				temp.setPHOTO_NAME(rs.getString("PHOTO_NAME"));
+				temp.setPHOTO_TEXT(rs.getString("PHOTO_TEXT"));	
+				beanList.add(temp);
+			}
+		} catch (Exception ex) {
+			System.out.println("Exception getPhoto " + ex);
+		}
+		
+		return beanList;
 	}
 	
 	public void insertPhoto(int photo_seq, int exhibition_seq, String photo_image, String photo_name, String photo_text)
