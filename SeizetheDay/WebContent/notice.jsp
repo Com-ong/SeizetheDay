@@ -1,5 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="UTF-8"%>
+<%
+	  request.setCharacterEncoding("EUC-KR");
+	  String user_id = (String)session.getAttribute("idKey");
+	  
+	  //String USER_SEQ=(String)session.getAttribute("USER_SEQ_KEY");
+	  int USER_SEQ=(int)session.getAttribute("USER_SEQ_KEY");
+%>
     
 <!-- DB 연결 위한 추가 부분 -->
 <%@ page import="java.util.*, java.sql.*, JavaBeans.*" %>
@@ -72,22 +79,60 @@ width:10%;
 						<td><%= noticeBean.getNOTICE_DATE() %></td>
 					</tr>
 					<% } %>
-					<!-- ################ -->
-					<!-- <tr style="height:60px;">
-						<td>1</td>
-						<td><a href="notice_view.jsp">안녕하세요</a></td>
-						<td>홍길동</td>
-						<td>2017-05-04</td>
-					</tr>
-					<tr style="height:60px;">
-						<td>2</td>
-						<td><a href="notice_view.jsp">해킹 당했습니다.</a></td>
-						<td>관리자</td>
-						<td>2017-05-04</td>
-					</tr> -->
+			<!-- <form name="postFrm" method="post" action="boardPost"
+			enctype="multipart/form-data">
+			<div class="table-wrapper">
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Description</th>
+							<th>Price</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Item1</td>
+							<td>Ante turpis integer aliquet porttitor.</td>
+							<td>29.99</td>
+						</tr>
+						<tr>
+							<td>Item2</td>
+							<td>Vis ac commodo adipiscing arcu aliquet.</td>
+							<td>19.99</td>
+						</tr>
+						<tr>
+							<td>Item3</td>
+							<td>Morbi faucibus arcu accumsan lorem.</td>
+							<td>29.99</td>
+						</tr>
+						<tr>
+							<td>Item4</td>
+							<td>Vitae integer tempus condimentum.</td>
+							<td>19.99</td>
+						</tr>
+						<tr>
+							<td>Item5</td>
+							<td>Ante turpis integer aliquet porttitor.</td>
+							<td>29.99</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="2"></td>
+							<td>100.00</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</form>-->
 				</tbody>
 			</table>
 			<!--<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>  -->
+		<div>
+			<input type="button" value="Write" onClick="javascript:location.href='notice_write.jsp'">
+		</div>
+		
 		</div>
 	</div>
 	</div>

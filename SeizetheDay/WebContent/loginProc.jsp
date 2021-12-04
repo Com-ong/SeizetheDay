@@ -1,21 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <jsp:useBean id="mMgr" class="JavaBeans.UserMgrPool"/>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <%
-	  request.setCharacterEncoding("UTF-8");
+	  request.setCharacterEncoding("EUC-KR");
 	  String USER_ID = request.getParameter("USER_ID");
 	  String USER_PW = request.getParameter("USER_PW");
 	  String url = "index.jsp";
-	  String msg = "ë¡œê·¸ì¸ì— ì‹¤íŒ¨ í•˜ì˜€ìŠµë‹ˆë‹¤.";
+	  String msg = "·Î±×ÀÎ¿¡ ½ÇÆÐ ÇÏ¿´½À´Ï´Ù.";
 	  
 	  boolean result = mMgr.loginUser(USER_ID, USER_PW);
+	  int USER_SEQ_KEY=(int)mMgr.getUSER_SEQ(USER_ID);
 	  if(result){
 	    session.setAttribute("idKey",USER_ID);
-	    msg = "ë¡œê·¸ì¸ì— ì„±ê³µ í•˜ì˜€ìŠµë‹ˆë‹¤.";
+	    session.setAttribute("USER_SEQ_KEY",USER_SEQ_KEY);
+	    msg = "·Î±×ÀÎ¿¡ ¼º°ø ÇÏ¿´½À´Ï´Ù.";
+	    System.out.println(session.getAttribute("USER_SEQ_KEY"));//user_id È®ÀÎ¿ë
 	  }
 %>
 <script>

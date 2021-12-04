@@ -79,6 +79,7 @@ public class UserMgrPool {
 		ResultSet rs = null;
 		String sql = null;
 		boolean flag = false;
+		int USER_SEQ;
 		try {
 			con = pool.getConnection();
 			sql = "select USER_ID from userinfo where USER_ID = ? and USER_PW = ?";
@@ -93,6 +94,41 @@ public class UserMgrPool {
 			pool.freeConnection(con, pstmt, rs);
 		}
 		return flag;
+	}
+	
+	//로그인시 user_seq받아오기
+	public int getUSER_SEQ(String USER_ID) {
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		//Vector<UserBean> vlist = new Vector<UserBean>();
+		int USER_SEQ_KEY = 0;
+		try {
+			conn = pool.getConnection();
+			String strQuery = "select USER_SEQ from userinfo where USER_ID = ?";
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(strQuery);
+			if(rs.next()) {
+				USER_SEQ_KEY=rs.getInt("USER_SEQ");
+			}
+//			while(rs.next()) {
+//				UserBean bean = new UserBean();
+//				bean.setUSER_SEQ(rs.getInt("USER_SEQ"));
+//				bean.setUSER_ID(rs.getString("USER_ID"));
+//				bean.setUSER_PW(rs.getString("USER_PW"));
+//				bean.setUSER_NAME(rs.getString("USER_NAME"));
+//				bean.setUSER_EMAIL(rs.getString("USER_EMAIL"));
+//				bean.setUSER_PROFILE(rs.getString("USER_PROFILE"));
+//				bean.setUSER_ROLE(rs.getBoolean("USER_ROLE"));
+//				vlist.addElement(bean);
+//			}
+		} catch (Exception ex) {
+			System.out.println("Exception " + ex);
+		} finally {
+			pool.freeConnection(conn);
+		}
+		
+		return USER_SEQ_KEY;
 	}
 
 	public Vector<UserBean> getRegisterList() {

@@ -1,10 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <%
-	  request.setCharacterEncoding("UTF-8");
+	  request.setCharacterEncoding("EUC-KR");
 	  String user_id = (String)session.getAttribute("idKey");
+	  //String USER_SEQ=(String)session.getAttribute("USER_SEQ_KEY");
+	  int USER_SEQ=(int)session.getAttribute("USER_SEQ_KEY");
 %>
 <!DOCTYPE HTML>
+
 <!--
 	Editorial by Pixelarity
 	pixelarity.com | hello@pixelarity.com
@@ -15,7 +18,7 @@
 	<head>
 	<style>
 	
-/*ì•„ë˜ë¶€í„°ëŠ” modal css  */
+/*¾Æ·¡ºÎÅÍ´Â modal css  */
 ul{
    list-style: none;
    margin: none;
@@ -43,7 +46,7 @@ a{
    border: 1px solid #888;
    width: 50%; /* Could be more or less, depending on screen size */
    z-index: 10004;
-   /*ì¶”ê°€*/ height:55%;
+   /*Ãß°¡*/ height:55%;
    border-radius:3%;
 }
 /* The Close Button */
@@ -76,18 +79,18 @@ a{
 		*{margin:0;padding:0;}
     ul,li{list-style:none;}
     .slide{height:500px;overflow:hidden;}
-    .slide ul{width:calc(100% * 4);display:flex;animation:slide 8s infinite;} /* slideë¥¼ 8ì´ˆë™ì•ˆ ì§„í–‰í•˜ë©° ë¬´í•œë°˜ë³µ í•¨ */
-    .slide li{width:calc(100% / 4);height:500px; background-size: cover;} /*background-size: cover ì¶”ê°€ , ì´ë¯¸ì§€ ì‚¬ì´ì¦ˆ ìë™ ì¡°ì ˆ*/
+    .slide ul{width:calc(100% * 4);display:flex;animation:slide 8s infinite;} /* slide¸¦ 8ÃÊµ¿¾È ÁøÇàÇÏ¸ç ¹«ÇÑ¹İº¹ ÇÔ */
+    .slide li{width:calc(100% / 4);height:500px; background-size: cover;} /*background-size: cover Ãß°¡ , ÀÌ¹ÌÁö »çÀÌÁî ÀÚµ¿ Á¶Àı*/
     /*.slide li:nth-child(1){background-image:url(main_images/pic01.jpg);}*/
     .slide li:nth-child(1){background:#2a2a55;}
     .slide li:nth-child(2){background:#faa;}
     .slide li:nth-child(3){background:#afa;}
     .slide li:nth-child(4){background:#aaf;}
     @keyframes slide {
-      0% {margin-left:0;} /* 0 ~ 10  : ì •ì§€ */
-      10% {margin-left:0;} /* 10 ~ 25 : ë³€ì´ */
-      25% {margin-left:-100%;} /* 25 ~ 35 : ì •ì§€ */
-      35% {margin-left:-100%;} /* 35 ~ 50 : ë³€ì´ */
+      0% {margin-left:0;} /* 0 ~ 10  : Á¤Áö */
+      10% {margin-left:0;} /* 10 ~ 25 : º¯ÀÌ */
+      25% {margin-left:-100%;} /* 25 ~ 35 : Á¤Áö */
+      35% {margin-left:-100%;} /* 35 ~ 50 : º¯ÀÌ */
       50% {margin-left:-200%;}
       60% {margin-left:-200%;}
       75% {margin-left:-300%;}
@@ -114,7 +117,7 @@ a{
 									<li>
 									<%if (user_id != null) {%>
 									<ul class="icons">
-									<li><b><%=user_id%></b>ë‹˜ </li>
+									<li><b><%=user_id%></b>´Ô </li>
 									<li><a href="#" class="button big">My</a></li>									
 									<li><button onclick="location.href='logout.jsp'">LogOut</button></li>
 									</ul>
@@ -125,14 +128,14 @@ a{
     									<li><button class="btn">LogIn</button></li>
 									</ul>
 									<%} %>
-									<!-- ì²« ë²ˆì§¸ Modal -->
+									<!-- Ã¹ ¹øÂ° Modal -->
             <div class="modal">
-               <!-- ì²« ë²ˆì§¸ Modalì˜ ë‚´ìš© -->
+               <!-- Ã¹ ¹øÂ° ModalÀÇ ³»¿ë -->
                <div class="modal-content">
                   <!--<span class="close">&times;</span>  -->
                   <div>
                   	<form name="loginForm" method="post" action="loginProc.jsp">
-                  		<span class="close">Ã—</span>
+                  		<span class="close">¡¿</span>
                   		<input type="text" name="USER_ID" id="id" value=""
 							placeholder="ID">
                   		<br><input type="password" name="USER_PW" id="password" value=""
@@ -155,9 +158,9 @@ a{
 								</header>
 							<!-- Banner -->
 								<section id="banner">
-									<div class="slide" style="width:100%; margin:0 auto;"> <!-- ì¶”ê°€ ì ìš© -->
+									<div class="slide" style="width:100%; margin:0 auto;"> <!-- Ãß°¡ Àû¿ë -->
 											
-   										 <ul style="padding-left:0em"> <!-- main.cssì—ì„œ ul padding-left:1em ë•Œë¬¸ì— ëì´ ë‚¨ì•„ì„œ 1ìˆœìœ„ ì ìš©  -->
+   										 <ul style="padding-left:0em"> <!-- main.css¿¡¼­ ul padding-left:1em ¶§¹®¿¡ ³¡ÀÌ ³²¾Æ¼­ 1¼øÀ§ Àû¿ë  -->
       									<!--<li><a href="www.google.com"><img src="main_images_pic01.jpg"/></a></li>  -->
       									<li></li>
       									<li></li>
@@ -228,16 +231,16 @@ a{
 			<script src="main_assets/js/util.js"></script>
 			<script src="main_assets/js/main.js"></script>
 
-<!-- ë¡œê·¸ì¸ -->
+<!-- ·Î±×ÀÎ -->
 <script type="text/javascript">
 	function loginCheck() {
 		if (document.loginForm.id.value == "") {
-			alert("ì•„ì´ë””ë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”.");
+			alert("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä.");
 			document.loginForm.id.focus();
 			return;
 		}
 		if (document.loginForm.password.value == "") {
-			alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”.");
+			alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä.");
 			document.loginForm.password.focus();
 			return;
 		}
@@ -245,25 +248,25 @@ a{
 	}
 </script>
  <script>
-   // Modalì„ ê°€ì ¸ì˜µë‹ˆë‹¤.
+   // ModalÀ» °¡Á®¿É´Ï´Ù.
    var modals = document.getElementsByClassName("modal");
-   // Modalì„ ë„ìš°ëŠ” í´ë˜ìŠ¤ ì´ë¦„ì„ ê°€ì ¸ì˜µë‹ˆë‹¤.
+   // ModalÀ» ¶ç¿ì´Â Å¬·¡½º ÀÌ¸§À» °¡Á®¿É´Ï´Ù.
    var btns = document.getElementsByClassName("btn");
-   // Modalì„ ë‹«ëŠ” close í´ë˜ìŠ¤ë¥¼ ê°€ì ¸ì˜µë‹ˆë‹¤.
+   // ModalÀ» ´İ´Â close Å¬·¡½º¸¦ °¡Á®¿É´Ï´Ù.
    var spanes = document.getElementsByClassName("close");
    var funcs = [];
     
-   // Modalì„ ë„ìš°ê³  ë‹«ëŠ” í´ë¦­ ì´ë²¤íŠ¸ë¥¼ ì •ì˜í•œ í•¨ìˆ˜
+   // ModalÀ» ¶ç¿ì°í ´İ´Â Å¬¸¯ ÀÌº¥Æ®¸¦ Á¤ÀÇÇÑ ÇÔ¼ö
    function Modal(num) {
      return function() {
-       // í•´ë‹¹ í´ë˜ìŠ¤ì˜ ë‚´ìš©ì„ í´ë¦­í•˜ë©´ Modalì„ ë„ì›ë‹ˆë‹¤.
+       // ÇØ´ç Å¬·¡½ºÀÇ ³»¿ëÀ» Å¬¸¯ÇÏ¸é ModalÀ» ¶ç¿ó´Ï´Ù.
        btns[num].onclick =  function() {
            modals[num].style.display = "block";
            console.log(num);
            $('body').css("overflow", "hidden");
        };
     
-       // <span> íƒœê·¸(X ë²„íŠ¼)ë¥¼ í´ë¦­í•˜ë©´ Modalì´ ë‹«ìŠµë‹ˆë‹¤.
+       // <span> ÅÂ±×(X ¹öÆ°)¸¦ Å¬¸¯ÇÏ¸é ModalÀÌ ´İ½À´Ï´Ù.
        spanes[num].onclick = function() {
            modals[num].style.display = "none";
            $('body').css("overflow", "scroll");
@@ -271,17 +274,17 @@ a{
      };
    }
     
-   // ì›í•˜ëŠ” Modal ìˆ˜ë§Œí¼ Modal í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•´ì„œ funcs í•¨ìˆ˜ì— ì •ì˜í•©ë‹ˆë‹¤.
+   // ¿øÇÏ´Â Modal ¼ö¸¸Å­ Modal ÇÔ¼ö¸¦ È£ÃâÇØ¼­ funcs ÇÔ¼ö¿¡ Á¤ÀÇÇÕ´Ï´Ù.
    for(var i = 0; i < btns.length; i++) {
      funcs[i] = Modal(i);
    }
     
-   // ì›í•˜ëŠ” Modal ìˆ˜ë§Œí¼ funcs í•¨ìˆ˜ë¥¼ í˜¸ì¶œí•©ë‹ˆë‹¤.
+   // ¿øÇÏ´Â Modal ¼ö¸¸Å­ funcs ÇÔ¼ö¸¦ È£ÃâÇÕ´Ï´Ù.
    for(var j = 0; j < btns.length; j++) {
      funcs[j]();
    }
     
-   // Modal ì˜ì—­ ë°–ì„ í´ë¦­í•˜ë©´ Modalì„ ë‹«ìŠµë‹ˆë‹¤.
+   // Modal ¿µ¿ª ¹ÛÀ» Å¬¸¯ÇÏ¸é ModalÀ» ´İ½À´Ï´Ù.
    window.onclick = function(event) {
      if (event.target.className == "modal") {
          event.target.style.display = "none";
