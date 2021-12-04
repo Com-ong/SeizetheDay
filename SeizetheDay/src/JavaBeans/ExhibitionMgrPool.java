@@ -36,7 +36,7 @@ public class ExhibitionMgrPool {
 				bean.setEXHIBITION_SEQ(rs.getInt("EXHIBITION_SEQ"));
 				bean.setUSER_SEQ(rs.getInt("USER_SEQ"));
 				bean.setCATEGORY_SEQ(rs.getInt("CATEGORY_SEQ"));
-				bean.setFRAME_SEQ(rs.getInt("BACKGROUND_SEQ"));
+				bean.setBACKGROUND_SEQ(rs.getInt("BACKGROUND_SEQ"));
 				bean.setPHOTO_SEQ(rs.getInt("PHOTO_SEQ"));
 				bean.setEXHIBITION_PRIVATE(rs.getBoolean("EXHIBITION_PRIVATE"));
 				bean.setEXHIBITION_NAME(rs.getString("EXHIBITION_NAME"));
@@ -53,6 +53,49 @@ public class ExhibitionMgrPool {
 		}
 		
 		return vlist;
+	}
+	
+	public ExhibitionBean findWithExhibitionSeq(int exhibition_seq)
+	{
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		ExhibitionBean bean = null;
+		
+		try {
+			conn = pool.getConnection();
+			String strQuery = "select * from exhibition where EXHIBITION_SEQ = '" + exhibition_seq + "'";
+			stmt = conn.createStatement();
+			/*pstmt = conn.prepareStatement(strQuery);
+			pstmt.setInt(1, exhibition_seq);*/
+			rs = stmt.executeQuery(strQuery);
+			if(rs.next()==true) rs.previous();
+			while(rs.next()) {
+				   	bean = new ExhibitionBean();
+					bean.setEXHIBITION_SEQ(rs.getInt("EXHIBITION_SEQ"));
+		            bean.setUSER_SEQ(rs.getInt("USER_SEQ"));
+		            bean.setCATEGORY_SEQ(rs.getInt("CATEGORY_SEQ"));
+		            bean.setBACKGROUND_SEQ(rs.getInt("BACKGROUND_SEQ"));
+		            bean.setPHOTO_SEQ(rs.getInt("PHOTO_SEQ"));
+		            bean.setEXHIBITION_PRIVATE(rs.getBoolean("EXHIBITION_PRIVATE"));
+		            bean.setEXHIBITION_NAME(rs.getString("EXHIBITION_NAME"));
+		            bean.setEXHIBITION_TEXT(rs.getString("EXHIBITION_TEXT"));
+		            bean.setEXHIBITION_PROFILE(rs.getString("EXHIBITION_PROFILE"));
+		            bean.setEXHIBITION_START_DATE(rs.getDate("EXHIBITION_START_DATE"));
+		            bean.setEXHIBITION_END_DATE(rs.getDate("EXHIBITION_END_DATE"));
+				}
+		} catch (Exception ex) {
+			System.out.println("Exception findWithExhibitionSeq " + ex);
+		} finally {
+			try {
+				stmt.close();
+				pool.freeConnection(conn);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return bean;
 	}
 	
 	public void updatePhoto(int exhibition_seq, int photo_seq)

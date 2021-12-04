@@ -121,7 +121,7 @@ a{
 									</ul>
 									<%} else {%>
 									<ul class="icons">
-										<li><a href="myPage.jsp" class="button big">My</a></li>
+										<!-- <li><a href="myPage.jsp" class="button big">My</a></li> -->
     									<!--<li><a href="#" class="button primary">LogIn</a></li>  -->
     									<li><button class="btn">LogIn</button></li>
 									</ul>
@@ -171,7 +171,11 @@ a{
 								<section>
 									<div style="text-align:center; height:100px;">
 										<button style="width:48%;height:100%;">Trend</button>
+										<% if(user_id != null) { %>
 										<button style="width:48%;height:100%;">My show Room</button>
+										<% } else { %>
+										<button onClick="loginAlert();" style="width:48%;height:100%;">My show Room</button>
+										<% } %>
 									</div>
 									
 								</section>
@@ -197,9 +201,21 @@ a{
                               <li>
                               	<span class="opener">Exhibition</span>
                               	<ul>
+                              	<% if(user_id!=null) { %>
                               		<li><a href="create.jsp">Create</a></li>
+                              		<% } else { %>
+                              		<li><a onClick="loginAlert();">Create</a></li>
+                              		<%} %>
+                              		<% if(user_id!=null) { %>
                               		<li><a href="#">List</a></li>
+                              		<% } else { %>
+                              		<li><a onClick="loginAlert()">List</a></li>
+                              		<% } %>
+                              		<% if(user_id!=null) { %>
                               		<li><a href="guestBook.jsp">GuestBook</a>
+                              		<% } else { %>
+                              		<li><a onClick="loginAlert()">GuestBook</a>
+                              		<% } %>
                               	</ul>
                               	<!-- <a href="#">Exhibition</a> -->
                               </li>
@@ -214,9 +230,16 @@ a{
                                  </ul>
                               </li>
                               <li><a href="trend.jsp">Trend</a></li>
+                              <% if(user_id!=null) { %>
                               <li><a href="#">1:1 Inquiry</a></li>
+                              <% } else { %>
+                               <li><a onClick="loginAlert();")>1:1 Inquiry</a></li>
+                               <% } %>
+                               <% if(user_id!=null) { %>
                               <li><a href="myPage.jsp">MyPage</a></li>
-
+                              <% } else { %>
+                              <li><a onClick="loginAlert();">MyPage</a></li>
+                              <% } %>
                            </ul>
                         </nav>
 						</div>
@@ -289,6 +312,12 @@ a{
          $('body').css("overflow", "scroll");
      }
    };
+   </script>
+   <script>
+   function loginAlert() {
+	   alert("로그인이 필요한 서비스입니다.");
+	   return;
+   }
    </script>
 	</body>
 </html>

@@ -164,9 +164,21 @@ function closeNav() {
 			<i class="drop-down"></i>
 		</button>
 		<div class="dropdown-container">
+			<% if(user_id!=null) { %>
 			<a href="create.jsp">CREATE</a>
+			<% } else { %>
+			<a onClick="loginAlert();">CREATE</a>
+			<% } %>
+			<% if(user_id!=null) { %>
 			<a href="#">LIST</a>
+			<% } else { %>
+			<a onClick="loginAlert();">LIST</a>
+			<% } %>
+			<% if(user_id!=null) { %>
 			<a href="guestBook.jsp">GUESTBOOK</a>
+			<% } else { %>
+			<a onClick="loginAlert();">GUESTBOOK</a>
+			<% } %>
 		</div>
 		<button class="dropdown-btn">EXHIBITION CATEGORY
 			<i class="drop-down"></i>
@@ -179,8 +191,16 @@ function closeNav() {
 			<a href="#">GEOMETRIC</a>
 		</div>
 		<a href="trend.jsp">TREND</a>
+		<% if(user_id!=null) { %>
   		<a href="#contact">1:1 INQUIRY</a>
+  		<% } else { %>
+  		<a onClick="loginAlert();">1:1 INQUIRY</a>
+  		<% } %>
+  		<% if(user_id!=null) { %>
   		<a href="myPage.jsp">MYPAGE</a>
+  		<% } else { %>
+  		<a onClick="loginAlert();">MYPAGE</a>
+  		<% } %>
 	</div>
 	<!-- Use any element to open the sidenav -->
 	<span class="user-button" onclick="openNav()" style="background-color: white;
@@ -322,4 +342,10 @@ dropdown[i].addEventListener("click", function() {
   }
 });
 }
+</script>
+<script>
+   function loginAlert() {
+	   alert("로그인이 필요한 서비스입니다.");
+	   return;
+   }
 </script>

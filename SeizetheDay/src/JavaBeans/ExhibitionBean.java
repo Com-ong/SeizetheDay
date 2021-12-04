@@ -6,7 +6,7 @@ public class ExhibitionBean {
 	private int EXHIBITION_SEQ;
 	private int USER_SEQ;
 	private int CATEGORY_SEQ;
-	private int FRAME_SEQ;
+	private int BACKGROUND_SEQ;
 	private int PHOTO_SEQ;
 	private boolean EXHIBITION_PRIVATE;
 	private String EXHIBITION_NAME;
@@ -24,8 +24,8 @@ public class ExhibitionBean {
 	public int getCATEGORY_SEQ() {
 		return CATEGORY_SEQ;
 	}
-	public int getFRAME_SEQ() {
-		return FRAME_SEQ;
+	public int getBACKGROUND_SEQ() {
+		return BACKGROUND_SEQ;
 	}
 	public int getPHOTO_SEQ() {
 		return PHOTO_SEQ;
@@ -58,8 +58,8 @@ public class ExhibitionBean {
 	public void setCATEGORY_SEQ(int CATEGORY_SEQ) {
 		this.CATEGORY_SEQ = CATEGORY_SEQ;
 	}
-	public void setFRAME_SEQ(int FRAME_SEQ) {
-		this.FRAME_SEQ = FRAME_SEQ;
+	public void setBACKGROUND_SEQ(int BACKGROUND_SEQ) {
+		this.BACKGROUND_SEQ = BACKGROUND_SEQ;
 	}
 	public void setPHOTO_SEQ(int PHOTO_SEQ) {
 		this.PHOTO_SEQ = PHOTO_SEQ;
