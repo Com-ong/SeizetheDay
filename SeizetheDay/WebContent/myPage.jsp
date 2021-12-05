@@ -4,8 +4,7 @@
 <jsp:useBean id = "uMgr" class="JavaBeans.UserMgrPool"/>
 
 <%
-	String id = (String) session.getAttribute("idKey");
-	UserBean uBean = uMgr.getUser(id);
+	UserBean currUser = (UserBean)session.getAttribute("currUser");
 %>
 
 <!DOCTYPE html>
@@ -38,7 +37,7 @@
 	
 		<div class = "myTitle">MYPAGE</div>
 		<div class = "myInfo"><img id="myImg" src="mypage_image/empty.png"></div>
-		<div class = "username"><%= id %>님</div>
+		<div class = "username"><%= currUser.getUSER_NAME() %>님</div>
 
 		<div class = "myBtnGroup">
 			<table>

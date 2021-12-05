@@ -17,14 +17,6 @@
 <title>Info</title>
 <link rel="stylesheet" href="CSS/InfoStyle.css">
 </head>
-
-<script> 
-
-
-</script>
-
-
-
 <body>
 	<jsp:include page = "header.jsp"></jsp:include>
 	<form name="regFrm" method="post" action="changeInfoProc.jsp">
@@ -47,25 +39,23 @@
 					<table>
 						<tr>
 							<td><label for="name">이 름  </label></td>
-							<td><input id="name" type="text" value="<%=currUser.getUSER_NAME()%>"></td>
-							<td><input id="name" type="text" value="<%=currUser.getUSER_NAME()%>"></td>
+							<td><input id="name" type="text" name="user_name" value="<%=currUser.getUSER_NAME()%>"></td>
 
 						</tr>	
 						
 						<tr>
 							<td><label for="mail">이 메 일  </label></td>
-							<td><input id="mail" type="email" value="<%=currUser.getUSER_EMAIL()%>"></td>
-							<td><input id="mail" type="email" value="<%=currUser.getUSER_EMAIL()%>"></td>
+							<td><input id="mail" type="email" name="user_email" value="<%=currUser.getUSER_EMAIL()%>"></td>
 						</tr>
 						
 						<tr>
 							<td><label for="password">비 밀 번 호  </label></td>
-							<td><input id="password" type="password"></td>
+							<td><input id="password" type="password" name="user_pw"></td>
 						</tr>
 						
 						<tr>
 							<td><label for="pwcheck">비 밀 번 호 확 인   </label></td>
-							<td><input id="pwcheck" type="password"></td>
+							<td><input id="pwcheck" type="password" name="user_pw"></td>
 
 						</tr>					
 					</table>

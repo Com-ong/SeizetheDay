@@ -87,26 +87,33 @@ public class UserMgrPool {
    
    // mypage 정보 수정하면 db update하기
    public boolean updateUser(UserBean bean) {
-	   	Connection con = null;
-	   	PreparedStatement pstmt = null;
-	   	boolean flag = false;
-	   	try {
-	   		con = pool.getConnection();
-	   		String sql = "update userinfo set USER_NAME=?, USER_EMAIL=?";
-	   		pstmt = con.prepareStatement(sql);
-	   		pstmt.setString(1, bean.getUSER_NAME());
-	   		pstmt.setString(2, bean.getUSER_EMAIL());
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		boolean flag = false;
+		try {
+			con = pool.getConnection();
+			String sql = "update userinfo set USER_NAME = ?, USER_PW = ?, USER_EMAIL = ? where USER_ID = ?";
+			pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, bean.getUSER_NAME());
+	        pstmt.setString(2, bean.getUSER_PW());
+	        pstmt.setString(3, bean.getUSER_EMAIL());
+	        pstmt.setString(4, bean.getUSER_ID());
+	        System.out.println("user_name=" + bean.getUSER_NAME());
+	        System.out.println("user_pw=" + bean.getUSER_PW());
+	        System.out.println("user_email=" + bean.getUSER_EMAIL());
+	        System.out.println("user_id=" + bean.getUSER_ID());
+	        
+			int count = pstmt.executeUpdate();
+			if (count > 0)
+				flag = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
+		}
+		return flag;
+	}	
 
-	   		int count = pstmt.executeUpdate();
-	   		if (count > 0)
-	   			flag = true;
-	   	} catch (Exception e) {
-	   		e.printStackTrace();
-	   	} finally {
-	   		pool.freeConnection(con, pstmt);
-	   	}
-	   	return flag;
-   }
    
 /*>>>>>>> 54151f8808b05b3e4d896bcfd9c369a09927d52a*/
    // 아이디로 사용자 찾기
@@ -332,7 +339,7 @@ public class UserMgrPool {
           } finally {
              pool.freeConnection(con, pstmt, rs);
           }
-          return currUser;
+          return null;
        }
       
       
