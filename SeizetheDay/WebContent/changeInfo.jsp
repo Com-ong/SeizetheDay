@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@page import = "JavaBeans.UserBean"%>
 <jsp:useBean id = "uMgr" class="JavaBeans.UserMgrPool"/>
 
@@ -29,7 +28,7 @@
 
 <body>
 	<jsp:include page = "header.jsp"></jsp:include>
-	
+	<form name="regFrm" method="post" action="changeInfoProc.jsp">
 	<div class = "changeInfo">
 		<div class = "aboutInfo">
 			<div class = "infoTitle">CHANGE INFORMATION</div>
@@ -50,13 +49,13 @@
 						<tr>
 							<td><label for="name">이 름  </label></td>
 
-							<td><input id="name" type="text" value="<%=uBean.getUSER_NAME()%>"></td>
+							<td><input id="name" type="text" value="<%=uBean.getUSER_NAME() %>"></td>
 
 						</tr>	
 						
 						<tr>
 							<td><label for="mail">이 메 일  </label></td>
-							<td><input id="mail" type="email" value="<%=uBean.getUSER_EMAIL()%>"></td>
+							<td><input id="mail" type="email" value="<%=uBean.getUSER_EMAIL() %>"></td>
 						</tr>
 						
 						<tr>
@@ -81,9 +80,10 @@
 					<table>
 						<tr>
 							<td><input id="btn1" value="C A N C E L" type="button"></td>
-							<td><input id="btn2" value="O K" type="button"></td>
+							<td><input id="btn2" value="O K" type="submit"></td>
 						</tr>
 					</table>
+					</form>
 				</div>
 				</span>
 				

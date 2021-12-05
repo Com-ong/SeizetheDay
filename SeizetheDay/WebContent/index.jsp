@@ -79,9 +79,10 @@ a{
     .slide{height:500px;overflow:hidden;}
     .slide ul{width:calc(100% * 4);display:flex;animation:slide 8s infinite;} /* slide를 8초동안 진행하며 무한반복 함 */
     .slide li{width:calc(100% / 4);height:500px; background-size: cover;} /*background-size: cover 추가 , 이미지 사이즈 자동 조절*/
-    /*.slide li:nth-child(1){background-image:url(main_images/pic01.jpg);}*/
-    .slide li:nth-child(1){background:#2a2a55;}
-    .slide li:nth-child(2){background:#faa;}
+    .slide li:nth-child(1){background-image:url(main_images/main01.png);}
+    .slide li:nth-child(2){background-image:url(main_images/main02.png);}
+    /*.slide li:nth-child(1){background:#2a2a55;}*/
+    /*.slide li:nth-child(2){background:#faa;}*/
     .slide li:nth-child(3){background:#afa;}
     .slide li:nth-child(4){background:#aaf;}
     @keyframes slide {
