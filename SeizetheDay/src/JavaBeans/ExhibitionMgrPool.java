@@ -124,27 +124,28 @@ public class ExhibitionMgrPool {
 		}
 	}
 	
-	public void insertExhibition(int exhibition_seq, int user_seq, int category_seq, int background_seq, int photo_seq, boolean exhibition_private, 
+	public void insertExhibition(/*int exhibition_seq, */int user_seq, int category_seq, int background_seq, int photo_seq, boolean exhibition_private, 
 			String exhibition_name, String exhibition_text, String exhibition_profile, Date exhibition_start_date, Date exhibition_end_date)
 	{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
 			conn = pool.getConnection();
-			String strQuery = "insert into exhibition (EXHIBITION_SEQ, USER_SEQ, CATEGORY_SEQ, BACKGROUND_SEQ, PHOTO_SEQ, EXHIBITION_PRIVATE, EXHIBITION_NAME, EXHIBITION_TEXT, EXHIBITION_PROFILE, EXHIBITION_START_DATE, EXHIBITION_END_DATE) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			// String strQuery = "insert into exhibition (EXHIBITION_SEQ, USER_SEQ, CATEGORY_SEQ, BACKGROUND_SEQ, PHOTO_SEQ, EXHIBITION_PRIVATE, EXHIBITION_NAME, EXHIBITION_TEXT, EXHIBITION_PROFILE, EXHIBITION_START_DATE, EXHIBITION_END_DATE) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String strQuery = "insert into exhibition (USER_SEQ, CATEGORY_SEQ, BACKGROUND_SEQ, PHOTO_SEQ, EXHIBITION_PRIVATE, EXHIBITION_NAME, EXHIBITION_TEXT, EXHIBITION_PROFILE, EXHIBITION_START_DATE, EXHIBITION_END_DATE) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			
 			pstmt = conn.prepareStatement(strQuery);
-			pstmt.setInt(1, exhibition_seq);
-			pstmt.setInt(2, user_seq);
-			pstmt.setInt(3, category_seq);
-			pstmt.setInt(4, background_seq);
-			pstmt.setInt(5, photo_seq);
-			pstmt.setBoolean(6, exhibition_private);
-			pstmt.setString(7, exhibition_name);
-			pstmt.setString(8, exhibition_text);
-			pstmt.setString(9, exhibition_profile);
-			pstmt.setDate(10, exhibition_start_date);
-			pstmt.setDate(11, exhibition_end_date);
+			//pstmt.setInt(1, exhibition_seq);
+			pstmt.setInt(1, user_seq);
+			pstmt.setInt(2, category_seq);
+			pstmt.setInt(3, background_seq);
+			pstmt.setInt(4, photo_seq);
+			pstmt.setBoolean(5, exhibition_private);
+			pstmt.setString(6, exhibition_name);
+			pstmt.setString(7, exhibition_text);
+			pstmt.setString(8, exhibition_profile);
+			pstmt.setDate(9, exhibition_start_date);
+			pstmt.setDate(10, exhibition_end_date);
 			
 			pstmt.executeUpdate();
 		} catch (Exception ex) {

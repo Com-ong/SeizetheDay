@@ -114,12 +114,16 @@
 	counter++;
 	background_counter++;
 	backgroundMgr.insertBackground(background_counter, exhibition_background_color);//¹è°æ »ö »ðÀÔ
-	exhibitionMgr.insertExhibition(counter, user_seq, 1, background_counter, file_cnt, //user_id, category_id
+	exhibitionMgr.insertExhibition(/* counter,  */user_seq, 1, background_counter, file_cnt, //user_id, category_id
 			exhibition_private, exhibition_name, exhibition_text, null, startDate, endDate);
 	System.out.println(file_cnt);
+	Vector<ExhibitionBean> list = exhibitionMgr.getExhibitionList();
+	ExhibitionBean bean = list.get(vlist.size());
+	counter=bean.getEXHIBITION_SEQ();
+	
 	for(int i=0 ; i< file_cnt ; i++){
-		photo_counter++;
-		photoMgr.insertPhoto(photo_counter, counter, filename[i], filename[i], exhibition_file_explain[i]);
+		//photo_counter++;
+		photoMgr.insertPhoto(/* photo_counter,  */counter, filename[i], filename[i], exhibition_file_explain[i]);
 	}
 	exhibitionMgr.updatePhoto(counter, photo_counter);
 %>

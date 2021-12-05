@@ -4,14 +4,18 @@
 <%@ page import="java.util.*, java.sql.*, JavaBeans.*" %>
 <jsp:useBean id="guestMgr" class="JavaBeans.GuestMgrPool" />
 <jsp:useBean id="userMgr" class="JavaBeans.UserMgrPool" />
+<jsp:useBean id="exhibitionMgr" class="JavaBeans.ExhibitionMgrPool" />
 <!-- #################################### -->
 <!-- 로그인 상태 가져오기 -->
 <%
 	  request.setCharacterEncoding("UTF-8");
-	  String user_id = (String)session.getAttribute("idKey");
+	  //String user_id = (String)session.getAttribute("idKey");
+	  UserBean currUser= (UserBean)session.getAttribute("currUser");
 %>
 <%
-	UserBean writerBean = userMgr.findWithID(user_id);
+	UserBean writerBean = userMgr.findWithID(currUser.getUSER_ID());
+	int exhibition_seq = Integer.parseInt(request.getParameter("exhibition_seq"));
+	ExhibitionBean exhibitionBean = exhibitionMgr.findWithExhibitionSeq(exhibition_seq);
 %>
 <!DOCTYPE html>
 <html>
@@ -25,14 +29,14 @@
 	<div id="visited_area1">
 	<div class="visited_list">
 		<div class="insert_visited_area">
-		<% String action_url = "guestBook_insertDB.jsp?userid="+ writerBean.getUSER_ID(); %>
+		<% String action_url = "guestBook_insertDB.jsp?userid="+ writerBean.getUSER_ID() + "&exhibition_seq="+ exhibition_seq; %>
 		<form method="post" action=<%= action_url %>> <!-- 추가 부분 -->
 			<table id="visited_area2">
 				<tr>
 					<td><h1 id="visitedText">GuestBook</h1></td>
 				</tr>
 				<tr>
-					<td><h3 name="exhibition_name">[전시 제목]</h3></td>
+					<td><h3 name="exhibition_name"><%= exhibitionBean.getEXHIBITION_NAME() %></h3></td>
 				<tr>
 					<td id="ment"><br>짧은 문구로 방명록을 남겨주세요.<br><br></td>
 				</tr>
@@ -41,7 +45,7 @@
 				</tr>
 				<tr>
 					<td>
-						<textarea class="visited_input" name="visited_input" rows="4" cols="70" required>여기에 짧은 문구를 작성하세요.</textarea>
+						<textarea class="visited_input" name="visited_input" rows="4" cols="70" required placeholder="여기에 짧은 문구를 작성하세요."></textarea>
 					</td>
 					<td><input type="submit" id="visited_store" value="저장"></td>
 				</tr>
@@ -51,7 +55,7 @@
 		
 		<p>
 		<% // 추가 부분
-			Vector<GuestBean> vlist = guestMgr.getGuestList();
+			Vector<GuestBean> vlist = guestMgr.getEachGuestList(exhibition_seq);
 		%>총 방문자 수 : <%= vlist.size() %></p> <!-- 수정 부분 -->
 		<table class="visited_lists" border=1>
 			<thead>
@@ -90,7 +94,7 @@
 					<td class="visited_date_input"><%= guestBean.getBOARD_DATE() %></td>
 					<%-- <td><input type="button" class="visited_change_btn" value="수정" name="visited_change_btn" onclick="location.href='guestBook_updateDB.jsp?board_seq=<%=guestBean.getBOARD_SEQ()%>'"></td> --%>
 					<td>
-						<input type="button" class="visited_delete_btn" value="삭제" name="visited_delete_btn" onclick="location.href='guestBook_deleteDB.jsp?board_seq=<%=guestBean.getBOARD_SEQ()%>'">
+						<input type="button" class="visited_delete_btn" value="삭제" name="visited_delete_btn" onclick="location.href='guestBook_deleteDB.jsp?board_seq=<%=guestBean.getBOARD_SEQ()%>&exhibition_seq=<%=exhibition_seq%>'">
 					</td>
 				</tr>
 				<% } %>

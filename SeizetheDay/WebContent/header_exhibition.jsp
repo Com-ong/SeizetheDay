@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <link rel="stylesheet" href="CSS/header.css">
+<%@ page import="JavaBeans.UserBean" %>
 <!-- 로그인 상태 가져오기 -->
 <%
 	  request.setCharacterEncoding("UTF-8");
-	  String user_id = (String)session.getAttribute("idKey");
+	  //String user_id = (String)session.getAttribute("idKey");
+	  UserBean user_id= (UserBean)session.getAttribute("currUser");
 %>
  <style>
 	
@@ -223,7 +225,7 @@ function closeNav() {
 	<!-- 수정한 부분 - 로그인 여부에 따라 login/logout 버튼 표시 -->
 	<div class="user-section" style="text-align:right; margin-right: 5%;">
 	<%if (user_id != null) {%>
-			<p style="display: inline; color: white; font-size:0.7em;"><b><%=user_id%></b>님</p>
+			<p style="display: inline; color: white; font-size:0.7em;"><b><%=user_id.getUSER_NAME() %></b>님</p>
 			<a class="user-button" href="myPage.jsp" class="user-button" style="width: 20%; font-size:0.7em;">My</a>					
 			<a class="user-button" onclick="location.href='logout.jsp'" style="width: 20%; font-size:0.7em;">LogOut</a>
 	<%} else {%>

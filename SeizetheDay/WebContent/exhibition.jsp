@@ -34,6 +34,10 @@
 %>
 	<jsp:include page="header_exhibition.jsp"></jsp:include>
 	<div class="show_content" style="background-color: <%=bb.getBACKGROUND_COLOR()%>;">
+		<div class="btns">
+			<a href="guestBook.jsp?exhibition_seq=<%= exhibition_seq%>">방명록</a>
+			<a href="review.jsp">후기</a>
+		</div>
 		<div class = "show-title"  style="margin: 0 auto; text-align:center;">
 			<!-- EXHIBITION NAME --><%= exhibition.getEXHIBITION_NAME() %>
 		</div>
