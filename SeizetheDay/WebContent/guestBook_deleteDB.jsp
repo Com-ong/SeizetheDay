@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!-- DB ì—°ê²° ìœ„í•œ ì¶”ê°€ ë¶€ë¶„ -->
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!-- DB ¿¬°á À§ÇÑ Ãß°¡ ºÎºĞ -->
 <%@ page import="java.util.*, java.sql.*, JavaBeans.*" %>
 <jsp:useBean id="guestMgr" class="JavaBeans.GuestMgrPool" />
 <jsp:useBean id="userMgr" class="JavaBeans.UserMgrPool" />
@@ -8,25 +8,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 </head>
 <body>
 <%
-	request.setCharacterEncoding("UTF-8");
+	request.setCharacterEncoding("EUC-KR");
 
 	Vector<GuestBean> vlist = guestMgr.getGuestList();
 	int guest_counter = vlist.size();
 	
 	int board_seq = Integer.parseInt(request.getParameter("board_seq"));
-
-	/* int user_seq = 1; // usermgrpoolì—ì„œ ì´ë¦„ìœ¼ë¡œ ì°¾ê¸°
-	int exhibition_seq = 2; // exhibitinomgrpoolì—ì„œ ì´ë¦„ìœ¼ë¡œ ì°¾ê¸° */
+	int exhibition_seq = Integer.parseInt(request.getParameter("exhibition_seq"));
+	
+	/* int user_seq = 1; // usermgrpool¿¡¼­ ÀÌ¸§À¸·Î Ã£±â
+	int exhibition_seq = 2; // exhibitinomgrpool¿¡¼­ ÀÌ¸§À¸·Î Ã£±â */
 	guestMgr.deleteGuest(board_seq);
 %>
 <script>
-	alert("ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤."); // ## ì§„ì§œ ì„±ê³µì¼ ë•Œë§Œ ë„ìš°ëŠ” ê±¸ë¡œ í•´ì•¼í•  ë“¯
+	alert("»èÁ¦µÇ¾ú½À´Ï´Ù."); // ## ÁøÂ¥ ¼º°øÀÏ ¶§¸¸ ¶ç¿ì´Â °É·Î ÇØ¾ßÇÒ µí
 	
-	location.href="guestBook.jsp";
+	location.href="guestBook.jsp?exhibition_seq=<%=exhibition_seq%>";
 </script>
 </body>
 </html>

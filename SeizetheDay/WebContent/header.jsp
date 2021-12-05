@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <link rel="stylesheet" href="CSS/header.css">
+<%@ page import="JavaBeans.UserBean" %>
 <!-- 로그인 상태 가져오기 -->
 <%
 	  request.setCharacterEncoding("UTF-8");
-	  String user_id = (String)session.getAttribute("idKey");
+	  //String user_id = (String)session.getAttribute("idKey");
+	  UserBean user_id= (UserBean)session.getAttribute("currUser");
 %>
  <style>
 	
@@ -164,9 +166,21 @@ function closeNav() {
 			<i class="drop-down"></i>
 		</button>
 		<div class="dropdown-container">
+			<% if(user_id!=null) { %>
 			<a href="create.jsp">CREATE</a>
+			<% } else { %>
+			<a onClick="loginAlert();">CREATE</a>
+			<% } %>
+			<% if(user_id!=null) { %>
 			<a href="#">LIST</a>
+			<% } else { %>
+			<a onClick="loginAlert();">LIST</a>
+			<% } %>
+			<% if(user_id!=null) { %>
 			<a href="guestBook.jsp">GUESTBOOK</a>
+			<% } else { %>
+			<a onClick="loginAlert();">GUESTBOOK</a>
+			<% } %>
 		</div>
 		<button class="dropdown-btn">EXHIBITION CATEGORY
 			<i class="drop-down"></i>
@@ -179,8 +193,16 @@ function closeNav() {
 			<a href="#">GEOMETRIC</a>
 		</div>
 		<a href="trend.jsp">TREND</a>
+		<% if(user_id!=null) { %>
   		<a href="#contact">1:1 INQUIRY</a>
+  		<% } else { %>
+  		<a onClick="loginAlert();">1:1 INQUIRY</a>
+  		<% } %>
+  		<% if(user_id!=null) { %>
   		<a href="myPage.jsp">MYPAGE</a>
+  		<% } else { %>
+  		<a onClick="loginAlert();">MYPAGE</a>
+  		<% } %>
 	</div>
 	<!-- Use any element to open the sidenav -->
 	<span class="user-button" onclick="openNav()" style="background-color: white;
@@ -203,7 +225,7 @@ function closeNav() {
 	<!-- 수정한 부분 - 로그인 여부에 따라 login/logout 버튼 표시 -->
 	<div class="user-section" style="text-align:right; margin-right: 5%;">
 	<%if (user_id != null) {%>
-			<p style="display: inline; color: white; font-size:0.7em;"><b><%=user_id%></b>님</p>
+			<p style="display: inline; color: white; font-size:0.7em;"><b><%=user_id.getUSER_NAME() %></b>님</p>
 			<a class="user-button" href="#" class="user-button" style="width: 20%; font-size:0.7em;">My</a>					
 			<a class="user-button" onclick="location.href='logout.jsp'" style="width: 20%; font-size:0.7em;">LogOut</a>
 	<%} else {%>
@@ -322,4 +344,10 @@ dropdown[i].addEventListener("click", function() {
   }
 });
 }
+</script>
+<script>
+   function loginAlert() {
+	   alert("로그인이 필요한 서비스입니다.");
+	   return;
+   }
 </script>

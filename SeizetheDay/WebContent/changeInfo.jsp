@@ -4,8 +4,7 @@
 <jsp:useBean id = "uMgr" class="JavaBeans.UserMgrPool"/>
 
 <%
-	String id = (String) session.getAttribute("idKey");
-	UserBean uBean = uMgr.getUser(id);
+	UserBean currUser = (UserBean)session.getAttribute("currUser");
 %>
 
 <!DOCTYPE html>
@@ -49,13 +48,21 @@
 						<tr>
 							<td><label for="name">이 름  </label></td>
 
+<<<<<<< HEAD:SeizetheDay/WebContent/changeInfo.jsp
 							<td><input id="name" type="text" value="<%=uBean.getUSER_NAME() %>"></td>
+=======
+							<td><input id="name" type="text" value="<%=currUser.getUSER_NAME()%>"></td>
+>>>>>>> 54151f8808b05b3e4d896bcfd9c369a09927d52a:SeizetheDay/WebContent/ChangeInfo.jsp
 
 						</tr>	
 						
 						<tr>
 							<td><label for="mail">이 메 일  </label></td>
+<<<<<<< HEAD:SeizetheDay/WebContent/changeInfo.jsp
 							<td><input id="mail" type="email" value="<%=uBean.getUSER_EMAIL() %>"></td>
+=======
+							<td><input id="mail" type="email" value="<%=currUser.getUSER_EMAIL()%>"></td>
+>>>>>>> 54151f8808b05b3e4d896bcfd9c369a09927d52a:SeizetheDay/WebContent/ChangeInfo.jsp
 						</tr>
 						
 						<tr>

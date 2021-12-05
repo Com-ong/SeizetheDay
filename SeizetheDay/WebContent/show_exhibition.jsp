@@ -15,7 +15,7 @@
 </head>
 <body>
 <%
-	request.setCharacterEncoding("UTF-8");
+	request.setCharacterEncoding("EUC-KR");
 
 	int exhibition_seq = Integer.parseInt(request.getParameter("exhibition_seq")); // 선택해서 들어가는 전시회 번호
 	int background_seq = Integer.parseInt(request.getParameter("exhibition_background_seq"));
