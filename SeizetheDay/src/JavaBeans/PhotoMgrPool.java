@@ -15,7 +15,7 @@ public class PhotoMgrPool {
 		try {
 			pool = DBConnectionMgr.getInstance();
 		} catch (Exception e) {
-			System.out.println("Error : Ŀ�ؼ� ������ ����");
+			System.out.println("Error : 커넥션 얻어오기 실패");
 		}
 	}
 	
@@ -73,7 +73,7 @@ public class PhotoMgrPool {
 		
 		return bean;
 	}
-	public Vector<PhotoBean> getPhotoListinEx(int exhibition_seq)//한 전시회에 대한 photo 목록 가져오기
+	public Vector<PhotoBean> getPhotoListinEx(int exhibition_seq)//전시 안의 모든 사진 가져오기
 	{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -104,21 +104,22 @@ public class PhotoMgrPool {
 		return beanList;
 	}
 	
-	public void insertPhoto(int photo_seq, int exhibition_seq, String photo_image, String photo_name, String photo_text)
+	public void insertPhoto(/*int photo_seq,*/ int exhibition_seq, String photo_image, String photo_name, String photo_text)
 	{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
 		try {
 			conn = pool.getConnection();
-			String strQuery = "insert into photo (PHOTO_SEQ, EXHIBITION_SEQ, PHOTO_IMAGE, PHOTO_NAME, PHOTO_TEXT) values (?, ?, ?, ?, ?)";
+			//String strQuery = "insert into photo (PHOTO_SEQ, EXHIBITION_SEQ, PHOTO_IMAGE, PHOTO_NAME, PHOTO_TEXT) values (?, ?, ?, ?, ?)";
+			String strQuery = "insert into photo (EXHIBITION_SEQ, PHOTO_IMAGE, PHOTO_NAME, PHOTO_TEXT) values (?, ?, ?, ?)";
 			
 			pstmt = conn.prepareStatement(strQuery);
-			pstmt.setInt(1, photo_seq);
-			pstmt.setInt(2, exhibition_seq);
-			pstmt.setString(3, photo_image);
-			pstmt.setString(4, photo_name);
-			pstmt.setString(5, photo_text);
+			//pstmt.setInt(1, photo_seq);
+			pstmt.setInt(1, exhibition_seq);
+			pstmt.setString(2, photo_image);
+			pstmt.setString(3, photo_name);
+			pstmt.setString(4, photo_text);
 			
 			pstmt.executeUpdate();
 		} catch (Exception ex) {
