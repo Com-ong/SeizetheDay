@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@page import = "JavaBeans.UserBean"%>
 <%request.setCharacterEncoding("EUC-KR"); %>
 <jsp:useBean id = "uMgr" class="JavaBeans.UserMgrPool"/>
-<jsp:useBean id = "uBean" class="JavaBeans.UserBean"/>
-<jsp:setProperty property="*" name="uBean"/>
-
 <%
-	boolean result = uMgr.updateUser(uBean);
+	UserBean currUser = (UserBean)session.getAttribute("currUser");
+	currUser.setUSER_NAME(request.getParameter("user_name"));
+	currUser.setUSER_EMAIL(request.getParameter("user_email"));
+	currUser.setUSER_PW(request.getParameter("user_pw"));
+	currUser.setUSER_ID(currUser.getUSER_ID());
+	
+	boolean result = uMgr.updateUser(currUser);
+
 	if(result) {
 %>
 	<script type="text/javascript">
@@ -29,3 +34,4 @@
 
 </body>
 </html>
+
