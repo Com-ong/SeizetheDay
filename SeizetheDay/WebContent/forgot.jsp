@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Forgot</title>
 <link rel="stylesheet" href="CSS/forgot.css">
 <script type="text/javascript">
@@ -17,7 +17,7 @@ function display_find_id(){
 		con.style.display = 'none';
 	}
 	
-	/* ºñ¹Ğ¹øÈ£ Ã£±â°¡ ÄÑÁ® ÀÖÀ» ¶§ display¸¦ noneÀ¸·Î º¯°æ */
+	/* ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°ê°€ ì¼œì ¸ ìˆì„ ë•Œ displayë¥¼ noneìœ¼ë¡œ ë³€ê²½ */
 	var con2 = document.getElementById("find_pw");
 	if(con2.style.display != 'none') {
 		con2.style.display = 'none';
@@ -31,7 +31,7 @@ function display_find_pw(){
 		con.style.display = 'none';
 	}
 	
-	/* ¾ÆÀÌµğ Ã£±â°¡ ÄÑÁ® ÀÖÀ» ¶§ display¸¦ noneÀ¸·Î º¯°æ */
+	/* ì•„ì´ë”” ì°¾ê¸°ê°€ ì¼œì ¸ ìˆì„ ë•Œ displayë¥¼ noneìœ¼ë¡œ ë³€ê²½ */
 	var con2 = document.getElementById("find_id");
 	if(con2.style.display != 'none') {
 		con2.style.display = 'none';
@@ -48,30 +48,30 @@ function display_find_pw(){
 	<div class="forgot_select">
 		<table>
 			<tr>
-				<td><input type="button" id="forgot_id" name="forgot_id" value="¾ÆÀÌµğ¸¦ Ã£°í ½Í¾î¿ä" onclick="display_find_id();"></td>
-				<td><input type="button" id="forgot_pw" name="forgot_pw" value="ºñ¹Ğ¹øÈ£¸¦ Ã£°í ½Í¾î¿ä" onclick="display_find_pw();"></td>
+				<td><input type="button" id="forgot_id" name="forgot_id" value="ì•„ì´ë””ë¥¼ ì°¾ê³  ì‹¶ì–´ìš”" onclick="display_find_id();"></td>
+				<td><input type="button" id="forgot_pw" name="forgot_pw" value="ë¹„ë°€ë²ˆí˜¸ë¥¼ ì°¾ê³  ì‹¶ì–´ìš”" onclick="display_find_pw();"></td>
 			</tr>
 			<tr>
 				<td>
 				<div id="find_id" style="display: none;">
 					<form name="find_id_form">
-						<a>°¡ÀÔÇÒ ¶§ µî·ÏÇÑ ÀÌ¸§°ú ÀÌ¸ŞÀÏÀ» ÀÛ¼ºÇØÁÖ¼¼¿ä.</a><br>
+						<a>ê°€ì…í•  ë•Œ ë“±ë¡í•œ ì´ë¦„ê³¼ ì´ë©”ì¼ì„ ì‘ì„±í•´ì£¼ì„¸ìš”.</a><br>
 						<div>
 							<h3>NAME<input type="text" name="find_id_name" id="find_id_name" value=""></h3>
 							<h3>EMAIL<input type="text" name="find_id_email" id="find_id_email" value=""></h3>
-							<input type="button" id="find_id_btn" name="find_id_btn" value="¾ÆÀÌµğ Ã£±â" onclick="find_id_window(this.form.find_id_name.value, this.form.find_id_email.value)">
+							<input type="button" id="find_id_btn" name="find_id_btn" value="ì•„ì´ë”” ì°¾ê¸°" onclick="find_id_window(this.form.find_id_name.value, this.form.find_id_email.value)">
 						</div>
 					</form>
 				</div>
 				<div id="find_pw" style="display: none;">
 					<form name="find_pw_form">
-						<a>°¡ÀÔÇÒ ¶§ µî·ÏÇÑ ID, ÀÌ¸§, ÀÌ¸ŞÀÏÀ» ÀÛ¼ºÇØÁÖ¼¼¿ä.</a><br>
-						<a>È¸¿ø È®ÀÎÀÌ ¿Ï·áµÇ¸é »õ·Î¿î ºñ¹Ğ¹øÈ£¸¦ ¼³Á¤ÇÒ ¼ö ÀÖ½À´Ï´Ù.</a>
+						<a>ê°€ì…í•  ë•Œ ë“±ë¡í•œ ID, ì´ë¦„, ì´ë©”ì¼ì„ ì‘ì„±í•´ì£¼ì„¸ìš”.</a><br>
+						<a>íšŒì› í™•ì¸ì´ ì™„ë£Œë˜ë©´ ìƒˆë¡œìš´ ë¹„ë°€ë²ˆí˜¸ë¥¼ ì„¤ì •í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.</a>
 						<div>
 							<h3>ID<input type="text" name="find_pw_id" id="find_pw_id" value=""></h3>
 							<h3>NAME<input type="text" name="find_pw_name" id="find_pw_name" value=""></h3>
 							<h3>EMAIL<input type="text" name="find_pw_email" id="find_pw_email" value=""></h3>
-							<input type="button" id="find_pw_btn" name="find_pw_btn" value="È¸¿ø È®ÀÎ" onclick="find_pw_window(this.form.find_pw_id.value, this.form.find_pw_name.value, this.form.find_pw_email.value)">
+							<input type="button" id="find_pw_btn" name="find_pw_btn" value="íšŒì› í™•ì¸" onclick="find_pw_window(this.form.find_pw_id.value, this.form.find_pw_name.value, this.form.find_pw_email.value)">
 						</div>
 					</form>
 				</div>
@@ -85,12 +85,12 @@ function display_find_pw(){
 function find_id_window(find_id_name, find_id_email) {
 	frm = document.find_id_form;
 	if (document.find_id_form.find_id_name.value == "") {
-		alert("ÀÌ¸§¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä.");
+		alert("ì´ë¦„ë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”.");
 		frm.find_id_name.focus();
 		return;
 	}
 	if(document.find_id_form.find_id_email.value=="") {
-		alert("ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä.");
+		alert("ì´ë©”ì¼ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”.");
 		frm.find_id_email.focus();
 		return;
 	}
@@ -98,21 +98,20 @@ function find_id_window(find_id_name, find_id_email) {
 	window_url = "find_id.jsp?find_id_name=" + find_id_name + "&find_id_email=" + find_id_email;
 	window.open(window_url, "find id", "width=300,height=150");
 }
-
 function find_pw_window(find_pw_id, find_pw_name, find_pw_email) {
 	frm = document.find_pw_form;
 	if (document.find_pw_form.find_pw_id.value == "") {
-		alert("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä.");
+		alert("ì•„ì´ë””ë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”.");
 		frm.find_pw_id.focus();
 		return;
 	}
 	if(document.find_pw_form.find_pw_name.value=="") {
-		alert("ÀÌ¸§À» ÀÔ·ÂÇØ ÁÖ¼¼¿ä.");
+		alert("ì´ë¦„ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”.");
 		frm.find_pw_name.focus();
 		return;
 	}
 	if(document.find_pw_form.find_pw_email.value=="") {
-		alert("ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä.");
+		alert("ì´ë©”ì¼ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”.");
 		frm.find_pw_email.focus();
 		return;
 	}

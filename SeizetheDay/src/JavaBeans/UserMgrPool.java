@@ -24,7 +24,7 @@ public class UserMgrPool {
 
    // mypage에서 user 가져오기
    public UserBean getUser(String id) {
-<<<<<<< HEAD
+/*<<<<<<< HEAD
 	      Connection con = null;
 	      PreparedStatement pstmt = null;
 	      ResultSet rs = null;
@@ -77,7 +77,7 @@ public class UserMgrPool {
 		return flag;
 	}
 	
-=======
+=======*/
      Connection con = null;
      PreparedStatement pstmt = null;
      ResultSet rs = null;
@@ -106,6 +106,38 @@ public class UserMgrPool {
      return bean;
   }
    
+   // user_seq로 userbean 찾기
+   public UserBean findUserWithSeq(int user_seq)
+   {
+	   Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		UserBean bean = null;
+		
+		try {
+			conn = pool.getConnection();
+			String strQuery = "select * from userinfo where USER_SEQ = '" + user_seq + "'";
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(strQuery);
+			if(rs.next()==true) rs.previous(); 
+			while(rs.next()) {
+				bean = new UserBean();
+				bean.setUSER_SEQ(rs.getInt("USER_SEQ"));
+	            bean.setUSER_ID(rs.getString("USER_ID"));
+	            //System.out.println(rs.getString("USER_ID"));
+	            bean.setUSER_PW(rs.getString("USER_PW"));
+	            bean.setUSER_NAME(rs.getString("USER_NAME"));
+	            bean.setUSER_EMAIL(rs.getString("USER_EMAIL"));
+	            bean.setUSER_PROFILE(rs.getString("USER_PROFILE"));
+	            bean.setUSER_ROLE(rs.getBoolean("USER_ROLE"));
+			}
+		} catch (Exception ex) {
+			System.out.println("Exception findUserSeq " + ex);
+		}
+		
+		return bean;
+   }
+   
    // mypage 정보 수정하면 db update하기
    public boolean updateUser(UserBean bean) {
 	   	Connection con = null;
@@ -129,7 +161,7 @@ public class UserMgrPool {
 	   	return flag;
    }
    
->>>>>>> 54151f8808b05b3e4d896bcfd9c369a09927d52a
+/*>>>>>>> 54151f8808b05b3e4d896bcfd9c369a09927d52a*/
    // 아이디로 사용자 찾기
    public UserBean findWithID(String id)
    {

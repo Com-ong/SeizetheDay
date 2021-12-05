@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+.forgot_area{
+	background-color: white;
+	width:85%;
+	height:100%;
+	position:absolute;
+	margin:5%;
+	margin-top:200px;
+	z-index:2;
+	padding: 2.5%;
+	display:block;
+	border-radius:10px;
+}
+.forgot_title{
+	width:40%;
+	font-family: Roboto;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 35px;
+	line-height: 41px;
+	align-items: center;
+	text-align: left;
+	letter-spacing: -0.02em;
+	margin:5px;
+	color: #333344;
+	border-bottom: 6px solid #333344;
+}
+.make-content{
+	position: absolute;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	line-height: 35px;
+	margin:3%;
+	width:90%;
+	color: #333344;
+	
+}
+.submit-btn{
+	width:100%;
+
+}
+
+.press-btn{
+	float: right;
+	background-color: #4CAF50;
+	border: 1px solid #333344;
+  	color: white;
+  	padding: 15px 32px;
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+  	font-size: 16px;
+  	margin: 4px 2px;
+  	cursor: pointer;
+}
+
+#exhibition-cancel-btn{
+	background-color: white;
+	color: #333344;
+	
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 30px;
+	line-height: 35px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+}
+
+#exhibition-make-btn{
+	background-color: #333344;
+	color: white;
+	
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 30px;
+	line-height: 35px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+}
+
+button#addImgBtn{
+	border: 0; 
+	background: transparent;
+	width:30px;
+	height:30px;
+}
+button#addImgBtn img{
+	width:30px;
+	height:30px;
+}

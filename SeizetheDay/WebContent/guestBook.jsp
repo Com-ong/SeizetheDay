@@ -1,14 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!-- DB ì—°ê²° ìœ„í•œ ì¶”ê°€ ë¶€ë¶„ -->
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!-- DB ¿¬°á À§ÇÑ Ãß°¡ ºÎºĞ -->
 <%@ page import="java.util.*, java.sql.*, JavaBeans.*" %>
 <jsp:useBean id="guestMgr" class="JavaBeans.GuestMgrPool" />
 <jsp:useBean id="userMgr" class="JavaBeans.UserMgrPool" />
 <jsp:useBean id="exhibitionMgr" class="JavaBeans.ExhibitionMgrPool" />
 <!-- #################################### -->
-<!-- ë¡œê·¸ì¸ ìƒíƒœ ê°€ì ¸ì˜¤ê¸° -->
+<!-- ·Î±×ÀÎ »óÅÂ °¡Á®¿À±â -->
 <%
-	  request.setCharacterEncoding("UTF-8");
+	  request.setCharacterEncoding("EUC-KR");
 	  //String user_id = (String)session.getAttribute("idKey");
 	  UserBean currUser= (UserBean)session.getAttribute("currUser");
 %>
@@ -30,45 +30,49 @@
 	<div class="visited_list">
 		<div class="insert_visited_area">
 		<% String action_url = "guestBook_insertDB.jsp?userid="+ writerBean.getUSER_ID() + "&exhibition_seq="+ exhibition_seq; %>
-		<form method="post" action=<%= action_url %>> <!-- ì¶”ê°€ ë¶€ë¶„ -->
+		<form method="post" action=<%= action_url %>> <!-- Ãß°¡ ºÎºĞ -->
 			<table id="visited_area2">
 				<tr>
 					<td><h1 id="visitedText">GuestBook</h1></td>
 				</tr>
 				<tr>
-					<td><h3 name="exhibition_name"><%= exhibitionBean.getEXHIBITION_NAME() %></h3></td>
-				<tr>
-					<td id="ment"><br>ì§§ì€ ë¬¸êµ¬ë¡œ ë°©ëª…ë¡ì„ ë‚¨ê²¨ì£¼ì„¸ìš”.<br><br></td>
+				<td><input type="button" id="back_btn" value="Àü½ÃÈ¸·Î µ¹¾Æ°¡±â" 
+				onClick="location.href='exhibition.jsp?exhibition_seq=<%=exhibition_seq%>&exhibition_background_seq=<%= exhibitionBean.getBACKGROUND_SEQ() %>'"></td>
 				</tr>
 				<tr>
-					<td>ì‘ì„±ì : <label id="userid" name="userid"><%= writerBean.getUSER_NAME() %></label></td>
+					<td><h3 name="exhibition_name"><%= exhibitionBean.getEXHIBITION_NAME() %></h3></td>
+				<tr>
+					<td id="ment"><br>ÂªÀº ¹®±¸·Î ¹æ¸í·ÏÀ» ³²°ÜÁÖ¼¼¿ä.<br><br></td>
+				</tr>
+				<tr>
+					<td>ÀÛ¼ºÀÚ : <label id="userid" name="userid"><%= writerBean.getUSER_NAME() %></label></td>
 				</tr>
 				<tr>
 					<td>
-						<textarea class="visited_input" name="visited_input" rows="4" cols="70" required placeholder="ì—¬ê¸°ì— ì§§ì€ ë¬¸êµ¬ë¥¼ ì‘ì„±í•˜ì„¸ìš”."></textarea>
+						<textarea class="visited_input" name="visited_input" rows="4" cols="70" required placeholder="¿©±â¿¡ ÂªÀº ¹®±¸¸¦ ÀÛ¼ºÇÏ¼¼¿ä."></textarea>
 					</td>
-					<td><input type="submit" id="visited_store" value="ì €ì¥"></td>
+					<td><input type="submit" id="visited_store" value="ÀúÀå"></td>
 				</tr>
 			</table>
-		</form> <!-- ì¶”ê°€ ë¶€ë¶„ -->
+		</form> <!-- Ãß°¡ ºÎºĞ -->
 		</div>
 		
 		<p>
-		<% // ì¶”ê°€ ë¶€ë¶„
+		<% // Ãß°¡ ºÎºĞ
 			Vector<GuestBean> vlist = guestMgr.getEachGuestList(exhibition_seq);
-		%>ì´ ë°©ë¬¸ì ìˆ˜ : <%= vlist.size() %></p> <!-- ìˆ˜ì • ë¶€ë¶„ -->
+		%>ÃÑ ¹æ¹®ÀÚ ¼ö : <%= vlist.size() %></p> <!-- ¼öÁ¤ ºÎºĞ -->
 		<table class="visited_lists" border=1>
 			<thead>
 				<tr>
 					<th id="visited_writer">guest</th>
 					<th id="visited_visited">guestBook</th>
 					<th id="visited_date">Date</th>
-					<!-- <th id="visited_change">ìˆ˜ì •</th> -->
+					<!-- <th id="visited_change">¼öÁ¤</th> -->
 					<th id="visited_delete"></th>
 				</tr>
 			</thead>
 			<tbody>
-				<!-- DB ì—°ê²° ìœ„í•œ ì¶”ê°€ ë¶€ë¶„ -->
+				<!-- DB ¿¬°á À§ÇÑ Ãß°¡ ºÎºĞ -->
 				<%
 					/* Vector<GuestBean> vlist = guestMgr.getRegisterList(); */
 							Vector<UserBean> userlist = userMgr.getRegisterList();	
@@ -92,9 +96,9 @@
 					<td class="visited_writer_input"><%= board_writer%></td>
 					<td class="visited_visited_input"><%= guestBean.getBOARD_TEXT() %></td>
 					<td class="visited_date_input"><%= guestBean.getBOARD_DATE() %></td>
-					<%-- <td><input type="button" class="visited_change_btn" value="ìˆ˜ì •" name="visited_change_btn" onclick="location.href='guestBook_updateDB.jsp?board_seq=<%=guestBean.getBOARD_SEQ()%>'"></td> --%>
+					<%-- <td><input type="button" class="visited_change_btn" value="¼öÁ¤" name="visited_change_btn" onclick="location.href='guestBook_updateDB.jsp?board_seq=<%=guestBean.getBOARD_SEQ()%>'"></td> --%>
 					<td>
-						<input type="button" class="visited_delete_btn" value="ì‚­ì œ" name="visited_delete_btn" onclick="location.href='guestBook_deleteDB.jsp?board_seq=<%=guestBean.getBOARD_SEQ()%>&exhibition_seq=<%=exhibition_seq%>'">
+						<input type="button" class="visited_delete_btn" value="»èÁ¦" name="visited_delete_btn" onclick="location.href='guestBook_deleteDB.jsp?board_seq=<%=guestBean.getBOARD_SEQ()%>&exhibition_seq=<%=exhibition_seq%>'">
 					</td>
 				</tr>
 				<% } %>
