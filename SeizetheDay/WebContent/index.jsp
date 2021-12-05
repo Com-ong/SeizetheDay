@@ -79,20 +79,11 @@ a{
 		*{margin:0;padding:0;}
     ul,li{list-style:none;}
     .slide{height:500px;overflow:hidden;}
-<<<<<<< HEAD
-    .slide ul{width:calc(100% * 4);display:flex;animation:slide 8s infinite;} /* slideë¥¼ 8ì´ˆë™ì•ˆ ì§„í–‰í•˜ë©° ë¬´í•œë°˜ë³µ í•¨ */
-    .slide li{width:calc(100% / 4);height:500px; background-size: cover;} /*background-size: cover ì¶”ê°€ , ì´ë¯¸ì§€ ì‚¬ì´ì¦ˆ ìžë™ ì¡°ì ˆ*/
-    .slide li:nth-child(1){background-image:url(main_images/main01.png);}
-    .slide li:nth-child(2){background-image:url(main_images/main02.png);}
-    /*.slide li:nth-child(1){background:#2a2a55;}*/
-    /*.slide li:nth-child(2){background:#faa;}*/
-=======
     .slide ul{width:calc(100% * 4);display:flex;animation:slide 8s infinite;} /* slide¸¦ 8ÃÊµ¿¾È ÁøÇàÇÏ¸ç ¹«ÇÑ¹Ýº¹ ÇÔ */
     .slide li{width:calc(100% / 4);height:500px; background-size: cover;} /*background-size: cover Ãß°¡ , ÀÌ¹ÌÁö »çÀÌÁî ÀÚµ¿ Á¶Àý*/
     /*.slide li:nth-child(1){background-image:url(main_images/pic01.jpg);}*/
     .slide li:nth-child(1){background:#2a2a55;}
     .slide li:nth-child(2){background:#faa;}
->>>>>>> 54151f8808b05b3e4d896bcfd9c369a09927d52a
     .slide li:nth-child(3){background:#afa;}
     .slide li:nth-child(4){background:#aaf;}
     @keyframes slide {
@@ -222,15 +213,15 @@ a{
                               		<% } else { %>
                               		<li><a onClick="loginAlert()">List</a></li>
                               		<% } %>
-                              		<% if(currUser!=null) { %>
+                              		<%-- <% if(currUser!=null) { %>
                               		<li><a href="guestBook.jsp">GuestBook</a>
                               		<% } else { %>
                               		<li><a onClick="loginAlert()">GuestBook</a>
-                              		<% } %>
+                              		<% } %> --%>
                               	</ul>
                               	<!-- <a href="#">Exhibition</a> -->
                               </li>
-                              <li>
+                              <!-- <li>
                                  <span class="opener">Exhibition Category</span>
                                  <ul>
                               	    <li><a href="#">IT</a></li>
@@ -239,7 +230,7 @@ a{
                                     <li><a href="#">Modern</a></li>
                                     <li><a href="#">Geometric</a></li>
                                  </ul>
-                              </li>
+                              </li> -->
                               <li><a href="trend.jsp">Trend</a></li>
                               <% if(currUser!=null) { %>
                               <li><a href="#">1:1 Inquiry</a></li>

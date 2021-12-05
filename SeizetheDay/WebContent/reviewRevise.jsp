@@ -8,9 +8,15 @@
 	request.setCharacterEncoding("UTF-8");
 	UserBean currUser = (UserBean)session.getAttribute("currUser");
 	int exhibition_seq = Integer.parseInt(request.getParameter("exhibition_seq"));
-	
-	UserBean writerBean = userMgr.findWithID(currUser.getUSER_ID());
+	int comment_seq = Integer.parseInt(request.getParameter("comment_seq"));
+	String boarder_writer = request.getParameter("comment_writer");
+	ReviewBean reviewBean = reviewMgr.findWithReviewSeq(comment_seq);
+	int user_seq = reviewBean.getUserSeq();
+	UserBean writerBean = userMgr.findUserWithSeq(user_seq);
+	/* UserBean writerBean = userMgr.findWithID(currUser.getUSER_ID());  */
 	ExhibitionBean exhibitionBean = exhibitionMgr.findWithExhibitionSeq(exhibition_seq);
+	
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -26,14 +32,14 @@
 	<div class="review_area1">
 	<div class="reviewWrite_list">
 	<div class="insert_review_area">
-		<% String action_url = "review_insert.jsp?userid="+writerBean.getUSER_ID()+"&exhibition_seq="+exhibition_seq; %>
+		<% String action_url = "review_update.jsp?userid="+writerBean.getUSER_ID()+"&comment_seq="+comment_seq+"&exhibition_seq="+exhibition_seq; %>
 		<form method="post" action=<%= action_url %>>
 			<table id="reviewWrite_area2">
 			<tr>
-				<td><input type="button" id="back_btn" value="후기 목록으로 돌아가기" onClick="if(confirm('작성하던 내용이 사라집니다.\n돌아가시겠습니까?')){location.href='review.jsp?exhibition_seq=<%=exhibition_seq%>';} else {return false;}"></td>
+				<td><input type="button" id="back_btn" value="후기 목록으로 돌아가기" onClick="if(confirm('수정하던 내용이 사라집니다.\n돌아가시겠습니까?')){location.href='review.jsp?exhibition_seq=<%=exhibition_seq%>';} else {return false;}"></td>
 			</tr>
 			<tr>
-				<td><h1 id="reviewWriteText">후기 작성하기</h1></td>
+				<td><h1 id="reviewWriteText">후기 수정하기</h1></td>
 			</tr>
 			<tr>
 				<td><br><br>전시 관람 후 후기를 작성해주세요.<br><br></td>
@@ -52,13 +58,14 @@
 			</tr>
 			<tr>
 				<td>
-					<textarea name="review_input" class="reviewWrite_input" rows="10" cols="100" required placeholder="여기에 전시 관람 후기를 작성하세요."></textarea>
+					<textarea name="review_input" class="reviewWrite_input" rows="10" cols="100" value="" 
+					required placeholder="여기에 전시 관람 후기를 작성하세요."><%=reviewBean.getCommentText() %></textarea>
 				</td>
 			</tr>
 			<tr>
 				<td id="reviewWrite_btns">
-					<input type="button" id="reviewWrite_cancel" value="취소" onClick="if(confirm('작성하던 내용이 사라집니다.\n계속하시겠습니까?')){location.href='review.jsp?exhibition_seq=<%=exhibition_seq%>';} else {return false;}">
-					<input type="submit" id="reviewWrite_store" value="저장" onClick="if(confirm('후기를 저장하시겠습니까?')){location.href='review.jsp';} else {return false;}">
+					<input type="button" id="reviewWrite_cancel" value="취소" onClick="if(confirm('수정하던 내용이 사라집니다.\n계속하시겠습니까?')){location.href='review.jsp?exhibition_seq=<%=exhibition_seq%>';} else {return false;}">
+					<input type="submit" id="reviewWrite_store" value="저장" onClick="if(confirm('후기를 수정하시겠습니까?')){location.href='review.jsp';} else {return false;}">
 				</td>
 			</tr>
 		</table>

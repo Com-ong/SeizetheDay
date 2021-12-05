@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%
 	  request.setCharacterEncoding("EUC-KR");
-	  String user_id = (String)session.getAttribute("idKey");
+	UserBean currUser= (UserBean)session.getAttribute("currUser");
+	  /* String user_id = (String)session.getAttribute("idKey"); */
 	  //String USER_SEQ=(String)session.getAttribute("USER_SEQ_KEY");
 	  //int USER_SEQ=(int)session.getAttribute("USER_SEQ_KEY");
 %>
@@ -25,7 +26,7 @@
 <%
 	int exhibition_seq = Integer.parseInt(request.getParameter("exhibition_seq"));
 	int background_seq = Integer.parseInt(request.getParameter("exhibition_background_seq"));
-	int user_seq = 1; // 로그인한 사용자 번호
+	//int user_seq = 1; // 로그인한 사용자 번호
 	ExhibitionBean exhibition = exhibitionMgr.findWithExhibitionSeq(exhibition_seq);
 	
 	Vector<PhotoBean> photoList = photoMgr.getPhotoListinEx(exhibition_seq);
@@ -36,7 +37,7 @@
 	<div class="show_content" style="background-color: <%=bb.getBACKGROUND_COLOR()%>;">
 		<div class="btns">
 			<a href="guestBook.jsp?exhibition_seq=<%= exhibition_seq%>">방명록</a>
-			<a href="review.jsp">후기</a>
+			<a href="review.jsp?exhibition_seq=<%=exhibition_seq %>">후기</a>
 		</div>
 		<div class = "show-title"  style="margin: 0 auto; text-align:center;">
 			<!-- EXHIBITION NAME --><%= exhibition.getEXHIBITION_NAME() %>

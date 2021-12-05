@@ -48,11 +48,13 @@
 						<tr>
 							<td><label for="name">이 름  </label></td>
 							<td><input id="name" type="text" value="<%=currUser.getUSER_NAME()%>"></td>
+							<td><input id="name" type="text" value="<%=currUser.getUSER_NAME()%>"></td>
 
 						</tr>	
 						
 						<tr>
 							<td><label for="mail">이 메 일  </label></td>
+							<td><input id="mail" type="email" value="<%=currUser.getUSER_EMAIL()%>"></td>
 							<td><input id="mail" type="email" value="<%=currUser.getUSER_EMAIL()%>"></td>
 						</tr>
 						
