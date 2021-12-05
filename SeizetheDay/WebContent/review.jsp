@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="EUC-KR"> 
 <title>Review Page</title>
 <link rel="stylesheet" href="CSS/review.css">
 </head>
@@ -30,6 +30,10 @@
 		</table>
 	
 		<p>총 후기 수 : 1</p>
+		
+		<%
+			Vector<ReviewBean> vlist = reviewMgr.getReviewList();
+		%>
 		<table class="review_lists" border=1>
 			<thead>
 				<tr>
@@ -42,7 +46,7 @@
 			</thead>
 			<tbody>
 			<%
-			Vector<ReviewBean> vlist = reviewMgr.getRegisterList();
+			//Vector<ReviewBean> vlist = reviewMgr.getRegisterList();
 			Vector<UserBean> userlist = userMgr.getRegisterList();
 			String board_writer="";
 			
