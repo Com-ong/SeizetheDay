@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <%
-	  request.setCharacterEncoding("EUC-KR");
+	request.setCharacterEncoding("EUC-KR");
 	UserBean currUser= (UserBean)session.getAttribute("currUser");
 	  /* String user_id = (String)session.getAttribute("idKey"); */
 	  //String USER_SEQ=(String)session.getAttribute("USER_SEQ_KEY");
 	  //int USER_SEQ=(int)session.getAttribute("USER_SEQ_KEY");
 %>
-<!-- DB Ïó∞Í≤∞ ÏúÑÌïú Ï∂îÍ∞Ä Î∂ÄÎ∂Ñ -->
+<!-- DB ø¨∞· ¿ß«— √ﬂ∞° ∫Œ∫– -->
 <%@ page import="java.util.*, java.sql.*, JavaBeans.*" %>
 <jsp:useBean id="exhibitionMgr" class="JavaBeans.ExhibitionMgrPool" />
 <jsp:useBean id="userMgr" class="JavaBeans.UserMgrPool" />
@@ -26,7 +26,7 @@
 <%
 	int exhibition_seq = Integer.parseInt(request.getParameter("exhibition_seq"));
 	int background_seq = Integer.parseInt(request.getParameter("exhibition_background_seq"));
-	//int user_seq = 1; // Î°úÍ∑∏Ïù∏Ìïú ÏÇ¨Ïö©Ïûê Î≤àÌò∏
+	//int user_seq = 1; // ∑Œ±◊¿Œ«— ªÁøÎ¿⁄ π¯»£
 	ExhibitionBean exhibition = exhibitionMgr.findWithExhibitionSeq(exhibition_seq);
 	
 	Vector<PhotoBean> photoList = photoMgr.getPhotoListinEx(exhibition_seq);
@@ -36,8 +36,8 @@
 	<jsp:include page="header_exhibition.jsp"></jsp:include>
 	<div class="show_content" style="background-color: <%=bb.getBACKGROUND_COLOR()%>;">
 		<div class="btns">
-			<a href="guestBook.jsp?exhibition_seq=<%= exhibition_seq%>">Î∞©Î™ÖÎ°ù</a>
-			<a href="review.jsp?exhibition_seq=<%=exhibition_seq %>">ÌõÑÍ∏∞</a>
+			<a href="guestBook.jsp?exhibition_seq=<%= exhibition_seq%>">πÊ∏Ì∑œ</a>
+			<a href="review.jsp?exhibition_seq=<%=exhibition_seq %>">»ƒ±‚</a>
 		</div>
 		<div class = "show-title"  style="margin: 0 auto; text-align:center;">
 			<!-- EXHIBITION NAME --><%= exhibition.getEXHIBITION_NAME() %>
@@ -53,43 +53,12 @@
       	{
       		PhotoBean pb = photoList.get(i);
       %>
-      <div class="mySlides fade"<%--  style="background-color: <%=bb.getBACKGROUND_COLOR()%>" --%>>
+      <div class="mySlides fade">
         <div class="numbertext"><%=i+1 %> / <%= photo_count %></div>
          <img src="FileStorage/<%= pb.getPHOTO_NAME() %>" style="width:100%" alt="<%= pb.getPHOTO_NAME() %>">
-        <!-- <img src="http://divisare-res.cloudinary.com/images/f_auto,q_auto,w_800/v1491425456/ltekybkstiyl7faumrsq/acne-studios-acne-studio-potsdamer-strasse.jpg" style="width:100%"> -->
         <div class="text"><%= pb.getPHOTO_TEXT() %></div>
       </div>
       <% } %>
-
-      <!-- <div class="mySlides fade">
-        <div class="numbertext">2 / 6</div>
-        <img src="http://divisare-res.cloudinary.com/images/f_auto,q_auto,w_800/v1491425435/hwxwxqxfwo4htfgqksbu/acne-studios-acne-studio-potsdamer-strasse.jpg" style="width:100%">
-        <div class="text">ACNE STUDIO</div>
-      </div>
-
-      <div class="mySlides fade">
-        <div class="numbertext">3 / 6</div>
-        <img src="http://divisare-res.cloudinary.com/images/f_auto,q_auto,w_800/v1491425448/rnelglmoujifzlbzykxw/acne-studios-acne-studio-potsdamer-strasse.jpg" style="width:100%">
-        <div class="text">ACNE STUDIO</div>
-      </div>
-
-      <div class="mySlides fade">
-        <div class="numbertext">4 / 6</div>
-        <img src="http://divisare-res.cloudinary.com/images/f_auto,q_auto,w_800/v1491425434/coct9kmra7uhmeu4cxto/acne-studios-acne-studio-potsdamer-strasse.jpg" style="width:100%">
-        <div class="text">ACNE STUDIO</div>
-      </div>
-
-      <div class="mySlides fade">
-        <div class="numbertext">5 / 6</div>
-        <img src="http://divisare-res.cloudinary.com/images/f_auto,q_auto,w_800/v1491425440/xacfj7abitmifeyciiia/acne-studios-acne-studio-potsdamer-strasse.jpg" style="width:100%">
-        <div class="text">ACNE STUDIO</div>
-      </div>
-
-      <div class="mySlides fade">
-        <div class="numbertext">6 / 6</div>
-        <img src="http://divisare-res.cloudinary.com/images/f_auto,q_auto,w_800/v1491425434/cqxjhpdmepxto0nudsok/acne-studios-acne-studio-potsdamer-strasse.jpg" style="width:100%">
-        <div class="text">ACNE STUDIO</div>
-      </div> -->
 
       <!-- Next and previous buttons -->
       <a class="prev" onclick="moveSlides(-1)">&#10094;</a>
@@ -102,11 +71,6 @@
     <%for(int i=0; i<photo_count; i++) { %>
       <span class="dot" onclick="currentSlide(<%=i%>)"></span>
       <%} %>
-      <!-- <span class="dot" onclick="currentSlide(1)"></span>
-      <span class="dot" onclick="currentSlide(2)"></span>
-      <span class="dot" onclick="currentSlide(3)"></span>
-      <span class="dot" onclick="currentSlide(4)"></span>
-      <span class="dot" onclick="currentSlide(5)"></span> -->
     </div>
     </div>
 </body>

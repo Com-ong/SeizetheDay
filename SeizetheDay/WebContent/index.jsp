@@ -3,7 +3,7 @@
     pageEncoding="EUC-KR"%>
 <%@ page import="JavaBeans.UserBean" %>
 <%
-	  request.setCharacterEncoding("UTF-8");
+	  request.setCharacterEncoding("EUC-KR");
 	  UserBean currUser = (UserBean)session.getAttribute("currUser");
 	  System.out.println(currUser);
 %>

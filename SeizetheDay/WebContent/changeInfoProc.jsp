@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@page import = "JavaBeans.UserBean"%>
-<%request.setCharacterEncoding("EUC-KR"); %>
 <jsp:useBean id = "uMgr" class="JavaBeans.UserMgrPool"/>
 <%
+	request.setCharacterEncoding("EUC-KR");
 	UserBean currUser = (UserBean)session.getAttribute("currUser");
 	currUser.setUSER_NAME(request.getParameter("user_name"));
 	currUser.setUSER_EMAIL(request.getParameter("user_email"));

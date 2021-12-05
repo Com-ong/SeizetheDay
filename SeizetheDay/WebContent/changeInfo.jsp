@@ -1,16 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <%@page import = "JavaBeans.UserBean"%>
 <jsp:useBean id = "uMgr" class="JavaBeans.UserMgrPool"/>
 
 <%
+	request.setCharacterEncoding("EUC-KR");
 	UserBean currUser = (UserBean)session.getAttribute("currUser");
 %>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
@@ -38,30 +39,30 @@
 				<div class = "InfoInsert">
 					<table>
 						<tr>
-							<td><label for="name">ì´ ë¦„  </label></td>
+							<td><label for="name">ÀÌ ¸§  </label></td>
 							<td><input id="name" type="text" name="user_name" value="<%=currUser.getUSER_NAME()%>"></td>
 
 						</tr>	
 						
 						<tr>
-							<td><label for="mail">ì´ ë©” ì¼  </label></td>
+							<td><label for="mail">ÀÌ ¸Þ ÀÏ  </label></td>
 							<td><input id="mail" type="email" name="user_email" value="<%=currUser.getUSER_EMAIL()%>"></td>
 						</tr>
 						
 						<tr>
-							<td><label for="password">ë¹„ ë°€ ë²ˆ í˜¸  </label></td>
+							<td><label for="password">ºñ ¹Ð ¹ø È£  </label></td>
 							<td><input id="password" type="password" name="user_pw"></td>
 						</tr>
 						
 						<tr>
-							<td><label for="pwcheck">ë¹„ ë°€ ë²ˆ í˜¸ í™• ì¸   </label></td>
+							<td><label for="pwcheck">ºñ ¹Ð ¹ø È£ È® ÀÎ   </label></td>
 							<td><input id="pwcheck" type="password" name="user_pw"></td>
 
 						</tr>					
 					</table>
 				</div>
 				
-				<div class = "idChng"><labels>* ì•„ ì´ ë”” ëŠ” ë³€ ê²½ í•  ìˆ˜ ì—† ìŠµ ë‹ˆ ë‹¤.</label></div>
+				<div class = "idChng"><labels>* ¾Æ ÀÌ µð ´Â º¯ °æ ÇÒ ¼ö ¾ø ½À ´Ï ´Ù.</label></div>
 				</span>
 				
 				

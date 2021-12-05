@@ -4,7 +4,7 @@
 <%@ page import="java.util.*, java.sql.*, JavaBeans.*" %>
 <jsp:useBean id="reviewMgr" class="JavaBeans.ReviewMgrPool" />
 <jsp:useBean id="userMgr" class="JavaBeans.UserMgrPool" />
-<!-- #################################### -->
+
 <!DOCTYPE html>
 <html>
 <head>

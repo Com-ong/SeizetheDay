@@ -13,9 +13,6 @@
 </head>
 <body onLoad="joinForm.id.focus()">
 	<jsp:include page="header.jsp"></jsp:include>
-	<div class="head">
-		<span>SeizetheDay</span>
-	</div>
 	<div class="join">
 		<div class="join-title">JOIN</div>
 		<div class="join-content">
