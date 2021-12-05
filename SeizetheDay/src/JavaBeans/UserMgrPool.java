@@ -24,7 +24,6 @@ public class UserMgrPool {
 
    // mypage에서 user 가져오기
    public UserBean getUser(String id) {
-<<<<<<< HEAD
 	      Connection con = null;
 	      PreparedStatement pstmt = null;
 	      ResultSet rs = null;
@@ -75,61 +74,8 @@ public class UserMgrPool {
 			pool.freeConnection(con, pstmt);
 		}
 		return flag;
-	}
-	
-=======
-     Connection con = null;
-     PreparedStatement pstmt = null;
-     ResultSet rs = null;
-     UserBean bean = null;
-     try {
-        con = pool.getConnection();
-        String sql = "select * from userinfo where USER_ID = ?";
-        pstmt = con.prepareStatement(sql);
-        pstmt.setString(1, id);
-        rs = pstmt.executeQuery();
-        if (rs.next()) {
-           bean = new UserBean();
-           bean.setUSER_SEQ(rs.getInt("USER_SEQ"));
-           bean.setUSER_ID(rs.getString("USER_ID"));
-           bean.setUSER_PW(rs.getString("USER_PW"));
-           bean.setUSER_NAME(rs.getString("USER_NAME"));
-           bean.setUSER_EMAIL(rs.getString("USER_EMAIL"));
-           bean.setUSER_PROFILE(rs.getString("USER_PROFILE"));
-           bean.setUSER_ROLE(rs.getBoolean("USER_ROLE"));
-        }
-     } catch (Exception e) {
-        e.printStackTrace();
-     } finally {
-        pool.freeConnection(con);
-     }
-     return bean;
-  }
-   
-   // mypage 정보 수정하면 db update하기
-   public boolean updateUser(UserBean bean) {
-	   	Connection con = null;
-	   	PreparedStatement pstmt = null;
-	   	boolean flag = false;
-	   	try {
-	   		con = pool.getConnection();
-	   		String sql = "update userinfo set USER_NAME=?, USER_EMAIL=?";
-	   		pstmt = con.prepareStatement(sql);
-	   		pstmt.setString(1, bean.getUSER_NAME());
-	   		pstmt.setString(2, bean.getUSER_EMAIL());
+	}	
 
-	   		int count = pstmt.executeUpdate();
-	   		if (count > 0)
-	   			flag = true;
-	   	} catch (Exception e) {
-	   		e.printStackTrace();
-	   	} finally {
-	   		pool.freeConnection(con, pstmt);
-	   	}
-	   	return flag;
-   }
-   
->>>>>>> 54151f8808b05b3e4d896bcfd9c369a09927d52a
    // 아이디로 사용자 찾기
    public UserBean findWithID(String id)
    {
