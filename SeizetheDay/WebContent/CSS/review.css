@@ -1,0 +1,18 @@
+@charset "EUC-KR";
+body{
+	font-family: Roboto;
+	font-size: 15px;
+}
+
+.review_area1{
+	background-color: white;
+	width:85%;
+	height:100%;
+	position:absolute;
+	margin:5%;
+	margin-top:200px;
+	z-index:2;
+	padding: 2.5%;
+	display:block;
+	border-radius:10px;
+}

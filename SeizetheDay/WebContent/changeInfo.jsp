@@ -1,26 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@page import = "JavaBeans.UserBean"%>
+<jsp:useBean id = "uMgr" class="JavaBeans.UserMgrPool"/>
+
+<%
+	request.setCharacterEncoding("EUC-KR");
+	UserBean currUser = (UserBean)session.getAttribute("currUser");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="EUC-KR">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
 <title>Info</title>
 <link rel="stylesheet" href="CSS/InfoStyle.css">
 </head>
-
-<script> 
-
-
-</script>
-
-
-
 <body>
 	<jsp:include page = "header.jsp"></jsp:include>
-	
+	<form name="regFrm" method="post" action="changeInfoProc.jsp">
 	<div class = "changeInfo">
 		<div class = "aboutInfo">
 			<div class = "infoTitle">CHANGE INFORMATION</div>
@@ -39,27 +39,30 @@
 				<div class = "InfoInsert">
 					<table>
 						<tr>
-							<td><label for="name">Ïù¥ Î¶Ñ  </label></td>
-							<td><input id="name" type="text"></td>
+							<td><label for="name">¿Ã ∏ß  </label></td>
+							<td><input id="name" type="text" name="user_name" value="<%=currUser.getUSER_NAME()%>"></td>
+
 						</tr>	
 						
 						<tr>
-							<td><label for="mail">Ïù¥ Î©î Ïùº  </label></td>
-							<td><input id="mail" type="email"></td>
+							<td><label for="mail">¿Ã ∏ﬁ ¿œ  </label></td>
+							<td><input id="mail" type="email" name="user_email" value="<%=currUser.getUSER_EMAIL()%>"></td>
 						</tr>
 						
 						<tr>
-							<td><label for="password">ÎπÑ Î∞Ä Î≤à Ìò∏  </label></td>
-							<td><input id="password" type="password"></td>
+							<td><label for="password">∫Ò π– π¯ »£  </label></td>
+							<td><input id="password" type="password" name="user_pw"></td>
 						</tr>
 						
 						<tr>
-							<td><label for="pwcheck">ÎπÑ Î∞Ä Î≤à Ìò∏ Ìôï Ïù∏   </label></td>
-							<td><input id="pwcheck" type="password"></td>
-						</tr>
-										
+							<td><label for="pwcheck">∫Ò π– π¯ »£ »Æ ¿Œ   </label></td>
+							<td><input id="pwcheck" type="password" name="user_pw"></td>
+
+						</tr>					
 					</table>
 				</div>
+				
+				<div class = "idChng"><labels>* æ∆ ¿Ã µ ¥¬ ∫Ø ∞Ê «“ ºˆ æ¯ Ω¿ ¥œ ¥Ÿ.</label></div>
 				</span>
 				
 				
@@ -68,9 +71,10 @@
 					<table>
 						<tr>
 							<td><input id="btn1" value="C A N C E L" type="button"></td>
-							<td><input id="btn2" value="O K" type="button"></td>
+							<td><input id="btn2" value="O K" type="submit"></td>
 						</tr>
 					</table>
+					</form>
 				</div>
 				</span>
 				
