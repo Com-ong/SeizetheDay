@@ -55,8 +55,19 @@
     			</button><br>
     			<input type="hidden" id = "exhibition-file-cnt" name = "exhibition-file-cnt" value="0">
 				
-				<input type="file" id="exhibition-file1" name="exhibition-file1"><!--파일 개수를 5개로 제한. style="display:none;"-->
-				<input type="text" id="exhibition-file-explain1" name="exhibition-file-explain1" placeholder="사진 설명 입력">
+				<!-- 전시회 썸네일 -->
+				<p style="font-size:0.5em;">전시회 썸네일 및 작품 등록은 반드시 "+" 버튼으로 진행해주세요. 전시 썸네일(표지)의 경우 전시의 가장 첫번째로 나타납니다.</p>
+				
+				<label for="exhibition-profile" style="font-size:0.7em;">전시회 썸네일</label>
+				<input type="file" id="exhibition-file0" name="exhibition-file0">
+				<input type="text" id="exhibition-file-explain0" name="exhibition-file-explain0" value="전시회 썸네일" readonly><br><br>
+				<!-- ///// -->
+				
+				<!-- <input type="file" id="exhibition-file1" name="exhibition-file1">파일 개수를 5개로 제한. style="display:none;"
+				<input type="text" id="exhibition-file-explain1" name="exhibition-file-explain1" placeholder="사진 설명 입력"> -->
+				
+				<input type="file" id="exhibition-file1" name="exhibition-file1" disabled><!--파일 개수를 5개로 제한. style="display:none;"-->
+				<input type="text" id="exhibition-file-explain1" name="exhibition-file-explain1" placeholder="사진 설명 입력" disabled>
 				
 				<input type="file" id="exhibition-file2" name="exhibition-file2" disabled>
 				<input type="text" id="exhibition-file-explain2" name="exhibition-file-explain2" disabled><br><br>
@@ -85,7 +96,8 @@
 		file_cnt = file_cnt + 1;
 		console.log(file_cnt);
 		
-		if (file_cnt<=5) document.getElementById("exhibition-file-cnt").value = String(file_cnt);
+		// 썸네일 추가 전
+		/* if (file_cnt<=5) document.getElementById("exhibition-file-cnt").value = String(file_cnt);
 		else alert("작품은 최대 5개 첨부할 수 있습니다.");
 		
 		var file_input_id="exhibition-file"+file_cnt;
@@ -93,7 +105,21 @@
 		
 		document.getElementById(file_input_id).disabled = false;
 		document.getElementById(file_input_id).click();
-		document.getElementById(explain_input_id).disabled = false;
+		document.getElementById(explain_input_id).disabled = false; */
+		
+		// 썸네일 추가했을 때
+		if (file_cnt<=6) document.getElementById("exhibition-file-cnt").value = String(file_cnt);
+		else alert("작품은 최대 5개 첨부할 수 있습니다.");
+		
+		if(file_cnt == 1) {document.getElementById("exhibition-file0").click();}
+		else { 
+			var file_input_id="exhibition-file"+(file_cnt-1);
+			var explain_input_id = "exhibition-file-explain"+(file_cnt-1);
+			
+			document.getElementById(file_input_id).disabled = false;
+			document.getElementById(file_input_id).click();
+			document.getElementById(explain_input_id).disabled = false;
+		}
 	}
 	</script>
 </body>                                                                                                                                                                                                                                                                                                                                                                    
