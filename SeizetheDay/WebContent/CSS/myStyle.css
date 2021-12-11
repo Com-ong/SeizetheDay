@@ -60,7 +60,7 @@ body {
 	border : 3px solid #333344;
 	border-radius : 10px;
 	width : 1200px;
-	margin-left : 20%;
+	margin : 0 auto;/*수정*/
 	margin-top : 5%;
 }
 
