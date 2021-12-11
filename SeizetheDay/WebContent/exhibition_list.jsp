@@ -51,14 +51,15 @@ div.desc {
    Vector<ExhibitionBean> vlist = new Vector<ExhibitionBean>();
    vlist=eMgr.getExhibitionList();
    System.out.println("vlist size: " + vlist.size());
-   for(int i=5;i<vlist.size();i++){
+   for(int i=0;i<vlist.size();i++){
 	   int exhibition_seq = vlist.elementAt(i).getEXHIBITION_SEQ();
 	   int background_seq = vlist.elementAt(i).getBACKGROUND_SEQ();
 	   System.out.println("seq: " + vlist.size() +" : " + exhibition_seq+" ,"+background_seq);
+	   System.out.println(" test : " +pMgr.getPhotoListinEx(exhibition_seq).get(0).getPHOTO_NAME());
 %>
       <div class = "gallery">
       	<a target="_blank" href="exhibition.jsp?exhibition_seq=<%=exhibition_seq%>&exhibition_background_seq=<%=background_seq%>">
-      		<img src="FileStorage/<%=pMgr.getPhotoListinEx(exhibition_seq).get(0).getPHOTO_NAME() %>" alt="<%=vlist.elementAt(i).getEXHIBITION_NAME() %>" width="600" height="400">
+      	<img src="FileStorage/<%=pMgr.getPhotoListinEx(exhibition_seq).elementAt(0).getPHOTO_NAME() %>" alt="<%=vlist.elementAt(i).getEXHIBITION_NAME() %>" width="600" height="400">
       	</a>
       	<div class="desc"><%=vlist.elementAt(i).getEXHIBITION_NAME()%></div>
       </div>
