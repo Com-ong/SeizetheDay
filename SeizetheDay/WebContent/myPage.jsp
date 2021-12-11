@@ -43,8 +43,8 @@
 		<div class = "myBtnGroup">
 			<table>
 			<tr>
-				<td><div class = "btn1"><a href="changeInfo.jsp"><img src="mypage_image/changeInfo1.png"><img a href="changeInfo.jsp" src="mypage_image/changeInfo2.png"></a></div></td>
-				<td><div class = "btn2"><img src="mypage_image/myImg1.png"><img src="mypage_image/myImg2.png"></div></td>
+				<td><div class = "btn1"><a href="changeInfo.jsp"><img src="mypage_image/changeInfo1.png"><img src="mypage_image/changeInfo2.png"></a></div></td>
+				<td><div class = "btn2"><a href="myExhibition.jsp"><img src="mypage_image/myImg1.png"><img a href="myExhibition.jsp" src="mypage_image/myImg2.png"></a></div></td>
 				<td><div class = "btn3"><img src="mypage_image/askWith1.png"><img src="mypage_image/askWith2.png"></div></td>
 			</tr>
 			</table>
