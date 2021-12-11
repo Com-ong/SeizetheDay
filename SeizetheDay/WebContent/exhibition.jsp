@@ -16,7 +16,6 @@
 <!-- #################################### -->
 <!DOCTYPE html>
 <html>
-<%@ include file="head.html" %>
 <head>
 <link rel="stylesheet" href="CSS/header.css">
 <link rel="stylesheet" href="CSS/exhibition.css">
