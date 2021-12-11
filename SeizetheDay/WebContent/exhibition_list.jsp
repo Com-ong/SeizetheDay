@@ -1,44 +1,71 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@page import = "JavaBeans.UserBean"%>
+<%@page import = "JavaBeans.PhotoBean"%>
+<%@page import = "JavaBeans.ExhibitionBean"%>
+<%@page import = "java.util.Vector"%>
+<jsp:useBean id = "uMgr" class="JavaBeans.UserMgrPool"/>
+<jsp:useBean id = "eMgr" class="JavaBeans.ExhibitionMgrPool"/>
+<jsp:useBean id = "pMgr" class="JavaBeans.PhotoMgrPool"/>
 <!DOCTYPE html>
 <html>
-<%@ include file="head.html" %>
 <head>
-<link rel="stylesheet" href="CSS/header.css">
-<link rel="stylesheet" href="CSS/exhibition_list.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta charset="EUC-KR">
+<title>My Exhibition</title>
+<link rel="stylesheet" href="CSS/create.css">
+<style>
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+</style>
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
-	<div class = "show-exhibition">
-	<div class = "show-list-title">
-		SHOW LIST
-	</div>
-	<div class = "show-content w3-row-padding">
-		<div class="w3-col s4 photo"><img src="./images/photo.png"></div>
- 		<div class="w3-col s4 photo"><img src="./images/photo.png"></div>
-  		<div class="w3-col s4 photo"><img src="./images/photo.png"></div>
-	</div>
-	<div class = "show-content w3-row-padding">
-		<div class="w3-col s4 photo"><img src="./images/photo.png"></div>
- 		<div class="w3-col s4 photo"><img src="./images/photo.png"></div>
-  		<div class="w3-col s4 photo"><img src="./images/photo.png"></div>
-	</div>
-	<div class = "show-content w3-row-padding">
-		<div class="w3-col s4 photo"><img src="./images/photo.png"></div>
- 		<div class="w3-col s4 photo"><img src="./images/photo.png"></div>
-  		<div class="w3-col s4 photo"><img src="./images/photo.png"></div>
-	</div>
-	
-	<div class="w3-bar w3-center">
-		<a href="#" class="w3-button">«</a>
-  		<a href="#" class="w3-button w3-green">1</a>
-  		<a href="#" class="w3-button">2</a>
-  		<a href="#" class="w3-button">3</a>
-  		<a href="#" class="w3-button">4</a>
-  		<a href="#" class="w3-button">»</a>
-	</div>
-	</div>
+   <jsp:include page = "header.jsp"></jsp:include>
+<div class = "make-exhibition">
+		<div class = "make-title">
+			SHOW EXHIBITION
+		</div>
+		<div class = "make-content">
+<%
+   request.setCharacterEncoding("EUC-KR");
+   response.setContentType("text/html;charset=EUC-KR");
+
+   UserBean currUser = (UserBean)session.getAttribute("currUser");
+   Vector<ExhibitionBean> vlist = new Vector<ExhibitionBean>();
+   vlist=eMgr.getExhibitionList();
+   System.out.println("vlist size: " + vlist.size());
+   for(int i=5;i<vlist.size();i++){
+	   int exhibition_seq = vlist.elementAt(i).getEXHIBITION_SEQ();
+	   int background_seq = vlist.elementAt(i).getBACKGROUND_SEQ();
+	   System.out.println("seq: " + vlist.size() +" : " + exhibition_seq+" ,"+background_seq);
+%>
+      <div class = "gallery">
+      	<a target="_blank" href="exhibition.jsp?exhibition_seq=<%=exhibition_seq%>&exhibition_background_seq=<%=background_seq%>">
+      		<img src="FileStorage/<%=pMgr.getPhotoListinEx(exhibition_seq).get(0).getPHOTO_NAME() %>" alt="<%=vlist.elementAt(i).getEXHIBITION_NAME() %>" width="600" height="400">
+      	</a>
+      	<div class="desc"><%=vlist.elementAt(i).getEXHIBITION_NAME()%></div>
+      </div>
+<%
+   }
+%>
+</div>
+</div>
 </body>
 </html>
