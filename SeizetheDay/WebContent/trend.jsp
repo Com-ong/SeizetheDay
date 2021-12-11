@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>trend page</title>
-<link rel="stylesheet" href="CSS/trend.css">
+<link rel="stylesheet" href="CSS/notice.css">
 </head>
 <style>
 	#ExhLeft {float : left; width : 300px;  margin-top : 20px; margin-left : 30px; margin-right : 30px; margin-bottom: 20px;
@@ -14,8 +14,8 @@ border-radius: 9%; overflow: hidden;
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	
-	<div class = "trend">
-		<div class = "trend-title">
+	<div class = "notice">
+		<div class = "notice-title">
 			Trend
 		</div>
 		<table style="margin:0 auto;">
