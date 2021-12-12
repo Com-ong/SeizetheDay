@@ -19,6 +19,30 @@ public class PhotoMgrPool {
 		}
 	}
 	
+	public void deletePhoto(int photo_seq)
+	{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = pool.getConnection();
+			String strQuery = "delete from photo where PHOTO_SEQ = ?";
+			
+			pstmt = conn.prepareStatement(strQuery);
+			pstmt.setInt(1, photo_seq);
+			
+			pstmt.executeUpdate();
+		} catch (Exception ex) {
+			System.out.println("Exception deleteGuest " + ex);
+		} finally {
+			try {
+				pstmt.close();
+				pool.freeConnection(conn);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	public Vector<PhotoBean> getPhotoList() {
 		Connection conn = null;
 		Statement stmt = null;

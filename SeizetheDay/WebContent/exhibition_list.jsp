@@ -40,7 +40,7 @@ div.desc {
    <jsp:include page = "header.jsp"></jsp:include>
 <div class = "make-exhibition">
 		<div class = "make-title">
-			SHOW EXHIBITION
+			SHOW ALL EXHIBITION
 		</div>
 		<div class = "make-content">
 <%
@@ -51,6 +51,16 @@ div.desc {
    Vector<ExhibitionBean> vlist = new Vector<ExhibitionBean>();
    vlist=eMgr.getExhibitionList();
    System.out.println("vlist size: " + vlist.size());
+   // 전시회가  없을 때
+   String message = "";
+   if(vlist.size() == 0)
+   {
+	  message = "아직 등록된 전시회가 없습니다.";
+%>
+	<h4 style="text-align:center;"><%=message %></h4>
+<%
+   }
+  
    for(int i=0;i<vlist.size();i++){
 	   int exhibition_seq = vlist.elementAt(i).getEXHIBITION_SEQ();
 	   int background_seq = vlist.elementAt(i).getBACKGROUND_SEQ();
