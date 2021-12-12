@@ -87,14 +87,17 @@ div.review_list{
 #review_review_input {
 	text-align: left;
 	padding-left: 30px;
+	width: 50%;
 }
 /* table에 들어가는 값 - 작성자 */
 #review_writer_input {
 	text-align: center;
+	width: 15%;
 }
 /* table에 들어가는 값 - 날짜 */
 #review_date_input {
 	text-align: center;
+	width: 15%;
 }
 /* 전시회로 돌아가기 버튼 */
 #back_btn {
@@ -150,6 +153,9 @@ div.review_area1 {
 }
 #review_addBtn {
 }
+table.review_lists .even {
+  background: #efefef;
+}
 /* 후기 목록 보여주는 div */
 div.review_list{
 	margin-top: 5%;
@@ -169,22 +175,27 @@ div.review_list{
 /* table - 후기 내용 */
 #review_review {
 	width: 400px;
+	width: 50%;
 }
 /* table - 작성자 */
 #review_writer {
 	width: 100px;
+	width: 15%;
 }
 /* table - 날짜 */
 #review_date {
 	width: 150px;
+	width: 15%;
 }
 /* table - 수정 버튼 */
 #review_change {
 	width: 50px;
+	width: 10%;
 }
 /* table - 삭제 버튼 */
 #review_delete {
 	width: 50px;
+	width: 10%;
 }
 /* table에 들어가는 값 - 후기 내용 */
 #review_review_input {

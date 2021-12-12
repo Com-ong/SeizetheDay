@@ -11,7 +11,7 @@
 <head>
 <meta charset="EUC-KR"> 
 <title>Review Page</title>
-<link rel="stylesheet" href="CSS/review.css">
+<link rel="stylesheet" href="CSS/ReviewPageCSS.css">
 </head>
 <%
 	request.setCharacterEncoding("UTF-8");
