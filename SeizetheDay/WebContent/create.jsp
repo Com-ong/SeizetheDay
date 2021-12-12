@@ -72,20 +72,20 @@
 				<input type="text" id="exhibition-file-explain1" name="exhibition-file-explain1" placeholder="사진 설명 입력" disabled><br><br>
 				
 				<input type="file" id="exhibition-file2" name="exhibition-file2" disabled>
-				<input type="text" id="exhibition-file-explain2" name="exhibition-file-explain2" disabled><br><br>
+				<input type="text" id="exhibition-file-explain2" name="exhibition-file-explain2" placeholder="사진 설명 입력" disabled><br><br>
 				
 				<input type="file" id="exhibition-file3" name="exhibition-file3" disabled>
-				<input type="text" id="exhibition-file-explain3" name="exhibition-file-explain3" disabled><br><br>
+				<input type="text" id="exhibition-file-explain3" name="exhibition-file-explain3" placeholder="사진 설명 입력" disabled><br><br>
 				
 				<input type="file" id="exhibition-file4" name="exhibition-file4" disabled>
-				<input type="text" id="exhibition-file-explain4" name="exhibition-file-explain4" disabled><br><br>
+				<input type="text" id="exhibition-file-explain4" name="exhibition-file-explain4" placeholder="사진 설명 입력" disabled><br><br>
 				
 				<input type="file" id="exhibition-file5" name="exhibition-file5" disabled>
-				<input type="text" id="exhibition-file-explain5" name="exhibition-file-explain5" disabled><br><br>
+				<input type="text" id="exhibition-file-explain5" name="exhibition-file-explain5" placeholder="사진 설명 입력" disabled><br><br>
 				
 				<div class = "submit-btn">
-					<input type="submit" class="press-btn" id="exhibition-make-btn" name="make" value = "Create">
-					<input type="button" class="press-btn" id="exhibition-cancel-btn" name="cancel" value = "Cancel">
+					<input type="submit" class="press-btn" id="exhibition-make-btn" name="make" value = "Create" style="color:white !important; font-size:15px;">
+					<input type="button" class="press-btn" id="exhibition-cancel-btn" name="cancel" value = "Cancel" style="font-size:15px;">
 				</div>
 			</form>
 			<div id="clear" style="clear:both;"></div>

@@ -97,7 +97,7 @@ a{
       100% {margin-left:0;}
       
 		</style>
-		<title>Untitled</title>
+		<title>SeizeTheDay</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="main_assets/css/main.css" />
@@ -236,7 +236,7 @@ a{
                               </li> -->
                               <li><a href="trend.jsp">Trend</a></li>
                               <% if(currUser!=null) { %>
-                              <li><a href="#">1:1 Inquiry</a></li>
+                              <li><a href="inquiry.jsp">1:1 Inquiry</a></li>
                               <% } else { %>
                                <li><a onClick="loginAlert();")>1:1 Inquiry</a></li>
                                <% } %>

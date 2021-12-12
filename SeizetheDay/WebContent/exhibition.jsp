@@ -172,7 +172,7 @@ function display_find_id(){
 	int background_seq = Integer.parseInt(request.getParameter("exhibition_background_seq"));
 	//int user_seq = 1; // 로그인한 사용자 번호
 	ExhibitionBean exhibition = exhibitionMgr.findWithExhibitionSeq(exhibition_seq);
-	
+	UserBean userBean = userMgr.findUserWithSeq(exhibition.getUSER_SEQ()); 
 	Vector<PhotoBean> photoList = photoMgr.getPhotoListinEx(exhibition_seq);
 	BackgroundBean bb = backgroundMgr.getBackground(background_seq);
 	
@@ -181,7 +181,7 @@ function display_find_id(){
 	/////////////////
 	
 %>
-	<jsp:include page="header_exhibition.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 		
 	<div class="show_content" style="background-color: <%=bb.getBACKGROUND_COLOR()%>;">
 		
@@ -239,6 +239,7 @@ function display_find_id(){
     </div>
     <div id="info" style="background-color:white; display: none; border-radius:10px; padding:3%;">
 					<b><h4>전시회 소개</h4></b><br>
+					<h5><%=userBean.getUSER_NAME() %> 작가님</h5><br/>
 					<p><%=exhibition.getEXHIBITION_TEXT() %></p>
 				</div>
     </div>
