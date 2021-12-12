@@ -37,7 +37,6 @@
 	<div class = "myPage">
 	
 		<div class = "myTitle">MYPAGE</div>
-		<div class = "myInfo"><img id="myImg" src="mypage_image/empty.png"></div>
 		<div class = "username"><%= currUser.getUSER_NAME() %>´Ô</div>
 
 		<div class = "myBtnGroup">
@@ -50,7 +49,7 @@
 			</table>
 		</div>
 	
-		<div class = "deleteInfo">È¸¿øÅ»Åð</div>
+		<div class = "deleteInfo"><a href="deleteUser.jsp">È¸¿øÅ»Åð</a></div>
 		
 	</div>
 

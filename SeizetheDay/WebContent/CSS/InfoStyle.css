@@ -3,116 +3,23 @@
 .changeInfo {
 	background-color : white;
 	width : 90%;
-	height : 200%;
-	position:absolute;
+	height : 50%;
 	margin-top : 10%;
 	margin-left : 5%;
 	border-radius:15px;
 }
 
-.infoTitle{
-	width : 25%;
-	height:50%;
-	color : #333344;
-	font-style: italic;
-	font-weight: bold;
-	font-size: 50px;
-	fsont-family: Arial;
-	margin-left : 5%;
-	margin-top : 3%;
-	padding-bottom : 10px;
-	border-bottom: 3px solid #333344;
-}
-
-.myImg {
-	width : 360px;
-	height : 360px;
-	margin-left : 40%;
-	margin-top : 5%;
-	margin-bottom : 2%
-}
-
-
-.UploadImg {
-	position: relative;
-	left: 42%;
-	top: 0;
-	height: 100%; width : 100%;
-	display: inline-block;
-	vertical-align: top;
-	width: 100%;
-}
-
-.UploadImg * {
-	vertical-align: middle;
-	border-radius: 30px;
-}
-
-.UploadImg .Imgtext {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
-	display: inline-block;
-	background-color: rgb(200, 200, 200, 0.4);
-	margin: 0;
-	border: 0;
-	padding-left: 22%;
-	line-height: 20px;
-	color: black;
-}
-
-.UploadImg .ImgSelect {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 100%;
-	height: 38px;
-	overflow: hidden;
-	border: 0;
-	border-radius: 20px;
-	background-color: rgba(0, 0, 0, 0);
-	box-sizing: border-box;
-}
-
-.UploadImg .ImgSelect input {
-	filter: alpha(opacity = 0);
-	opacity: 0;
-	height: 15px;
-	width: 100%;
-	height: 100%;
-}
-
-.UploadImg .Imgbtn {
-	position: absolute;
-	top: 0;
-	left: 0;
-	min-width: 100px; 
-	background-color : #333344;
-	line-height: 20px;
-	color: #ffffff;
-	text-align: center;
-	font-family: Arial;
-	font-size: 20px;
-	width: 10%;
-	padding: 8px 16px 8px 16px;
-	border-radius:10px;
-}
 
 .InfoInsert {
-	margin-left : 30%;
-	margin-top : 3%;
+	margin : 0 auto;
 }
 
-.InfoInsert label {
+.InfoInsert table label {
 	font-size : 25px;
 	color : #333344;
 	font-family : normal;
 	font-weight: bold;
+	text-align : center;
 }
 
 .InfoInsert input {

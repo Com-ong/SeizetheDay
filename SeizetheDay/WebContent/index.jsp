@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ page import="JavaBeans.UserBean" %>
@@ -85,7 +84,7 @@ a{
     .slide li:nth-child(1){background-image:url(main_images/main01.png);}
     .slide li:nth-child(2){background-image:url(main_images/main02.png);}
     .slide li:nth-child(3){background-image:url(main_images/main03.png);}
-    .slide li:nth-child(4){background:#aaf;}
+    .slide li:nth-child(4){background-image:url(main_images/main04.png);}
     @keyframes slide {
       0% {margin-left:0;} /* 0 ~ 10  : 정지 */
       10% {margin-left:0;} /* 10 ~ 25 : 변이 */
@@ -152,7 +151,7 @@ a{
                   </div>
                </div>
             </div>
-									<div><input type="text" name="query" id="query" placeholder="Search" /></div>
+									
 									</li>
 								</ul>
 								</header>
@@ -162,9 +161,13 @@ a{
 											
    										 <ul style="padding-left:0em"> <!-- main.css에서 ul padding-left:1em 때문에 끝이 남아서 1순위 적용  -->
       									<!--<li><a href="www.google.com"><img src="main_images_pic01.jpg"/></a></li>  -->
+      									<li onclick="location.href='trend.jsp'"></li>
       									<li></li>
-      									<li></li>
-      									<li></li>
+      									<% if(currUser != null) { %>
+										<li onClick="location.href='myPage.jsp'"></li>
+										<% } else { %>
+										<li onClick="loginAlert()"></li>
+										<% } %>
       									<li></li>
     									</ul>
   									</div>
@@ -172,9 +175,9 @@ a{
 							<!-- Section -->
 								<section>
 									<div style="text-align:center; height:100px;">
-										<button style="width:48%;height:100%;">Trend</button>
+										<button style="width:48%;height:100%;" onClick="location.href='trend.jsp'">Trend</button>
 										<% if(currUser != null) { %>
-										<button style="width:48%;height:100%;">My show Room</button>
+										<button style="width:48%;height:100%;" onClick="location.href='myPage.jsp'">My show Room</button>
 										<% } else { %>
 										<button onClick="loginAlert();" style="width:48%;height:100%;">My show Room</button>
 										<% } %>
