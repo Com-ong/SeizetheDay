@@ -154,16 +154,17 @@
 	
 	Date startDate = Date.valueOf(exhibition_start_date);
 	Date endDate = Date.valueOf(exhibition_end_date);
-	counter++;
-	background_counter++;
-	backgroundMgr.insertBackground(background_counter, exhibition_background_color);//배경 색 삽입
-	
+	//background_counter++;
+	//backgroundMgr.insertBackground(background_counter, exhibition_background_color);//배경 색 삽입
+	backgroundMgr.insertBackground(exhibition_background_color);//배경 색 삽입
+	Vector<BackgroundBean> back_bean = backgroundMgr.getBackgroundList();
+	int background_count = back_bean.get(background_counter).getBACKGROUND_SEQ();
 	// 전시 테마, 썸네일 추가 전
 	// exhibitionMgr.insertExhibition(/* counter,  */user_seq, 1, background_counter, file_cnt, //user_id, category_id
 	//		exhibition_private, exhibition_name, exhibition_text, null, startDate, endDate); */
 	
 	// 전시 테마, 썸네일 추가 후
-	exhibitionMgr.insertExhibition(user_seq, input_theme_seq, background_counter, file_cnt-1, //user_id, category_id
+	exhibitionMgr.insertExhibition(user_seq, input_theme_seq, background_count, file_cnt-1, //user_id, category_id
 			exhibition_private, exhibition_name, exhibition_text, profile_file, startDate, endDate);
 	
 	System.out.println(file_cnt);
