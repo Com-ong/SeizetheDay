@@ -241,20 +241,21 @@ function closeNav() {
                   <div>
                   	<form name="loginForm" method="post" action="loginProc.jsp">
                   		<span class="close">×</span>
-                  		<!-- <input type="text" name="USER_ID" id="id" value=""
-							placeholder="ID">
+                  		<br>
+                  		<input type="text" name="USER_ID" id="id" value=""
+							placeholder="ID" style="width:90%;">
                   		<br><input type="password" name="USER_PW" id="password" value=""
-							placeholder="Password"> -->
+							placeholder="Password" style="width:90%;"> 
                   	</form>
                   </div>
-                  <!-- <div style="magin:0 auto; padding-top:20px">
+                  <div style="magin:0 auto; padding-top:20px">
     				<button value="LOGIN" class="button primary" style="width:100%;" onclick="loginCheck();">LogIn</button>
                   </div>
                   <div style="text-align:center; padding:20px;">
-                  <a href="forgot.jsp" style="padding-right:40px; padding-left:40px;">FORGOT?</a>
+                  <a href="forgot.jsp" style="padding-right:40px; padding-left:40px; font-weight:normal; width:20%; ">FORGOT?</a>
                   			<td>/</td>
-                  <a href="join.jsp" style="padding-right:40px; padding-left:40px;">SIGN UP</a>
-                  </div> -->
+                  <a href="join.jsp" style="padding-right:40px; padding-left:40px; font-weight:normal; width:20%;">SIGN UP</a>
+                  </div> 
                </div>
             </div>
 		<!-- 기존 버튼 -->

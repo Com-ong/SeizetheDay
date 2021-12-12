@@ -16,7 +16,6 @@
 <!-- #################################### -->
 <!DOCTYPE html>
 <html>
-<%@ include file="head.html" %>
 <head>
 <link rel="stylesheet" href="CSS/header.css">
 <link rel="stylesheet" href="CSS/exhibition.css">
@@ -31,6 +30,10 @@
 	
 	Vector<PhotoBean> photoList = photoMgr.getPhotoListinEx(exhibition_seq);
 	BackgroundBean bb = backgroundMgr.getBackground(background_seq);
+	
+	// 전시 썸네일 관련 추가
+	String profile = exhibition.getEXHIBITION_PROFILE();
+	/////////////////
 	
 %>
 	<jsp:include page="header_exhibition.jsp"></jsp:include>
@@ -49,6 +52,11 @@
       <!-- Full-width images with number and caption text -->
       <%
       	int photo_count = exhibition.getPHOTO_SEQ();
+      
+      	// 전시 썸네일 관련 추가
+      	photo_count++;
+      	/////////////////
+      	
       	for(int i=0; i<photo_count; i++)
       	{
       		PhotoBean pb = photoList.get(i);
@@ -56,7 +64,8 @@
       <div class="mySlides fade">
         <div class="numbertext"><%=i+1 %> / <%= photo_count %></div>
          <img src="FileStorage/<%= pb.getPHOTO_NAME() %>" style="width:100%" alt="<%= pb.getPHOTO_NAME() %>">
-        <div class="text"><%= pb.getPHOTO_TEXT() %></div>
+         <!-- 흰색 사진일 때 사진 설명 안보여서 배경색 추가 -->
+         <div class="text" style="background-color:#333355;"><%= pb.getPHOTO_TEXT() %></div>
       </div>
       <% } %>
 

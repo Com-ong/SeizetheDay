@@ -6,10 +6,17 @@ import java.util.Vector;
 
 public class DBConnectionMgr {
 	private Vector connections = new Vector(10);
-	private String DRIVER = "org.gjt.mm.mysql.Driver",
-			URL = "jdbc:mysql://127.0.0.1:3306/seize_the_day?useUnicode=true&characterEncoding=EUC-KR",
-			USER = "root",
-			PASSWORD = "1234";
+	
+	//private String DRIVER = "org.gjt.mm.mysql.Driver",
+		//	URL = "jdbc:mysql://127.0.0.1:3306/seize_the_day?useUnicode=true&characterEncoding=EUC-KR",
+			//USER = "root",
+			//PASSWORD = "1234";
+	
+	private String _driver = "org.gjt.mm.mysql.Driver", //useSSL=false �߰�
+		    _url = "jdbc:mysql://127.0.0.1:3306/seize_the_day?&useUnicode=true&characterEncoding=EUC_KR",
+		    _user = "root",
+		    _password = "1234";
+	
 	private boolean TRACEON = false;
 	private boolean initialized = false;
 	private int _openConnections = 10;
@@ -60,7 +67,7 @@ public class DBConnectionMgr {
 	{
 		if(!initialized)
 		{
-			Class c = Class.forName(DRIVER);
+			Class c = Class.forName(_driver);
 			DriverManager.registerDriver((Driver) c.newInstance());
 			initialized = true;
 		}
@@ -186,6 +193,7 @@ public class DBConnectionMgr {
 	    Connection con = null;
 	        
 	    try {
+	    	/*
 	    	if (USER == null)
 	        	USER = "";
 	    	if (PASSWORD == null)
@@ -193,9 +201,22 @@ public class DBConnectionMgr {
 
 	    	Properties props = new Properties();
 	        props.put("user", USER);
-	        props.put("password", PASSWORD);
+	        props.put("password", PASSWORD); */
+	    	
+	    	if (_user == null)
+                _user = "";
+            if (_password == null)
+                _password = "";
 
-	        con = DriverManager.getConnection(URL, props);
+            Properties props = new Properties();
+            props.put("user", _user);
+            props.put("password", _password);
+            props.put("useSSL", "false");
+            
+
+            con = DriverManager.getConnection(_url, props);
+
+	       // con = DriverManager.getConnection(URL, props);
 	    } catch (Throwable t) {
 	    	throw new SQLException(t.getMessage());
 	    }

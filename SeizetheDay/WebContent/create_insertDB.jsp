@@ -6,6 +6,7 @@
 <jsp:useBean id="userMgr" class="JavaBeans.UserMgrPool" />
 <jsp:useBean id="photoMgr" class="JavaBeans.PhotoMgrPool" />
 <jsp:useBean id="backgroundMgr" class="JavaBeans.BackgroundMgrPool" />
+<jsp:useBean id="categoryMgr" class="JavaBeans.CategoryMgrPool" />
 <!-- file upload 추가 부분 -->
 <%@page import="com.oreilly.servlet.MultipartRequest" %>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
@@ -54,8 +55,17 @@
 	String exhibition_name = "", exhibition_text = "", exhibition_start_date = "", 
 			exhibition_end_date = "", exhibition_background_color = "", exhibition_file_cnt="";
 	
-	String filename[] = new String[5];//업로드한 photo의 파일 이름 -> 최대 5개
-	String exhibition_file_explain[] = new String[5];//업로드한 photo의 설명 -> 최대 5개
+	
+	String exhibition_theme=""; // 전시 테마
+	String profile_file = ""; // 업로드한 썸네일 이름
+	
+	// 썸네일 추가 전
+	/* String filename[] = new String[5];//업로드한 photo의 파일 이름 -> 최대 5개
+	String exhibition_file_explain[] = new String[5];//업로드한 photo의 설명 -> 최대 5개 */
+	
+	// 썸네일 추가 후
+	String filename[] = new String[6];// 업로드한 photo의 파일 이름 -> 최대 6개 (썸네일 1개, 사진 5개)
+	String exhibition_file_explain[] = new String[6];//업로드한 photo의 설명 -> 최대 6개 (썸네일 1개, 사진 5개)
 	
 	try {
 		MultipartRequest multi = null;
@@ -77,13 +87,37 @@
 				exhibition_file_cnt = value;
 				file_cnt = Integer.parseInt(exhibition_file_cnt);
 			}
-			else if(name.equals("exhibition-file-explain1")){
+			
+			// 썸네일 추가 전
+			/* else if(name.equals("exhibition-file-explain1")){
+				 exhibition_file_explain[0]=value;
+			} */
+			
+			// 썸네일 추가 후
+			else if(name.equals("exhibition-file-explain0")){ // 썸네일 부분 설명
 				 exhibition_file_explain[0]=value;
 			}
-			for (int i = 1; i < file_cnt;i++){
+			else if(name.equals("exhibition-file-explain1")){ // 썸네일 다음 첫번째 사진 부분 설명
+				 exhibition_file_explain[1]=value;
+			}
+			
+			// 전시 테마
+			else if(name.equals("exhibition-theme")) {
+				exhibition_theme = value;
+			}
+			
+			// 썸네일 추가 전
+			/* for (int i = 1; i < file_cnt;i++){
 				if (name.equals("exhibition-file-explain"+Integer.toString(i+1))) exhibition_file_explain[i]=value;
 				System.out.println("input test"+i+"="+exhibition_file_explain[i]);
+			} */
+			
+			// 썸네일 추가 후
+			for (int i = 2; i < file_cnt;i++){
+				if (name.equals("exhibition-file-explain"+Integer.toString(i))) exhibition_file_explain[i]=value;
+				System.out.println("input test"+i+"="+exhibition_file_explain[i]);
 			}
+			
 			System.out.println(name + " = " + value + "<br/>");
 		}
 		
@@ -109,13 +143,30 @@
 	if(exhibition_open.equals("public")) exhibition_private = true;
 	else if(exhibition_open.equals("private")) exhibition_private = false;
 	
+	// 추가 부분 ////////////
+	// 전시 테마 설정
+	CategoryBean categoryBean = categoryMgr.getCategorySeq(exhibition_theme);
+	int input_theme_seq = categoryBean.getCATEGORY_SEQ();
+	
+	// 전시 썸네일 파일 주가
+	profile_file = filename[0];
+	/////////////////////
+	
 	Date startDate = Date.valueOf(exhibition_start_date);
 	Date endDate = Date.valueOf(exhibition_end_date);
-	counter++;
-	background_counter++;
-	backgroundMgr.insertBackground(background_counter, exhibition_background_color);//배경 색 삽입
-	exhibitionMgr.insertExhibition(/* counter,  */user_seq, 1, background_counter, file_cnt, //user_id, category_id
-			exhibition_private, exhibition_name, exhibition_text, null, startDate, endDate);
+	//background_counter++;
+	//backgroundMgr.insertBackground(background_counter, exhibition_background_color);//배경 색 삽입
+	backgroundMgr.insertBackground(exhibition_background_color);//배경 색 삽입
+	Vector<BackgroundBean> back_bean = backgroundMgr.getBackgroundList();
+	int background_count = back_bean.get(background_counter).getBACKGROUND_SEQ();
+	// 전시 테마, 썸네일 추가 전
+	// exhibitionMgr.insertExhibition(/* counter,  */user_seq, 1, background_counter, file_cnt, //user_id, category_id
+	//		exhibition_private, exhibition_name, exhibition_text, null, startDate, endDate); */
+	
+	// 전시 테마, 썸네일 추가 후
+	exhibitionMgr.insertExhibition(user_seq, input_theme_seq, background_count, file_cnt-1, //user_id, category_id
+			exhibition_private, exhibition_name, exhibition_text, profile_file, startDate, endDate);
+	
 	System.out.println(file_cnt);
 	Vector<ExhibitionBean> list = exhibitionMgr.getExhibitionList();
 	ExhibitionBean bean = list.get(vlist.size());

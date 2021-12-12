@@ -69,18 +69,18 @@ public class BackgroundMgrPool {
 		return bean;
 	}
 	
-	public void insertBackground(int background_seq, String background_color)
+	public void insertBackground(/*int background_seq,*/ String background_color)
 	{
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
 		try {
 			conn = pool.getConnection();
-			String strQuery = "insert into background (BACKGROUND_SEQ, BACKGROUND_COLOR) values (?, ?)";
-			
+			//String strQuery = "insert into background (BACKGROUND_SEQ, BACKGROUND_COLOR) values (?, ?)";
+			String strQuery = "insert into background (BACKGROUND_COLOR) values (?)";
 			pstmt = conn.prepareStatement(strQuery);
-			pstmt.setInt(1, background_seq);
-			pstmt.setString(2, background_color);
+			//pstmt.setInt(1, background_seq);
+			pstmt.setString(1, background_color);
 			
 			pstmt.executeUpdate();
 		} catch (Exception ex) {

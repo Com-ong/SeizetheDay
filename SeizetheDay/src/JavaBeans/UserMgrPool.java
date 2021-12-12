@@ -98,10 +98,6 @@ public class UserMgrPool {
 	        pstmt.setString(2, bean.getUSER_PW());
 	        pstmt.setString(3, bean.getUSER_EMAIL());
 	        pstmt.setString(4, bean.getUSER_ID());
-	        System.out.println("user_name=" + bean.getUSER_NAME());
-	        System.out.println("user_pw=" + bean.getUSER_PW());
-	        System.out.println("user_email=" + bean.getUSER_EMAIL());
-	        System.out.println("user_id=" + bean.getUSER_ID());
 	        
 			int count = pstmt.executeUpdate();
 			if (count > 0)
@@ -114,8 +110,65 @@ public class UserMgrPool {
 		return flag;
 	}	
 
+   //mypage에서 회원탈퇴
+   public int deleteUser(String id, String pw) 
+   {
+       Connection conn = null;
+       PreparedStatement pstmt = null;
+       ResultSet rs = null;
+       UserBean bean = null;
+
+       String dbpw = ""; // DB상의 비밀번호를 담아둘 변수
+       int x = -1;
+
+       try {
+           conn = pool.getConnection();
+    	   String sql = "select USER_PW, USER_ID from userinfo where USER_ID = ?";
+
+           // 회원 삭제
+    	   String sql1 = "set foreign_key_checks = 0";
+    	   String sql2 = "DELETE FROM userinfo WHERE USER_ID = ?";
+    	   String sql3 = "set foreign_key_checks = 1";
+    	   
+           pstmt = conn.prepareStatement(sql); 
+           pstmt.setString(1, id);
+           
+           rs = pstmt.executeQuery();
+           
+           if (rs.next()) 
+           {
+        	   bean = new UserBean();
+               bean.setUSER_ID(rs.getString("USER_ID"));
+               bean.setUSER_PW(rs.getString("USER_PW"));
+               
+               dbpw = bean.getUSER_PW();
+               if (dbpw.equals(pw)) 
+               {
+                   pstmt = conn.prepareStatement(sql1);
+                   pstmt.executeUpdate();
+                   
+                   pstmt = conn.prepareStatement(sql2);
+                   pstmt.setString(1, id);
+                   pstmt.executeUpdate();
+                       
+                   pstmt = conn.prepareStatement(sql3);
+                   pstmt.executeUpdate();
+                   x = 1;
+               } else {
+                   x = 0; // 비밀번호 비교결과 다름
+               }
+           }
+           return x;
+           
+       } catch (Exception e) {
+           e.printStackTrace();
+       } finally {
+          pool.freeConnection(conn);
+       }
+       return -1;
+    }
    
-/*>>>>>>> 54151f8808b05b3e4d896bcfd9c369a09927d52a*/
+ 
    // 아이디로 사용자 찾기
    public UserBean findWithID(String id)
    {

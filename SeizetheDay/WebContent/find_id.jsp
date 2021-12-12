@@ -33,7 +33,7 @@
 </body>
 <script>
 function closing() {
-	opener.document.location.href="index.jsp" // index.jsp말고 그 화면 그대로 두는게 나을까?
+	opener.document.location.href="index.jsp" 
 	self.close();
 }
 </script>

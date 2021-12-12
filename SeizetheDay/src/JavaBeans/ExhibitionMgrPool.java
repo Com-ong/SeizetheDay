@@ -54,6 +54,40 @@ public class ExhibitionMgrPool {
 		
 		return vlist;
 	}
+	public Vector<ExhibitionBean> getMyExhibitionList(int user_seq) {
+	      Connection conn = null;
+	      PreparedStatement pstmt = null;
+	      ResultSet rs = null;
+	      Vector<ExhibitionBean> vlist = new Vector<ExhibitionBean>();
+	      try {
+	         conn = pool.getConnection();
+	         String sql = "select * from exhibition where USER_SEQ=?";
+	         pstmt = conn.prepareStatement(sql);
+	           pstmt.setInt(1, user_seq);
+	           rs = pstmt.executeQuery();
+	         while(rs.next()) {
+	            ExhibitionBean bean = new ExhibitionBean();
+	            bean.setEXHIBITION_SEQ(rs.getInt("EXHIBITION_SEQ"));
+	            bean.setUSER_SEQ(rs.getInt("USER_SEQ"));
+	            bean.setCATEGORY_SEQ(rs.getInt("CATEGORY_SEQ"));
+	            bean.setBACKGROUND_SEQ(rs.getInt("BACKGROUND_SEQ"));
+	            bean.setPHOTO_SEQ(rs.getInt("PHOTO_SEQ"));
+	            bean.setEXHIBITION_PRIVATE(rs.getBoolean("EXHIBITION_PRIVATE"));
+	            bean.setEXHIBITION_NAME(rs.getString("EXHIBITION_NAME"));
+	            bean.setEXHIBITION_TEXT(rs.getString("EXHIBITION_TEXT"));
+	            bean.setEXHIBITION_PROFILE(rs.getString("EXHIBITION_PROFILE"));
+	            bean.setEXHIBITION_START_DATE(rs.getDate("EXHIBITION_START_DATE"));
+	            bean.setEXHIBITION_END_DATE(rs.getDate("EXHIBITION_END_DATE"));
+	            vlist.addElement(bean);
+	         }
+	      } catch (Exception ex) {
+	         System.out.println("Exception getExhibitionList " + ex);
+	      } finally {
+	         pool.freeConnection(conn);
+	      }
+	      return vlist;
+	   }
+	
 	
 	public ExhibitionBean findWithExhibitionSeq(int exhibition_seq)
 	{
