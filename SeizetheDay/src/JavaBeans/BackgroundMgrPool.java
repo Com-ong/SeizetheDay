@@ -19,6 +19,30 @@ public class BackgroundMgrPool {
 		}
 	}
 	
+	public void deleteBackground(int background_seq)
+	{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = pool.getConnection();
+			String strQuery = "delete from background where BACKGROUND_SEQ = ?";
+			
+			pstmt = conn.prepareStatement(strQuery);
+			pstmt.setInt(1, background_seq);
+			
+			pstmt.executeUpdate();
+		} catch (Exception ex) {
+			System.out.println("Exception deleteGuest " + ex);
+		} finally {
+			try {
+				pstmt.close();
+				pool.freeConnection(conn);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	public Vector<BackgroundBean> getBackgroundList() {
 		Connection conn = null;
 		Statement stmt = null;

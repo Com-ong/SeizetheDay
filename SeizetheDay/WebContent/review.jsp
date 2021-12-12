@@ -21,8 +21,10 @@
 %>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-	<div class="review_area1">
-	<div class="review_list">
+	<div class="review">
+	<div class="review-title">
+		Notice</div>
+	<div class="review-content">
 		<table id="review_area2">
 			<tr>
 				<td><input type="button" id="back_btn" value="전시회로 돌아가기" 

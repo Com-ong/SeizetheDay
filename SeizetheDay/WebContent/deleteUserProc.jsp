@@ -14,11 +14,11 @@
 	
 	int check = uMgr.deleteUser(curr_id, delete_pw);
 	if(check == 1) {
+		session.invalidate();
 %>
 	<script type="text/javascript">
 		alert("회원정보가 삭제되었습니다. Good Bye!");
 		location.href="index.jsp";
-		session.invalidate();
 	</script>
 <%} else {%>
 	<script type = "text/javascript">

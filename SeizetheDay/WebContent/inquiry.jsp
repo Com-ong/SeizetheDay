@@ -29,7 +29,7 @@
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="inquiry">
-		<div class="inquiry-title">Notice</div>
+		<div class="inquiry-title">1:1 Inquiry </div>
 		<!--  <form name="postFrm" method="post" action="noticePost"-->
 		<form name="postFrm" method="post" action="inquiryProc.jsp"
 			>
