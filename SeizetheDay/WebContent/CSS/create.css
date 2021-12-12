@@ -11,6 +11,7 @@
 	padding: 2.5%;
 	display:block;
 	border-radius:10px;
+	display: table;
 }
 .make-title{
 	width:40%;
@@ -26,14 +27,13 @@
 	color: #333344;
 	border-bottom: 6px solid #333344;
 }
-.make-content{
-	position: absolute;
+.make-exhibition .make-content{
+	display: table-row;
 	font-family: Roboto;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 25px;
 	line-height: 35px;
-	margin:3%;
 	width:90%;
 	color: #333344;
 	
@@ -90,8 +90,93 @@ button#addImgBtn{
 	background: transparent;
 	width:30px;
 	height:30px;
+	transform: translateY(5px);
 }
+
 button#addImgBtn img{
 	width:30px;
 	height:30px;
+}
+
+input[type="text"].textbox {
+	padding: 10px 20px;
+	margin: 5px 0;
+	box-sizing: border-box;
+}
+input[type="text"]{
+	border: solid 2px #747474;
+	border-radius: 8px;
+	transform: translateY(-5px);
+	height: 25px;
+}
+textarea.textbox{
+	width: 500px;
+	height: 200px;
+	margin: 5px 0;
+	padding: 10px;
+	box-sizing: border-box;
+	border: solid 2px #747474;
+	border-radius: 5px;
+	font-size: 16px;
+	resize: both;
+}
+input[type="text"]#exhibition-title{
+	width: 400px;
+	height: 30px;
+	border: solid 2px #747474;
+	border-radius: 8px;
+	transform: translateY(-5px);
+}
+select{
+	height:30px;
+    width:160px;
+	border: solid 2px #747474;
+	border-radius:5px;
+	transform: translateY(-5px);
+}
+ input[type="date"] {
+	position: relative;
+    height:25px;
+	width:160px;
+	border: solid 2px #747474;
+	border-radius:5px;
+	transform: translateY(-5px);
+    }
+
+    /* create a new arrow, because we are going to mess up the native one
+    see "List of symbols" below if you want another, you could also try to add a font-awesome icon.. */
+    input[type="date"]:after {
+        content: "\25BC"; 
+        color: #555;
+        padding: 0 5px;
+    }
+
+    /* change color of symbol on hover */
+    input[type="date"]:hover:after {
+        color: #bf1400;
+    }
+
+    /* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: auto;
+        height: auto;
+        color: transparent;
+        background: transparent;
+    }
+
+    /* adjust increase/decrease button */
+    input[type="date"]::-webkit-inner-spin-button {
+        z-index: 1;
+    }
+input[type="color"]{
+    height:30px;
+	width:80px;
+	border: solid 2px #747474;
+	border-radius:5px;
+	transform: translateY(-2px);
 }
