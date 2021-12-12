@@ -21,6 +21,30 @@ public class ExhibitionMgrPool {
 		}
 	}
 	
+	public void deleteExhibition(int exhibtion_seq)
+	{
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = pool.getConnection();
+			String strQuery = "delete from exhibition where EXHIBITION_SEQ = ?";
+			
+			pstmt = conn.prepareStatement(strQuery);
+			pstmt.setInt(1, exhibtion_seq);
+			
+			pstmt.executeUpdate();
+		} catch (Exception ex) {
+			System.out.println("Exception deleteGuest " + ex);
+		} finally {
+			try {
+				pstmt.close();
+				pool.freeConnection(conn);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	public Vector<ExhibitionBean> getExhibitionList() {
 		Connection conn = null;
 		Statement stmt = null;
