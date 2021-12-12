@@ -1784,7 +1784,7 @@
 	input[type="submit"],
 	input[type="reset"],
 	input[type="button"],
-	button,
+	button:not(.dropdown-btn),
 	.button {
 		-moz-appearance: none;
 		-webkit-appearance: none;
@@ -1794,7 +1794,7 @@
 		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-		background-color: transparent;
+		background-color: white;/*transparent에서 수정*/
 		border-radius: 0.375em;
 		border: 0;
 		box-shadow: inset 0 0 0 2px #2a2a55;
@@ -1817,15 +1817,15 @@
 		input[type="submit"]:hover,
 		input[type="reset"]:hover,
 		input[type="button"]:hover,
-		button:hover,
+		button:hover:not(.dropdown-btn),
 		.button:hover {
-			background-color: rgba(245, 106, 106, 0.05);
+			background-color: #f67878;
 		}
 
 		input[type="submit"]:active,
 		input[type="reset"]:active,
 		input[type="button"]:active,
-		button:active,
+		button:active:not(.dropdown-btn),
 		.button:active {
 			background-color: rgba(245, 106, 106, 0.15);
 		}
@@ -1833,7 +1833,7 @@
 		input[type="submit"].icon:before,
 		input[type="reset"].icon:before,
 		input[type="button"].icon:before,
-		button.icon:before,
+		button.icon:before:not(.dropdown-btn),
 		.button.icon:before {
 			margin-right: 0.5em;
 		}
@@ -1841,7 +1841,7 @@
 		input[type="submit"].fit,
 		input[type="reset"].fit,
 		input[type="button"].fit,
-		button.fit,
+		button.fit:not(.dropdown-btn),
 		.button.fit {
 			width: 100%;
 		}
@@ -1849,7 +1849,7 @@
 		input[type="submit"].small,
 		input[type="reset"].small,
 		input[type="button"].small,
-		button.small,
+		button.small:not(.dropdown-btn),
 		.button.small {
 			font-size: 0.6em;
 		}
@@ -1857,7 +1857,7 @@
 		input[type="submit"].large,
 		input[type="reset"].large,
 		input[type="button"].large,
-		button.large,
+		button.large:not(.dropdown-btn),
 		.button.large {
 			font-size: 1em;
 			height: 3.65em;
@@ -1867,7 +1867,7 @@
 		input[type="submit"].primary,
 		input[type="reset"].primary,
 		input[type="button"].primary,
-		button.primary,
+		button.primary:not(.dropdown-btn),
 		.button.primary {
 			background-color: #2a2a55;
 			box-shadow: none;
@@ -1877,7 +1877,7 @@
 			input[type="submit"].primary:hover,
 			input[type="reset"].primary:hover,
 			input[type="button"].primary:hover,
-			button.primary:hover,
+			button.primary:hover:not(.dropdown-btn),
 			.button.primary:hover {
 				background-color: #f67878;
 			}
@@ -1885,7 +1885,7 @@
 			input[type="submit"].primary:active,
 			input[type="reset"].primary:active,
 			input[type="button"].primary:active,
-			button.primary:active,
+			button.primary:active:not(.dropdown-btn),
 			.button.primary:active {
 				background-color: #f45c5c;
 			}
@@ -1895,12 +1895,13 @@
 		input[type="reset"]:disabled,
 		input[type="button"].disabled,
 		input[type="button"]:disabled,
-		button.disabled,
-		button:disabled,
+		button.disabled:not(.dropdown-btn),
+		button:disabled:not(.dropdown-btn),
 		.button.disabled,
 		.button:disabled {
 			pointer-events: none;
 			opacity: 0.25;
 		}
+	
 	
 }

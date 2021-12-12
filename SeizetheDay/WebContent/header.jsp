@@ -194,7 +194,7 @@ function closeNav() {
 		</div>
 		<a href="trend.jsp">TREND</a>
 		<% if(user_id!=null) { %>
-  		<a href="#contact">1:1 INQUIRY</a>
+  		<a href="inquiry.jsp">1:1 INQUIRY</a>
   		<% } else { %>
   		<a onClick="loginAlert();">1:1 INQUIRY</a>
   		<% } %>
@@ -226,13 +226,16 @@ function closeNav() {
 	<div class="user-section" style="text-align:right; margin-right: 5%;">
 	<%if (user_id != null) {%>
 			<p style="display: inline; color: white; font-size:0.7em;"><b><%=user_id.getUSER_NAME() %></b>님</p>
-			<a class="user-button" href="#" class="user-button" style="width: 20%; font-size:0.7em;">My</a>					
-			<a class="user-button" onclick="location.href='logout.jsp'" style="width: 20%; font-size:0.7em;">LogOut</a>
+			<!-- <a class="user-button" href="#" class="user-button" style="width: 20%; font-size:0.7em;">My</a> -->					
+			<button onclick="location.href='myPage.jsp'">My</button>					
+			<!-- <a class="user-button" onclick="location.href='logout.jsp'" style="width: 20%; font-size:0.7em;">LogOut</a>-->
+			<button onclick="location.href='logout.jsp'">LogOut</button>
 	<%} else {%>
 	
 			<!-- <li><a href="#" class="button big">My</a></li> -->
     		<!--<li><a href="#" class="button primary">LogIn</a></li>  -->
-    		<a class="btn" style="width: 20%; font-size:0.7em;">LogIn</a>
+    		<!-- <a class="btn" style="width: 20%; font-size:0.7em;">LogIn</a> -->
+    		<button class="btn">LogIn</button>
 	<%} %>
             <div class="modal">
                <!-- 첫 번째 Modal의 내용 -->
@@ -264,7 +267,7 @@ function closeNav() {
 	</div>
 </div>
 <div class="head2">
-	<a href="index.jsp" class="title-button"><span class = "title-section">SeizetheDay</span></a>
+	<a href="index.jsp" class="title-button"><span class = "title-section">SeizeTheDay</span></a>
 </div>
 <hr>
 <!-- 로그인 -->
