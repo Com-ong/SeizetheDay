@@ -146,7 +146,7 @@ div.desc {
 	   int background_seq = vlist.elementAt(i).getBACKGROUND_SEQ();
 %>
       <div class = "gallery">
-      	<a target="_blank" href="exhibition.jsp?exhibition_seq=<%=exhibition_seq%>&exhibition_background_seq=<%=background_seq%>">
+      	<a href="exhibition.jsp?exhibition_seq=<%=exhibition_seq%>&exhibition_background_seq=<%=background_seq%>">
       		<img src="FileStorage/<%=pMgr.getPhotoListinEx(exhibition_seq).elementAt(0).getPHOTO_NAME() %>" alt="<%=vlist.elementAt(i).getEXHIBITION_NAME() %>" width="600" height="400">
       	</a>
       	<div class="desc"><%=vlist.elementAt(i).getEXHIBITION_NAME()%></div>
