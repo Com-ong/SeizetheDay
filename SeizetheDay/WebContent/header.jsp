@@ -203,6 +203,8 @@ function closeNav() {
   		<% } else { %>
   		<a onClick="loginAlert();">MYPAGE</a>
   		<% } %>
+  		
+  		<a href="introduceUs.jsp">About Commong</a>
 	</div>
 	<!-- Use any element to open the sidenav -->
 	<span class="user-button" onclick="openNav()" style="background-color: white;

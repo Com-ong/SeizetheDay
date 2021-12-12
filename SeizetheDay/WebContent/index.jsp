@@ -97,7 +97,7 @@ a{
       100% {margin-left:0;}
       
 		</style>
-		<title>Untitled</title>
+		<title>Seize The Day</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="main_assets/css/main.css" />
@@ -245,6 +245,7 @@ a{
                               <% } else { %>
                               <li><a onClick="loginAlert();">MyPage</a></li>
                               <% } %>
+                              <li><a href="introduceUs.jsp">About Commong</a></li>
                            </ul>
                         </nav>
 						</div>
