@@ -172,7 +172,7 @@ function closeNav() {
 			<a onClick="loginAlert();">CREATE</a>
 			<% } %>
 			<% if(user_id!=null) { %>
-			<a href="#">LIST</a>
+			<a href="exhibition_list.jsp">LIST</a>
 			<% } else { %>
 			<a onClick="loginAlert();">LIST</a>
 			<% } %>
