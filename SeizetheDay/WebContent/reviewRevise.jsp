@@ -22,7 +22,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Add Review</title>
+<title>ReviewRevise</title>
 <!-- <link rel = "stylesheet" href = "CSS/ReviewWritePageCSS.css"> -->
 <link rel = "stylesheet" href = "CSS/review.css">
 </head>
