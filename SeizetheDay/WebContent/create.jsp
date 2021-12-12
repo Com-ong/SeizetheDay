@@ -25,10 +25,12 @@
 		<div class = "make-title">
 			CREATE EXHIBITION
 		</div>
+		<br>
 		<div class = "make-content">
+		<br>
 			<form method="post" action="create_insertDB.jsp" enctype="multipart/form-data">
 				<label for="exhibition-title">제목</label>
-				<input type="text" id="exhibition-title" name="exhibition-title"><br><br>
+				<input type="text" id="exhibition-title" name="exhibition-title" class="textbox"><br><br>
 				<label for="exhibition-theme">주제 선택</label>
 				<select name="exhibition-theme" id="exhibition-theme">
   					<option value="IT">IT</option>
@@ -36,7 +38,7 @@
   					<option value="Science">Science</option>
   					<option value="Modern">Modern</option>
   					<option value="Geometric">Geometric</option>
-				</select>
+				</select><br><br>
 				<label for="exhibition-start-date">기간</label>
 				<input type="date" id="exhibition-start-date" name="exhibition-start-date"> ~ 
 						<input type="date" id="exhibition-finish-date" name="exhibition-finish-date"><br><br>
@@ -45,8 +47,8 @@
 						<label for="public">공개</label>
 						<input type="radio" name="exhibition-open" id="private" value="private">
 						<label for="private">비공개</label><br><br>
-				<label for="exhibition-explain">전시회 설명</label>
-				<input type="text" id="exhibition-explain" name="exhibition-explain"><br><br>
+				<label for="exhibition-explain" >전시회 설명</label><br>
+				<textarea class="textbox" id="exhibition-explain" name="exhibition-explain"></textarea><br><br>
 				<label for="exhibition-background-color">배경 색상</label>
 				<input type="color" id="exhibition-background-color" name="exhibition-background-color"><br><br>
 				<label for="exhibition-file">작품 추가 및 설명</label>
@@ -66,14 +68,14 @@
 				<!-- <input type="file" id="exhibition-file1" name="exhibition-file1">파일 개수를 5개로 제한. style="display:none;"
 				<input type="text" id="exhibition-file-explain1" name="exhibition-file-explain1" placeholder="사진 설명 입력"> -->
 				
-				<input type="file" id="exhibition-file1" name="exhibition-file1" disabled><!--파일 개수를 5개로 제한. style="display:none;"-->
-				<input type="text" id="exhibition-file-explain1" name="exhibition-file-explain1" placeholder="사진 설명 입력" disabled>
+				<input type="file" id="exhibition-file1" name="exhibition-file1" disabled>
+				<input type="text" id="exhibition-file-explain1" name="exhibition-file-explain1" placeholder="사진 설명 입력" disabled><br><br>
 				
 				<input type="file" id="exhibition-file2" name="exhibition-file2" disabled>
 				<input type="text" id="exhibition-file-explain2" name="exhibition-file-explain2" disabled><br><br>
 				
 				<input type="file" id="exhibition-file3" name="exhibition-file3" disabled>
-				<input type="text" id="exhibition-file-explain3" name="exhibition-file-explain3" disabled>
+				<input type="text" id="exhibition-file-explain3" name="exhibition-file-explain3" disabled><br><br>
 				
 				<input type="file" id="exhibition-file4" name="exhibition-file4" disabled>
 				<input type="text" id="exhibition-file-explain4" name="exhibition-file-explain4" disabled><br><br>
@@ -86,6 +88,7 @@
 					<input type="button" class="press-btn" id="exhibition-cancel-btn" name="cancel" value = "Cancel">
 				</div>
 			</form>
+			<div id="clear" style="clear:both;"></div>
 		</div>
 		
 	</div>
