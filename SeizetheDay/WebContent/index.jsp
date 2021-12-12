@@ -212,7 +212,7 @@ a{
                               		<li><a onClick="loginAlert();">Create</a></li>
                               		<%} %>
                               		<% if(currUser!=null) { %>
-                              		<li><a href="#">List</a></li>
+                              		<li><a href="exhibition_list.jsp">List</a></li>
                               		<% } else { %>
                               		<li><a onClick="loginAlert()">List</a></li>
                               		<% } %>
