@@ -163,7 +163,7 @@ function closeNav() {
 		<a href="index.jsp">HOMEPAGE</a>
 		<a href="notice.jsp">NOTICE</a>
 		<button class="dropdown-btn">EXHIBITION
-			<i class="drop-down"></i>
+			<i class="drop-down">▽</i>
 		</button>
 		<div class="dropdown-container">
 			<% if(user_id!=null) { %>
@@ -176,22 +176,22 @@ function closeNav() {
 			<% } else { %>
 			<a onClick="loginAlert();">LIST</a>
 			<% } %>
-			<% if(user_id!=null) { %>
-			<a href="guestBook.jsp">GUESTBOOK</a>
-			<% } else { %>
-			<a onClick="loginAlert();">GUESTBOOK</a>
-			<% } %>
+			<%-- <% if(user_id!=null) { %>
+         <a href="guestBook.jsp">GUESTBOOK</a>
+         <% } else { %>
+         <a onClick="loginAlert();">GUESTBOOK</a>
+         <% } %> --%>
 		</div>
-		<button class="dropdown-btn">EXHIBITION CATEGORY
-			<i class="drop-down"></i>
-		</button>
-		<div class="dropdown-container">
-			<a href="#">IT</a>
-			<a href="#">ART</a>
-			<a href="#">SCIENCE</a>
-			<a href="#">MODERN</a>
-			<a href="#">GEOMETRIC</a>
-		</div>
+		<!-- <button class="dropdown-btn">EXHIBITION CATEGORY
+         <i class="drop-down"></i>
+      </button>
+      <div class="dropdown-container">
+         <a href="#">IT</a>
+         <a href="#">ART</a>
+         <a href="#">SCIENCE</a>
+         <a href="#">MODERN</a>
+         <a href="#">GEOMETRIC</a>
+      </div> -->
 		<a href="trend.jsp">TREND</a>
 		<% if(user_id!=null) { %>
   		<a href="inquiry.jsp">1:1 INQUIRY</a>
@@ -239,7 +239,7 @@ function closeNav() {
     		<!-- <a class="btn" style="width: 20%; font-size:0.7em;">LogIn</a> -->
     		<button class="btn">LogIn</button>
 	<%} %>
-            <div class="modal">
+            <div class="modal" style="overflow:hidden; position:fixed;" align="center">
                <!-- 첫 번째 Modal의 내용 -->
                <div class="modal-content">
                   <!--<span class="close">&times;</span>  -->
@@ -271,7 +271,7 @@ function closeNav() {
 <div class="head2">
 	<a href="index.jsp" class="title-button"><span class = "title-section">SeizeTheDay</span></a>
 </div>
-<hr>
+<!-- <hr> -->
 <!-- 로그인 -->
 <script type="text/javascript">
 	function loginCheck() {

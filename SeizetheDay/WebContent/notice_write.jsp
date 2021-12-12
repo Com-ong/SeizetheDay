@@ -20,7 +20,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Notice_write</title>
 </head>
 <link rel="stylesheet" href="CSS/notice.css">
 <style>

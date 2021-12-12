@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>notice_view page</title>
+<title>Notice_view</title>
 <!-- 참고링크:https://peterkimlab.github.io/jsp/JSP-%EA%B2%8C%EC%8B%9C%ED%8C%90-%EC%9B%B9-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0/ -->
 <!--notice페이지지만  간소화를 위해 css 링크는 trend.css사용. 헷갈림 방지 -->
 <link rel="stylesheet" href="CSS/notice.css">

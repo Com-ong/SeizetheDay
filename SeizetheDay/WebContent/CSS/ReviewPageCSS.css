@@ -1,217 +1,40 @@
 @charset "EUC-KR";
 
-body {
-		margin: 100px;
-		border: 3px;
-		background-color: rgb(42, 42, 85);
-}
-/* Seize The Day */	
-#title {
-	text-align: center;
-}
-/* 메뉴바 */
-#reviewMenuBar {
-	width: 1000px;
-	height: auto;
-	margin-left: auto;
-	margin-right: auto;
-}
-/* 메뉴바-MENU */
-#review_menu_bar1 {
-	text-align: left;
-}
-/* 메뉴바-마이페이지/로그아웃 */
-#review_menu_bar2 {
-	text-align: center;
-	float: right;
-}
-/* 마이페이지 버튼 */
-#review_mypage {
-	width: 60%; 
-}
-/* 로그아웃 버튼 */
-#review_logout {
-	width: 60%;
-}
-/* 본문 부분(가장 큰 부분) */
-div.review_area1 {
-	background-color: white;
-	margin-left: auto;
-	margin-right: auto;
-	width: 1000px;
-	height: 800px; 
-}
-/* "후기" text */
-#reviewText {
-	padding-top: 5%;
-}
-#review_addBtn {
-}
-/* 후기 목록 보여주는 div */
-div.review_list{
-	margin-top: 5%;
-	margin-bottom: 5%;
-	margin-left: auto;
-	margin-right: auto;
-	width: 750px;
-	height: 100px; 
-}
-/* 후기 목록 보여주는 table */
-.review_lists {
-	border-color: black;
-	width: 750px;
-	height: 100px; 
-	text-align: center;
-}
-/* table - 후기 내용 */
-#review_review {
-	width: 400px;
-}
-/* table - 작성자 */
-#review_writer {
-	width: 100px;
-}
-/* table - 날짜 */
-#review_date {
-	width: 150px;
-}
-/* table - 수정 버튼 */
-#review_change {
-	width: 50px;
-}
-/* table - 삭제 버튼 */
-#review_delete {
-	width: 50px;
-}
-/* table에 들어가는 값 - 후기 내용 */
-#review_review_input {
-	text-align: left;
-	padding-left: 30px;
-	width: 50%;
-}
-/* table에 들어가는 값 - 작성자 */
-#review_writer_input {
-	text-align: center;
-	width: 15%;
-}
-/* table에 들어가는 값 - 날짜 */
-#review_date_input {
-	text-align: center;
-	width: 15%;
-}
-/* 전시회로 돌아가기 버튼 */
-#back_btn {
-	text-color: rgb(42, 42, 85);
-	margin-top: 5%;
-=======
-@charset "EUC-KR";
 
-body {
-		margin: 100px;
-		border: 3px;
-		background-color: rgb(42, 42, 85);
-}
-/* Seize The Day */	
-#title {
-	text-align: center;
-}
-/* 메뉴바 */
-#reviewMenuBar {
-	width: 1000px;
-	height: auto;
-	margin-left: auto;
-	margin-right: auto;
-}
-/* 메뉴바-MENU */
-#review_menu_bar1 {
-	text-align: left;
-}
-/* 메뉴바-마이페이지/로그아웃 */
-#review_menu_bar2 {
-	text-align: center;
-	float: right;
-}
-/* 마이페이지 버튼 */
-#review_mypage {
-	width: 60%; 
-}
-/* 로그아웃 버튼 */
-#review_logout {
-	width: 60%;
-}
-/* 본문 부분(가장 큰 부분) */
-div.review_area1 {
+.review{
 	background-color: white;
-	margin-left: auto;
-	margin-right: auto;
-	width: 1000px;
-	height: 800px; 
+	width:85%;
+	height:100%;
+	position:absolute;
+	margin:5%;
+	margin-top:200px;
+	z-index:2;
+	padding: 2.5%;
+	display:block;
+	border-radius:10px;
 }
-/* "후기" text */
-#reviewText {
-	padding-top: 5%;
-}
-#review_addBtn {
-}
-table.review_lists .even {
-  background: #efefef;
-}
-/* 후기 목록 보여주는 div */
-div.review_list{
-	margin-top: 5%;
-	margin-bottom: 5%;
-	margin-left: auto;
-	margin-right: auto;
-	width: 750px;
-	height: 100px; 
-}
-/* 후기 목록 보여주는 table */
-.review_lists {
-	border-color: black;
-	width: 750px;
-	height: 100px; 
-	text-align: center;
-}
-/* table - 후기 내용 */
-#review_review {
-	width: 400px;
-	width: 50%;
-}
-/* table - 작성자 */
-#review_writer {
-	width: 100px;
-	width: 15%;
-}
-/* table - 날짜 */
-#review_date {
-	width: 150px;
-	width: 15%;
-}
-/* table - 수정 버튼 */
-#review_change {
-	width: 50px;
-	width: 10%;
-}
-/* table - 삭제 버튼 */
-#review_delete {
-	width: 50px;
-	width: 10%;
-}
-/* table에 들어가는 값 - 후기 내용 */
-#review_review_input {
+.review-title{
+	width:40%;
+	font-family: Roboto;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 35px;
+	line-height: 41px;
+	align-items: center;
 	text-align: left;
-	padding-left: 30px;
+	letter-spacing: -0.02em;
+	margin:5px;
+	color: #333344;
+	border-bottom: 6px solid #333344;
 }
-/* table에 들어가는 값 - 작성자 */
-#review_writer_input {
-	text-align: center;
-}
-/* table에 들어가는 값 - 날짜 */
-#review_date_input {
-	text-align: center;
-}
-/* 전시회로 돌아가기 버튼 */
-#back_btn {
-	text-color: rgb(42, 42, 85);
-	margin-top: 5%;
+.review-content{
+	position: absolute;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	line-height: 35px;
+	margin:20px;
+	color: #333344;
+	
 }
