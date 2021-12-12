@@ -21,7 +21,7 @@
 <style>
 
 .changeInfo .chgTitle{
-	width : 25%;
+	width : 47%;
 	color : #333344;
 	font-style: italic;
 	font-weight: bold;

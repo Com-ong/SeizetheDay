@@ -23,7 +23,7 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<div class="review">
 	<div class="review-title">
-		Notice</div>
+		Review</div>
 	<div class="review-content">
 		<table id="review_area2">
 			<tr>

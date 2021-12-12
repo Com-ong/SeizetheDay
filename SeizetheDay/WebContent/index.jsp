@@ -97,11 +97,8 @@ a{
       100% {margin-left:0;}
       
 		</style>
-<<<<<<< HEAD
+
 		<title>Seize The Day</title>
-=======
-		<title>SeizeTheDay</title>
->>>>>>> 1f224c1d913cc00f54f1e3173e19328d8412fbfc
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="main_assets/css/main.css" />
