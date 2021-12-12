@@ -2,7 +2,7 @@
     pageEncoding="EUC-KR"%>
 <%
 	  request.setCharacterEncoding("EUC-KR");
-	  String user_id = (String)session.getAttribute("idKey");
+	  //String user_id = (String)session.getAttribute("idKey");
 	  //String USER_SEQ=(String)session.getAttribute("USER_SEQ_KEY");
 	  //int USER_SEQ=(int)session.getAttribute("USER_SEQ_KEY");
 %>
@@ -12,7 +12,9 @@
 <jsp:useBean id="noticeMgr" class="JavaBeans.NoticeMgrPool" />
 <jsp:useBean id="userMgr" class="JavaBeans.UserMgrPool" />
 <!-- #################################### -->
-
+<%
+	UserBean currUser = (UserBean)session.getAttribute("currUser");
+%>
 <!DOCTYPE html>
 <html>
 <head>
